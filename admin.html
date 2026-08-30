@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel do Administrador | Kizuna Language School</title>
+  <meta name="description" content="Painel de Administração Master da Kizuna: gestão de professores, criação de acessos, controle de alunos e agendamentos.">
+  <link rel="icon" href="assets/images/kizuna-logo.webp" type="image/webp">
+
+  <!-- Fontes Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { DEFAULT: '#0B2545', 900: '#07182F', 800: '#0B2545', 700: '#123A6B', 600: '#1B4E8C', 300: '#7FA3C9' },
+            sand: { DEFAULT: '#F7F6F3', 100: '#FBFAF8', 200: '#EFEDE8' },
+            accent: { DEFAULT: '#C0303C', soft: '#E3646E' },
+            slateink: { DEFAULT: '#5B6472', light: '#8A93A1' }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans JP', 'system-ui', 'sans-serif'],
+            jp: ['Noto Sans JP', 'Inter', 'sans-serif']
+          },
+          borderRadius: { xl2: '1.25rem', '2xl2': '1.75rem' },
+          boxShadow: {
+            soft: '0 1px 2px rgba(11,37,69,.04), 0 8px 24px -12px rgba(11,37,69,.18)',
+            lift: '0 2px 4px rgba(11,37,69,.05), 0 24px 48px -20px rgba(11,37,69,.28)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Ícones Lucide -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.462.0/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="bg-sand-100 text-navy font-sans antialiased selection:bg-navy selection:text-white min-h-screen flex flex-col">
+
+  <!-- ============================================================
+       GATE DE LOGIN DO ADMINISTRADOR (QUANDO NÃO AUTENTICADO)
+       ============================================================ -->
+  <div id="admin-login-gate" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-navy-900/90 backdrop-blur-md">
+    <div class="relative w-full max-w-md overflow-hidden rounded-2xl2 border border-navy/10 bg-white p-6 sm:p-8 shadow-lift text-center">
+      <div class="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-navy text-white shadow-soft">
+        <i data-lucide="shield-check" class="h-8 w-8 text-accent-soft"></i>
+      </div>
+
+      <h1 class="mt-4 text-2xl font-black tracking-tight text-navy">Painel do Administrador</h1>
+      <p class="mt-1 text-xs text-slateink">Acesso restrito para gestão de professores, alunos e acessos.</p>
+
+      <form id="form-admin-login" class="mt-6 space-y-4 text-left">
+        <div>
+          <label for="admin-email" class="block text-xs font-bold text-navy mb-1">E-mail de Administrador</label>
+          <input id="admin-email" type="email" required placeholder="admin@kizuna.com" autocomplete="username"
+                 class="w-full rounded-xl border border-navy/15 bg-sand-100 p-3 text-xs text-navy focus:bg-white focus:outline-none">
+        </div>
+
+        <div>
+          <label for="admin-senha" class="block text-xs font-bold text-navy mb-1">Senha Master</label>
+          <input id="admin-senha" type="password" required placeholder="Digite a senha master" autocomplete="current-password"
+                 class="w-full rounded-xl border border-navy/15 bg-sand-100 p-3 text-xs text-navy focus:bg-white focus:outline-none">
+        </div>
+
+        <div class="flex items-center justify-between pt-1">
+          <label class="flex items-center gap-2 text-xs text-slateink cursor-pointer select-none">
+            <input type="checkbox" id="admin-lembrar" class="rounded border-navy/20 text-navy focus:ring-0">
+            <span>Salvar meu acesso neste navegador</span>
+          </label>
+        </div>
+
+        <p id="admin-login-erro" class="hidden rounded-xl border border-accent/20 bg-accent/5 p-2.5 text-center text-xs font-semibold text-accent"></p>
+
+        <button type="submit" class="flex w-full items-center justify-center gap-2 rounded-xl bg-navy px-5 py-3.5 text-xs font-bold text-white shadow-soft hover:bg-navy-700 transition">
+          <i data-lucide="lock" class="h-4 w-4 text-accent-soft"></i>
+          <span>Entrar no Painel Master</span>
+        </button>
+      </form>
+
+      <div class="mt-6 border-t border-navy/10 pt-4 text-center">
+        <a href="index.html" class="text-xs font-semibold text-slateink hover:text-navy underline">
+          Voltar para o site principal
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       CONTEÚDO DO PAINEL DO ADMINISTRADOR (LOGADO)
+       ============================================================ -->
+  <div id="admin-dashboard-view" class="hidden flex-1 flex flex-col">
+    
+    <!-- Topbar Admin -->
+    <header class="sticky top-0 z-40 border-b border-navy/10 bg-navy text-white shadow-lift">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          
+          <div class="flex items-center gap-3">
+            <a href="index.html" class="flex items-center gap-2">
+              <img src="assets/images/kizuna-logo.webp" alt="Kizuna Logo" class="h-9 w-9">
+              <span class="leading-none">
+                <span class="block text-base font-extrabold tracking-tight">Kizuna</span>
+                <span class="block text-[10px] font-bold uppercase tracking-[0.2em] text-accent-soft">Master Admin</span>
+              </span>
+            </a>
+            <span class="hidden sm:inline-block rounded-full bg-emerald-500/20 px-2.5 py-0.5 text-xs font-semibold text-emerald-300">
+              👑 Acesso Total
+            </span>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <button id="btn-cadastrar-novo-prof" type="button" class="inline-flex items-center gap-1.5 rounded-xl bg-accent px-3.5 py-2 text-xs font-bold text-white shadow-soft hover:bg-accent-soft transition">
+              <i data-lucide="user-plus" class="h-4 w-4"></i> Criar Login de Professor
+            </button>
+
+            <a href="professor.html" class="inline-flex items-center gap-1.5 rounded-xl border border-white/20 bg-white/5 px-3 py-2 text-xs font-bold text-white hover:bg-white/15 transition">
+              <i data-lucide="calendar-check" class="h-4 w-4"></i> Portal do Professor
+            </a>
+
+            <button id="btn-admin-logout" type="button" class="inline-flex items-center gap-1.5 rounded-xl bg-white/10 px-3 py-2 text-xs font-bold text-white hover:bg-accent transition" title="Sair do Admin">
+              <i data-lucide="log-out" class="h-4 w-4"></i> Sair
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Admin Container -->
+    <main class="flex-1 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+      
+      <!-- Estatísticas Rápidas -->
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-2xl border border-navy/10 bg-white p-5 shadow-soft flex items-center gap-4">
+          <span class="grid h-12 w-12 place-items-center rounded-xl bg-accent/10 text-accent font-bold">
+            <i data-lucide="user-cog" class="h-6 w-6"></i>
+          </span>
+          <div>
+            <p class="text-xs font-semibold text-slateink">Professores Cadastrados</p>
+            <p id="stat-admin-total-professores" class="text-2xl font-black text-navy">3</p>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-navy/10 bg-white p-5 shadow-soft flex items-center gap-4">
+          <span class="grid h-12 w-12 place-items-center rounded-xl bg-navy/5 text-navy font-bold">
+            <i data-lucide="graduation-cap" class="h-6 w-6"></i>
+          </span>
+          <div>
+            <p class="text-xs font-semibold text-slateink">Alunos Registrados</p>
+            <p id="stat-admin-total-alunos" class="text-2xl font-black text-navy">10</p>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-navy/10 bg-white p-5 shadow-soft flex items-center gap-4">
+          <span class="grid h-12 w-12 place-items-center rounded-xl bg-emerald-50 text-emerald-700 font-bold">
+            <i data-lucide="calendar" class="h-6 w-6"></i>
+          </span>
+          <div>
+            <p class="text-xs font-semibold text-slateink">Aulas Publicadas</p>
+            <p id="stat-admin-total-aulas" class="text-2xl font-black text-emerald-700">3</p>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-navy/10 bg-white p-5 shadow-soft flex items-center gap-4">
+          <span class="grid h-12 w-12 place-items-center rounded-xl bg-amber-50 text-amber-700 font-bold">
+            <i data-lucide="key" class="h-6 w-6"></i>
+          </span>
+          <div>
+            <p class="text-xs font-semibold text-slateink">Controle de Senhas</p>
+            <p class="text-xs font-bold text-navy">Admin Exclusivo</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Abas de Navegação Admin -->
+      <div class="flex border-b border-navy/10 gap-4 text-xs font-bold">
+        <button id="aba-btn-professores" type="button" class="border-b-2 border-accent text-navy pb-3 px-2 flex items-center gap-1.5 transition">
+          <i data-lucide="user-cog" class="h-4 w-4 text-accent"></i> Gestão de Professores & Senhas
+        </button>
+        <button id="aba-btn-alunos" type="button" class="text-slateink hover:text-navy pb-3 px-2 flex items-center gap-1.5 transition">
+          <i data-lucide="users" class="h-4 w-4"></i> Gestão de Alunos & Inscrições
+        </button>
+      </div>
+
+      <!-- PAINEL 1: GESTÃO DE PROFESSORES -->
+      <div id="painel-professores" class="space-y-6">
+        <div class="rounded-2xl2 border border-navy/10 bg-white p-6 sm:p-8 shadow-soft space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-navy/10 pb-4">
+            <div>
+              <h2 class="text-xl font-extrabold text-navy flex items-center gap-2">
+                <i data-lucide="users" class="h-5 w-5 text-accent"></i> Professores com Acesso ao Portal
+              </h2>
+              <p class="text-xs text-slateink mt-0.5">Apenas os professores cadastrados aqui pelo administrador conseguem fazer login no Portal do Professor.</p>
+            </div>
+
+            <button id="btn-cadastrar-novo-prof-2" type="button" class="inline-flex items-center gap-1.5 rounded-xl bg-navy px-4 py-2.5 text-xs font-bold text-white shadow-soft hover:bg-navy-700 transition self-start sm:self-auto">
+              <i data-lucide="plus" class="h-4 w-4 text-accent-soft"></i> Novo Professor
+            </button>
+          </div>
+
+          <!-- Tabela de Professores -->
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="border-b border-navy/10 bg-sand-100 text-slateink uppercase font-bold tracking-wider">
+                <tr>
+                  <th class="p-3.5">Professor(a)</th>
+                  <th class="p-3.5">E-mail (Login)</th>
+                  <th class="p-3.5">Senha de Acesso</th>
+                  <th class="p-3.5">Disciplina / Idioma</th>
+                  <th class="p-3.5">Status</th>
+                  <th class="p-3.5 text-right">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="tabela-professores-corpo" class="divide-y divide-navy/5">
+                <!-- Injetado dinamicamente via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAINEL 2: GESTÃO DE ALUNOS -->
+      <div id="painel-alunos" class="hidden space-y-6">
+        <div class="rounded-2xl2 border border-navy/10 bg-white p-6 sm:p-8 shadow-soft space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-navy/10 pb-4">
+            <div>
+              <h2 class="text-xl font-extrabold text-navy flex items-center gap-2">
+                <i data-lucide="graduation-cap" class="h-5 w-5 text-emerald-600"></i> Alunos Cadastrados & Inscrições
+              </h2>
+              <p class="text-xs text-slateink mt-0.5">Histórico completo de alunos que agendaram aulas experimentais ou possuem acesso ao portal.</p>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="border-b border-navy/10 bg-sand-100 text-slateink uppercase font-bold tracking-wider">
+                <tr>
+                  <th class="p-3.5">Aluno(a)</th>
+                  <th class="p-3.5">E-mail</th>
+                  <th class="p-3.5">WhatsApp</th>
+                  <th class="p-3.5">Aula Agendada</th>
+                  <th class="p-3.5">Horário</th>
+                  <th class="p-3.5 text-right">Ação</th>
+                </tr>
+              </thead>
+              <tbody id="tabela-alunos-admin-corpo" class="divide-y divide-navy/5">
+                <!-- Injetado dinamicamente via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ============================================================
+       MODAL: CADASTRAR / CRIAR LOGIN DE PROFESSOR
+       ============================================================ -->
+  <div id="modal-cadastrar-prof" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-navy-900/80 backdrop-blur-md overflow-y-auto" role="dialog" aria-modal="true">
+    <div class="relative w-full max-w-lg overflow-hidden rounded-2xl2 border border-navy/10 bg-white p-6 sm:p-8 shadow-lift my-8">
+      
+      <!-- Botão Fechar -->
+      <button id="fechar-modal-cadastrar-prof" type="button" class="absolute top-5 right-5 grid h-9 w-9 place-items-center rounded-xl bg-navy/5 text-slateink hover:text-navy">
+        <i data-lucide="x" class="h-5 w-5"></i>
+      </button>
+
+      <div class="flex items-center gap-2">
+        <span class="rounded-full bg-accent/10 px-3 py-1 text-xs font-bold text-accent">Exclusivo do Administrador</span>
+      </div>
+
+      <h3 class="mt-2 text-2xl font-black text-navy">Criar Login para Professor</h3>
+      <p class="text-xs text-slateink mt-1">O professor usará este e-mail e senha para acessar o Portal do Professor.</p>
+
+      <form id="form-cadastrar-prof" class="mt-6 space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-navy mb-1">Nome Completo do Professor <span class="text-accent">*</span></label>
+          <input id="cad-prof-nome" type="text" required placeholder="Ex: Profª. Juliana Ramos"
+                 class="w-full rounded-xl border border-navy/15 bg-sand-100 p-3 text-xs text-navy focus:bg-white focus:outline-none">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-navy mb-1">E-mail (Login de Acesso) <span class="text-accent">*</span></label>
+          <input id="cad-prof-email" type="email" required placeholder="Ex: juliana.ramos@kizuna.com"
+                 class="w-full rounded-xl border border-navy/15 bg-sand-100 p-3 text-xs text-navy focus:bg-white focus:outline-none">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-navy mb-1">Senha de Acesso <span class="text-accent">*</span></label>
+            <div class="flex gap-1.5">
+              <input id="cad-prof-senha" type="text" required placeholder="Senha"
+                     class="w-full rounded-xl border border-navy/15 bg-sand-100 p-3 text-xs font-mono text-navy focus:bg-white focus:outline-none">
+              <button id="btn-gerar-senha-prof" type="button" class="px-2.5 rounded-xl border border-navy/15 bg-sand text-navy font-bold text-[11px] hover:bg-navy hover:text-white transition" title="Gerar senha segura">
+                Gerar
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-navy mb-1">Disciplina / Idioma <span class="text-accent">*</span></label>
+            <select id="cad-prof-idioma" required class="w-full rounded-xl border border-navy/15 bg-sand-100 p-3 text-xs font-bold text-navy focus:bg-white focus:outline-none">
+              <option value="Inglês">🇺🇸 Inglês</option>
+              <option value="Japonês">🇯🇵 Japonês</option>
+              <option value="Português">🇧🇷 Português</option>
+              <option value="Todos os Idiomas">🌟 Todos os Idiomas</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3.5 text-xs font-bold text-white shadow-soft hover:bg-accent-soft transition">
+          <i data-lucide="check" class="h-4 w-4"></i> Criar e Ativar Conta do Professor
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal do Professor | Kizuna Language School</title>
+  <meta name="description" content="Painel de controle dos professores da Kizuna: agendamento de aulas ao vivo, controle de vagas e gestão de alunos inscritos.">
+  <link rel="icon" href="assets/images/kizuna-logo.webp" type="image/webp">
+
+  <!-- Fontes Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { DEFAULT: '#0B2545', 900: '#07182F', 800: '#0B2545', 700: '#123A6B', 600: '#1B4E8C', 300: '#7FA3C9' },
+            sand: { DEFAULT: '#F7F6F3', 100: '#FBFAF8', 200: '#EFEDE8' },
+            accent: { DEFAULT: '#C0303C', soft: '#E3646E' },
+            slateink: { DEFAULT: '#5B6472', light: '#8A93A1' }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans JP', 'system-ui', 'sans-serif'],
+            jp: ['Noto Sans JP', 'Inter', 'sans-serif']
+          },
+          borderRadius: { xl2: '1.25rem', '2xl2': '1.75rem' },
+          boxShadow: {
+            soft: '0 1px 2px rgba(11,37,69,.04), 0 8px 24px -12px rgba(11,37,69,.18)',
+            lift: '0 2px 4px rgba(11,37,69,.05), 0 24px 48px -20px rgba(11,37,69,.28)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Ícones Lucide -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.462.0/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="bg-sand-100 text-navy font-sans antialiased selection:bg-navy selection:text-white min-h-screen flex flex-col">
+
+  <!-- ============================================================
+       GATE DE LOGIN DO PROFESSOR (QUANDO NÃO AUTENTICADO)
+       ============================================================ -->
+  <div id="professor-login-gate" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-navy-900/90 backdrop-blur-md">
+    <div class="relative w-full max-w-md overflow-hidden rounded-2xl2 border border-navy/10 bg-white p-6 sm:p-8 shadow-lift text-center">
+      <div class="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-accent/10 text-accent shadow-soft">
+        <i data-lucide="graduation-cap" class="h-8 w-8 text-accent"></i>
+      </div>
+
+      <h1 class="mt-4 text-2xl font-black tracking-tight text-navy">Área do Professor</h1>
+      <p class="mt-1 text-xs text-slateink">Acesso restrito para o corpo docente da Kizuna Language School.</p>
+
+      <form id="form-professor-login" class="mt-6 space-y-4 text-left">
+        <div>
+          <label for="prof-email" class="block text-xs font-bold text-navy mb-1">E-mail do Professor (Cadastrado pelo Admin)</label>
+          <input id="prof-email" type="email" required placeholder="seu.email@kizuna.com" autocomplete="username"
+                 class="w-full rounded-xl border border-navy/15 bg-sand-100 p-3 text-xs text-navy focus:bg-white focus:outline-none">
+        </div>
+
+        <div>
+          <label for="prof-senha" class="block text-xs font-bold text-navy mb-1">Senha de Acesso</label>
+          <input id="prof-senha" type="password" required placeholder="Digite sua senha fornecida pelo Administrador" autocomplete="current-password"
+                 class="w-full rounded-xl border border-navy/15 bg-sand-100 p-3 text-xs text-navy focus:bg-white focus:outline-none">
+        </div>
+
+        <div class="flex items-center justify-between pt-1">
+          <label class="flex items-center gap-2 text-xs text-slateink cursor-pointer select-none">
+            <input type="checkbox" id="prof-lembrar" class="rounded border-navy/20 text-navy focus:ring-0">
+            <span>Salvar meus dados de acesso neste navegador</span>
+          </label>
+        </div>
+
+        <p id="prof-login-erro" class="hidden rounded-xl border border-accent/20 bg-accent/5 p-2.5 text-center text-xs font-semibold text-accent"></p>
+
+        <button type="submit" class="flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3.5 text-xs font-bold text-white shadow-soft hover:bg-accent-soft transition">
+          <i data-lucide="log-in" class="h-4 w-4"></i>
+          <span>Entrar no Painel do Professor</span>
+        </button>
+      </form>
+
+      <div class="mt-6 border-t border-navy/10 pt-4 text-center">
+        <a href="admin.html" class="text-xs font-bold text-navy hover:text-accent underline">
+          🔒 É o Administrador? Acesse o Painel Master aqui
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       TOPBAR DO PROFESSOR
+       ============================================================ -->
+  <header class="sticky top-0 z-40 border-b border-navy/10 bg-navy text-white shadow-lift">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        
+        <!-- Identificação -->
+        <div class="flex items-center gap-3">
+          <a href="index.html" class="flex items-center gap-2 group">
+            <img src="assets/images/kizuna-logo.webp" alt="Kizuna Logo" class="h-9 w-9 transition-transform group-hover:scale-105">
+            <span class="leading-none">
+              <span class="block text-base font-extrabold tracking-tight">Kizuna</span>
+              <span class="block text-[10px] font-bold uppercase tracking-[0.2em] text-accent-soft">Painel do Professor</span>
+            </span>
+          </a>
+          <span id="prof-identificacao-topbar" class="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-0.5 text-xs font-semibold text-emerald-300">
+            👨‍🏫 Prof. Lucas Miller
+          </span>
+        </div>
+
+        <!-- Links e Ações -->
+        <div class="flex items-center gap-2.5">
+          <button id="btn-abrir-nova-aula" type="button" class="inline-flex items-center gap-1.5 rounded-xl bg-accent px-3.5 py-2 text-xs font-bold text-white shadow-soft hover:bg-accent-soft transition">
+            <i data-lucide="plus-circle" class="h-4 w-4"></i> Publicar Nova Aula
+          </button>
+
+          <a href="admin.html" class="inline-flex items-center gap-1 rounded-xl border border-white/20 bg-white/5 px-2.5 py-2 text-xs font-bold text-white hover:bg-white/15 transition" title="Painel do Administrador">
+            <i data-lucide="shield" class="h-4 w-4 text-accent-soft"></i> Admin
+          </a>
+
+          <a href="index.html" class="inline-flex items-center gap-1 rounded-xl border border-white/20 bg-white/5 px-2.5 py-2 text-xs font-bold text-white hover:bg-white/15 transition">
+            <i data-lucide="globe" class="h-4 w-4"></i> Site
+          </a>
+
+          <button id="btn-prof-logout" type="button" class="inline-flex items-center gap-1 rounded-xl bg-white/10 px-2.5 py-2 text-xs font-bold text-white hover:bg-accent transition" title="Sair da Conta">
+            <i data-lucide="log-out" class="h-4 w-4"></i> Sair
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       CONTEÚDO PRINCIPAL DO PAINEL (PROTEGIDO)
+       ============================================================ -->
+  <main id="professor-main-view" class="hidden flex-1 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    
+    <!-- Banner de Boas-Vindas & Métricas Rápidas -->
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="rounded-2xl border border-navy/10 bg-white p-5 shadow-soft flex items-center gap-4">
+        <span class="grid h-12 w-12 place-items-center rounded-xl bg-navy/5 text-navy font-bold">
+          <i data-lucide="calendar" class="h-6 w-6"></i>
+        </span>
+        <div>
+          <p class="text-xs font-semibold text-slateink">Aulas Publicadas</p>
+          <p id="stat-total-aulas" class="text-2xl font-black text-navy">3</p>
+        </div>
+      </div>
+
+      <div class="rounded-2xl border border-navy/10 bg-white p-5 shadow-soft flex items-center gap-4">
+        <span class="grid h-12 w-12 place-items-center rounded-xl bg-accent/10 text-accent font-bold">
+          <i data-lucide="users" class="h-6 w-6"></i>
+        </span>
+        <div>
+          <p class="text-xs font-semibold text-slateink">Alunos Inscritos</p>
+          <p id="stat-total-alunos" class="text-2xl font-black text-accent">10</p>
+        </div>
+      </div>
+
+      <div class="rounded-2xl border border-navy/10 bg-white p-5 shadow-soft flex items-center gap-4">
+        <span class="grid h-12 w-12 place-items-center rounded-xl bg-emerald-50 text-emerald-700 font-bold">
+          <i data-lucide="check-circle-2" class="h-6 w-6"></i>
+        </span>
+        <div>
+          <p class="text-xs font-semibold text-slateink">Taxa de Ocupação</p>
+          <p id="stat-ocupacao" class="text-2xl font-black text-emerald-700">62%</p>
+        </div>
+      </div>
+
+      <div class="rounded-2xl border border-navy/10 bg-white p-5 shadow-soft flex items-center gap-4">
+        <span class="grid h-12 w-12 place-items-center rounded-xl bg-blue-50 text-blue-700 font-bold">
+          <i data-lucide="video" class="h-6 w-6"></i>
+        </span>
+        <div>
+          <p class="text-xs font-semibold text-slateink">Google Meet</p>
+          <p class="text-xs font-bold text-navy">Salas Prontas</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seção 1: Gestão de Aulas Publicadas -->
+    <div class="rounded-2xl2 border border-navy/10 bg-white p-6 sm:p-8 shadow-soft space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-navy/10 pb-4">
+        <div>
+          <h2 class="text-xl font-extrabold text-navy flex items-center gap-2">
+            <i data-lucide="calendar-check" class="h-5 w-5 text-accent"></i> Cronograma de Aulas Gratuitas (Agendadas pelos Professores)
+          </h2>
+          <p class="text-xs text-slateink mt-0.5">As aulas listadas aqui aparecem em tempo real no formulário de agendamento dos alunos no site.</p>
+        </div>
+
+        <button id="btn-abrir-modal-aula-2" type="button" class="inline-flex items-center gap-1.5 rounded-xl bg-navy px-4 py-2.5 text-xs font-bold text-white shadow-soft hover:bg-navy-700 transition self-start sm:self-auto">
+          <i data-lucide="plus" class="h-4 w-4 text-accent-soft"></i> Adicionar Nova Data
+        </button>
+      </div>
+
+      <!-- Grid de Aulas -->
+      <div id="lista-aulas-professor" class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Injetado dinamicamente via JS -->
+      </div>
+    </div>
+
+    <!-- Seção 2: Configuração das Salas Fixas do Google Meet (Sem API / Permanente) -->
+    <div class="rounded-2xl2 border border-navy/10 bg-white p-6 sm:p-8 shadow-soft space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-navy/10 pb-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="rounded-full bg-emerald-100 text-emerald-800 px-2.5 py-0.5 text-[11px] font-extrabold">Opção 1 &bull; Salas Permanentes</span>
+          </div>
+          <h2 class="text-xl font-extrabold text-navy flex items-center gap-2 mt-1">
+            <i data-lucide="video" class="h-5 w-5 text-emerald-600"></i> Links das Salas Fixas do Google Meet
+          </h2>
+          <p class="text-xs text-slateink mt-0.5">Cole os links reais de reunião do Google Meet (formato <code class="bg-sand px-1 py-0.5 rounded text-navy font-bold">meet.google.com/abc-defg-hij</code>). Eles nunca expiram.</p>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <a href="https://meet.google.com" target="_blank" class="inline-flex items-center gap-1.5 rounded-xl border border-navy/15 bg-white px-3.5 py-2.5 text-xs font-bold text-navy shadow-soft hover:bg-navy/5 transition">
+            <i data-lucide="plus-circle" class="h-4 w-4 text-accent"></i> Gerar Sala no Meet
+          </a>
+          <button id="btn-salvar-salas-fixas" type="button" class="inline-flex items-center gap-1.5 rounded-xl bg-emerald-600 px-4 py-2.5 text-xs font-bold text-white shadow-soft hover:bg-emerald-700 transition">
+            <i data-lucide="save" class="h-4 w-4"></i> Salvar Salas Fixas
+          </button>
+        </div>
+      </div>
+
+      <!-- Guia Rápido de 3 Passos -->
+      <div class="rounded-xl border border-emerald-600/20 bg-emerald-50/60 p-4 text-xs text-emerald-950 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div class="flex items-start gap-2.5">
+          <i data-lucide="info" class="h-4 w-4 text-emerald-700 shrink-0 mt-0.5"></i>
+          <div>
+            <strong class="font-bold text-emerald-900 block mb-0.5">Como criar seu link permanente real no Google Meet em 15 segundos:</strong>
+            <span>1. Abra o <a href="https://meet.google.com" target="_blank" class="font-bold underline">Google Meet</a> &bull; 2. Clique em <strong>"Nova reunião"</strong> e selecione <strong>"Criar uma reunião para mais tarde"</strong> &bull; 3. Copie o link gerado (ex: <code class="font-mono bg-white/70 px-1 py-0.5 rounded">meet.google.com/abc-defg-hij</code>) e cole no idioma correspondente abaixo.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid gap-4 md:grid-cols-3">
+        <!-- Sala Inglês -->
+        <div class="rounded-2xl border border-navy/10 bg-sand-100/80 p-4 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-navy text-xs flex items-center gap-1.5">🇺🇸 Sala Fixa de Inglês</span>
+            <span class="text-[11px] text-slateink font-mono">EN-ROOM</span>
+          </div>
+          <input id="input-sala-ingles" type="url" placeholder="https://meet.google.com/abc-defg-hij" class="w-full rounded-xl border border-navy/15 bg-white p-2.5 text-xs font-mono text-navy focus:outline-none focus:border-navy" value="https://meet.google.com">
+          <div class="flex items-center gap-2">
+            <a id="link-testar-ingles" href="https://meet.google.com" target="_blank" class="flex-1 text-center rounded-lg bg-navy/5 py-1.5 text-[11px] font-bold text-navy hover:bg-navy/10 transition">
+              <i data-lucide="external-link" class="inline h-3 w-3"></i> Testar Sala
+            </a>
+            <button type="button" class="btn-copiar-sala rounded-lg bg-navy/5 px-2.5 py-1.5 text-[11px] font-bold text-navy hover:bg-navy/10 transition" data-target="input-sala-ingles">
+              Copiar
+            </button>
+          </div>
+        </div>
+
+        <!-- Sala Japonês -->
+        <div class="rounded-2xl border border-navy/10 bg-sand-100/80 p-4 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-navy text-xs flex items-center gap-1.5">🇯🇵 Sala Fixa de Japonês</span>
+            <span class="text-[11px] text-slateink font-mono">JP-ROOM</span>
+          </div>
+          <input id="input-sala-japones" type="url" placeholder="https://meet.google.com/abc-defg-hij" class="w-full rounded-xl border border-navy/15 bg-white p-2.5 text-xs font-mono text-navy focus:outline-none focus:border-navy" value="https://meet.google.com">
+          <div class="flex items-center gap-2">
+            <a id="link-testar-japones" href="https://meet.google.com" target="_blank" class="flex-1 text-center rounded-lg bg-navy/5 py-1.5 text-[11px] font-bold text-navy hover:bg-navy/10 transition">
+              <i data-lucide="external-link" class="inline h-3 w-3"></i> Testar Sala
+            </a>
+            <button type="button" class="btn-copiar-sala rounded-lg bg-navy/5 px-2.5 py-1.5 text-[11px] font-bold text-navy hover:bg-navy/10 transition" data-target="input-sala-japones">
+              Copiar
+            </button>
+          </div>
+        </div>
+
+        <!-- Sala Português -->
+        <div class="rounded-2xl border border-navy/10 bg-sand-100/80 p-4 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-navy text-xs flex items-center gap-1.5">🇧🇷 Sala Fixa de Português</span>
+            <span class="text-[11px] text-slateink font-mono">PT-ROOM</span>
+          </div>
+          <input id="input-sala-portugues" type="url" placeholder="https://meet.google.com/abc-defg-hij" class="w-full rounded-xl border border-navy/15 bg-white p-2.5 text-xs font-mono text-navy focus:outline-none focus:border-navy" value="https://meet.google.com">
+          <div class="flex items-center gap-2">
+            <a id="link-testar-portugues" href="https://meet.google.com" target="_blank" class="flex-1 text-center rounded-lg bg-navy/5 py-1.5 text-[11px] font-bold text-navy hover:bg-navy/10 transition">
+              <i data-lucide="external-link" class="inline h-3 w-3"></i> Testar Sala
+            </a>
+            <button type="button" class="btn-copiar-sala rounded-lg bg-navy/5 px-2.5 py-1.5 text-[11px] font-bold text-navy hover:bg-navy/10 transition" data-target="input-sala-portugues">
+              Copiar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seção 3: Lista Geral de Alunos Inscritos com WhatsApp Direto -->
+    <div class="rounded-2xl2 border border-navy/10 bg-white p-6 sm:p-8 shadow-soft space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-navy/10 pb-4">
+        <div>
+          <h2 class="text-xl font-extrabold text-navy flex items-center gap-2">
+            <i data-lucide="user-check" class="h-5 w-5 text-emerald-600"></i> Alunos Inscritos para as Aulas
+          </h2>
+          <p class="text-xs text-slateink mt-0.5">Veja quem se inscreveu em cada aula e envie mensagem de boas-vindas com 1 clique.</p>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <select id="filtro-idioma-inscritos" class="rounded-xl border border-navy/15 bg-sand px-3 py-1.5 text-xs font-bold text-navy focus:outline-none">
+            <option value="todos">Todos os Idiomas</option>
+            <option value="Inglês">🇺🇸 Inglês</option>
+            <option value="Japonês">🇯🇵 Japonês</option>
+            <option value="Português">🇧🇷 Português</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Tabela Responsiva de Alunos -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs">
+          <thead class="border-b border-navy/10 bg-sand-100 text-slateink uppercase font-bold tracking-wider">
+            <tr>
+              <th class="p-3.5">Aluno(a)</th>
+              <th class="p-3.5">Idioma & Aula</th>
+              <th class="p-3.5">Data & Horário</th>
+              <th class="p-3.5">Contato (WhatsApp)</th>
+              <th class="p-3.5 text-right">Ação</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-inscritos-corpo" class="divide-y divide-navy/5">
+            <!-- Injetado dinamicamente via JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ============================================================
+       MODAL: CRIAR / PUBLICAR NOVA AULA (PROFESSOR)
+       ============================================================ -->
+  <div id="modal-criar-aula" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-navy-900/80 backdrop-blur-md overflow-y-auto" role="dialog" aria-modal="true">
+    <div class="relative w-full max-w-lg overflow-hidden rounded-2xl2 border border-navy/10 bg-white p-6 sm:p-8 shadow-lift my-8">
+      
+      <!-- Botão Fechar -->
+      <button id="fechar-modal-criar-aula" type="button" class="absolute top-5 right-5 grid h-9 w-9 place-items-center rounded-xl bg-navy/5 text-slateink hover:text-navy">
+        <i data-lucide="x" class="h-5 w-5"></i>
+      </button>
+
+      <div class="flex items-center gap-2">
+        <span class="rounded-full bg-accent/10 px-3 py-1 text-xs font-bold text-accent">Área Docente</span>
+      </div>
+
+      <h3 class="mt-2 text-2xl font-black text-navy">Publicar Nova Data de Aula Gratuita</h3>
+      <p class="text-xs text-slateink mt-1">Os alunos poderão escolher esta data ao solicitar agendamento no site.</p>
+
+      <form id="form-nova-aula" class="mt-6 space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-navy mb-1">Idioma da Aula <span class="text-accent">*</span></label>
+          <select id="nova-aula-idioma" required class="w-full rounded-xl border border-navy/15 bg-sand-100 p-3 text-xs font-bold text-navy focus:bg-white focus:outline-none">
+            <option value="Inglês">🇺🇸 Inglês</option>
+            <option value="Japonês">🇯🇵 Japonês</option>
+            <option value="Português">🇧🇷 Português</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-navy mb-1">Tema / Assunto da Aula <span class="text-accent">*</span></label>
+          <input id="nova-aula-tema" type="text" required placeholder="Ex: Conversação para Viagens ou Hiragana do Zero"
+                 class="w-full rounded-xl border border-navy/15 bg-sand-100 p-3 text-xs text-navy focus:bg-white focus:outline-none">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-navy mb-1">Professor Responsável <span class="text-accent">*</span></label>
+            <input id="nova-aula-prof" type="text" required value="Prof. Kizuna"
+                   class="w-full rounded-xl border border-navy/15 bg-sand-100 p-3 text-xs text-navy focus:bg-white focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-navy mb-1">Vagas Totais <span class="text-accent">*</span></label>
+            <input id="nova-aula-vagas" type="number" min="1" max="20" value="8" required
+                   class="w-full rounded-xl border border-navy/15 bg-sand-100 p-3 text-xs text-navy focus:bg-white focus:outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-navy mb-1">Data da Aula <span class="text-accent">*</span></label>
+            <input id="nova-aula-data" type="date" required
+                   class="w-full rounded-xl border border-navy/15 bg-sand-100 p-3 text-xs text-navy focus:bg-white focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-navy mb-1">Horário (Início - Fim) <span class="text-accent">*</span></label>
+            <input id="nova-aula-horario" type="text" required placeholder="Ex: 19:30 às 20:30" value="19:30 às 20:30"
+                   class="w-full rounded-xl border border-navy/15 bg-sand-100 p-3 text-xs text-navy focus:bg-white focus:outline-none">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-navy mb-1">Link da Sala Google Meet</label>
+          <input id="nova-aula-meet" type="url" value="https://meet.google.com/kizuna-live-room"
+                 class="w-full rounded-xl border border-navy/15 bg-sand-100 p-3 text-xs font-mono text-navy focus:bg-white focus:outline-none">
+        </div>
+
+        <button type="submit" class="flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3.5 text-xs font-bold text-white shadow-soft hover:bg-accent-soft transition">
+          <i data-lucide="check" class="h-4 w-4"></i> Publicar Aula no Site
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/professor.js"></script>
+</body>
+</html>

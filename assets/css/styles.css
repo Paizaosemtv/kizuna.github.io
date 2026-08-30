@@ -1,0 +1,294 @@
+/* ============================================================
+   KIZUNA LANGUAGE SCHOOL — ESTILOS CUSTOMIZADOS
+   ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Texto com gradiente elegante (headline) */
+.text-gradient {
+  background: linear-gradient(120deg, #0B2545 0%, #1B4E8C 55%, #0B2545 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Malha de fundo suave usada em seções escuras */
+.mesh-navy {
+  background-color: #07182F;
+  background-image:
+    radial-gradient(60rem 32rem at 12% -10%, rgba(27, 78, 140, 0.55), transparent 60%),
+    radial-gradient(48rem 28rem at 92% 8%, rgba(192, 48, 60, 0.20), transparent 60%),
+    radial-gradient(40rem 40rem at 70% 110%, rgba(27, 78, 140, 0.35), transparent 60%);
+}
+
+/* Grade discreta de fundo (estética japonesa contemporânea) */
+.grid-lines {
+  background-image:
+    linear-gradient(to right, rgba(11, 37, 69, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 37, 69, 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Animação suave de entrada ao rolar (IntersectionObserver) */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.75s cubic-bezier(0.22, 0.61, 0.36, 1),
+              transform 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Flutuação suave dos cartões de destaque no hero */
+@keyframes float-soft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-soft {
+  animation: float-soft 7s ease-in-out infinite;
+}
+
+.float-soft-delay {
+  animation: float-soft 7s ease-in-out 1.6s infinite;
+}
+
+/* Accordion do FAQ */
+.faq-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Foco acessível e consistente */
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 2px solid #1B4E8C;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Barra de rolagem discreta */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Respeita preferências de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .float-soft,
+  .float-soft-delay {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   ESTILOS DE MATERIAL BLOQUEADO & MODAL DE APOSTILAS
+   ============================================================ */
+
+/* Efeito de prévia bloqueada com blur */
+.locked-blur {
+  filter: blur(4px);
+  user-select: none;
+  pointer-events: none;
+  opacity: 0.55;
+  transition: filter 0.4s ease, opacity 0.4s ease;
+}
+
+/* Estado desbloqueado */
+.is-unlocked .locked-blur {
+  filter: none;
+  user-select: auto;
+  pointer-events: auto;
+  opacity: 1;
+}
+
+/* Badge de cadeado pulsante */
+@keyframes lock-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(192, 48, 60, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 8px rgba(192, 48, 60, 0);
+  }
+}
+
+.lock-badge-pulse {
+  animation: lock-pulse 3s infinite;
+}
+
+/* Animação do Modal */
+#modal-apostila {
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
+}
+
+#modal-apostila.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#modal-apostila:not(.hidden) {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+#modal-apostila-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s;
+}
+
+#modal-apostila.hidden #modal-apostila-card {
+  transform: scale(0.95) translateY(12px);
+  opacity: 0;
+}
+
+#modal-apostila:not(.hidden) #modal-apostila-card {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* ============================================================
+   ESTILOS DO PAINEL / MODAL DE COMPRAS
+   ============================================================ */
+#modal-compras {
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
+}
+
+#modal-compras.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#modal-compras:not(.hidden) {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+#modal-compras-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s;
+}
+
+#modal-compras.hidden #modal-compras-card {
+  transform: scale(0.95) translateY(12px);
+  opacity: 0;
+}
+
+#modal-compras:not(.hidden) #modal-compras-card {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* Opção de produto selecionável */
+.compra-item-card {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.compra-item-card:hover {
+  border-color: #1B4E8C;
+  transform: translateY(-2px);
+}
+
+.compra-item-card.is-selected {
+  border-color: #0B2545;
+  background-color: #F7F6F3;
+  box-shadow: 0 0 0 2px #0B2545;
+}
+
+/* Efeito de destaque no cupom de código */
+.code-ticket-box {
+  background: linear-gradient(135deg, #07182F 0%, #0B2545 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.code-ticket-box::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* ============================================================
+   ESTILOS DO MODAL DE LOGIN DO ALUNO
+   ============================================================ */
+#modal-login-aluno {
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
+}
+
+#modal-login-aluno.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#modal-login-aluno:not(.hidden) {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+#modal-login-aluno-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s;
+}
+
+#modal-login-aluno.hidden #modal-login-aluno-card {
+  transform: scale(0.95) translateY(12px);
+  opacity: 0;
+}
+
+#modal-login-aluno:not(.hidden) #modal-login-aluno-card {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+.demo-account-chip {
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.demo-account-chip:hover {
+  background-color: #0B2545;
+  color: #FFFFFF;
+  border-color: #0B2545;
+}
+
+
+

@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ============================================================
+       SEO — Kizuna Language School
+       ============================================================ -->
+  <title>Kizuna Language School | Inglês, Português e Japonês</title>
+  <meta name="description" content="Aprenda Inglês, Português e Japonês na Kizuna Language School. Desenvolva sua comunicação, confiança e conexão com novas oportunidades.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0B2545">
+
+  <!-- Open Graph / Redes Sociais -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Kizuna Language School">
+  <meta property="og:title" content="Kizuna Language School | Inglês, Português e Japonês">
+  <meta property="og:description" content="Aprenda um novo idioma. Conecte-se com o mundo.">
+  <meta property="og:image" content="assets/images/hero-student.webp">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon & Apple Touch Icon -->
+  <link rel="icon" type="image/webp" href="assets/images/favicon.webp">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.webp">
+
+  <!-- Google Fonts: Inter (Interface) + Noto Sans JP (Japonês) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { DEFAULT: '#0B2545', 900: '#07182F', 800: '#0B2545', 700: '#123A6B', 600: '#1B4E8C', 300: '#7FA3C9' },
+            sand: { DEFAULT: '#F7F6F3', 100: '#FBFAF8', 200: '#EFEDE8' },
+            accent: { DEFAULT: '#C0303C', soft: '#E3646E' },
+            slateink: { DEFAULT: '#5B6472', light: '#8A93A1' }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans JP', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+            jp: ['Noto Sans JP', 'Inter', 'sans-serif']
+          },
+          borderRadius: { xl2: '1.25rem', '2xl2': '1.75rem' },
+          boxShadow: {
+            soft: '0 1px 2px rgba(11,37,69,.04), 0 8px 24px -12px rgba(11,37,69,.18)',
+            lift: '0 2px 4px rgba(11,37,69,.05), 0 24px 48px -20px rgba(11,37,69,.28)',
+            inset: 'inset 0 1px 0 rgba(255,255,255,.6)'
+          },
+          maxWidth: { content: '1200px' }
+        }
+      }
+    };
+  </script>
+
+  <!-- Ícones Lucide -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.462.0/umd/lucide.min.js"></script>
+
+  <!-- Estilos Customizados -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <!-- Dados Estruturados Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LanguageSchool",
+    "name": "Kizuna Language School",
+    "slogan": "Aprenda um novo idioma. Conecte-se com o mundo.",
+    "description": "Escola de idiomas com cursos de Inglês, Português e Japonês, com foco em conversação, prática e aprendizado personalizado.",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Cursos de idiomas",
+      "itemListElement": [
+        { "@type": "Course", "name": "Inglês", "description": "Inglês para trabalho, viagens, estudos e situações do dia a dia.", "provider": { "@type": "Organization", "name": "Kizuna Language School" } },
+        { "@type": "Course", "name": "Português", "description": "Português para estrangeiros, com foco em comunicação prática e integração cultural.", "provider": { "@type": "Organization", "name": "Kizuna Language School" } },
+        { "@type": "Course", "name": "Japonês", "description": "Japonês para estrangeiros, com foco em conversação, leitura, escrita e o cotidiano no Japão.", "provider": { "@type": "Organization", "name": "Kizuna Language School" } }
+      ]
+    }
+  }
+  </script>
+</head>
+
+<body class="bg-sand text-navy font-sans antialiased selection:bg-navy selection:text-white">
+
+  <!-- Link de Acessibilidade -->
+  <a href="#hero" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-3 focus:left-3 focus:bg-navy focus:text-white focus:px-4 focus:py-2 focus:rounded-lg">Pular para o conteúdo principal</a>
+
+  <!-- ============================================================
+       1. HEADER / MENU
+       ============================================================ -->
+  <header id="site-header" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 border-b border-transparent">
+    <div class="mx-auto max-w-content px-5 sm:px-8">
+      <div class="flex h-[72px] items-center justify-between">
+
+        <!-- Logo -->
+        <a href="#hero" class="flex items-center gap-3 shrink-0 group" aria-label="Kizuna Language School — início">
+          <img src="assets/images/kizuna-logo.webp" width="48" height="48" decoding="async"
+               alt="Emblema da Kizuna Language School: torii japonês sobre um globo terrestre"
+               class="h-12 w-12 shrink-0 transition-transform group-hover:scale-105">
+          <span class="leading-none">
+            <span class="block text-[19px] font-extrabold tracking-tight text-navy">Kizuna</span>
+            <span class="block text-[10.5px] font-medium uppercase tracking-[0.22em] text-slateink">Language School</span>
+          </span>
+        </a>
+
+        <!-- Menu Desktop -->
+        <nav class="hidden lg:flex items-center gap-1" aria-label="Navegação principal">
+          <a href="#hero" class="rounded-lg px-3.5 py-2 text-[14.5px] font-medium text-slateink transition hover:text-navy hover:bg-navy/5">Início</a>
+          <a href="#idiomas" class="rounded-lg px-3.5 py-2 text-[14.5px] font-medium text-slateink transition hover:text-navy hover:bg-navy/5">Idiomas</a>
+          <a href="#sobre" class="rounded-lg px-3.5 py-2 text-[14.5px] font-medium text-slateink transition hover:text-navy hover:bg-navy/5">Sobre nós</a>
+          <a href="#beneficios" class="rounded-lg px-3.5 py-2 text-[14.5px] font-medium text-slateink transition hover:text-navy hover:bg-navy/5">Benefícios</a>
+          <a href="#depoimentos" class="rounded-lg px-3.5 py-2 text-[14.5px] font-medium text-slateink transition hover:text-navy hover:bg-navy/5">Depoimentos</a>
+          <a href="#faq" class="rounded-lg px-3.5 py-2 text-[14.5px] font-medium text-slateink transition hover:text-navy hover:bg-navy/5">FAQ</a>
+          <a href="#contato" class="rounded-lg px-3.5 py-2 text-[14.5px] font-medium text-slateink transition hover:text-navy hover:bg-navy/5">Contato</a>
+        </nav>
+
+        <!-- Área do Aluno, Professor & Compras (Desktop) -->
+        <div class="hidden lg:flex items-center gap-2.5">
+          <a href="aluno.html" class="inline-flex items-center gap-1.5 rounded-full border border-navy/15 bg-white px-3.5 py-2 text-[13px] font-bold text-navy shadow-soft transition hover:bg-navy/5">
+            <i data-lucide="graduation-cap" class="h-4 w-4 text-accent"></i> Aluno
+          </a>
+
+          <a href="professor.html" class="inline-flex items-center gap-1.5 rounded-full border border-emerald-600/30 bg-emerald-50 px-3.5 py-2 text-[13px] font-bold text-emerald-900 shadow-soft transition hover:bg-emerald-100">
+            <i data-lucide="calendar-check" class="h-4 w-4 text-emerald-700"></i> Professor
+          </a>
+
+          <a href="#" data-abrir-compras class="inline-flex items-center gap-2 rounded-full bg-navy px-5 py-2.5 text-[14px] font-semibold text-white shadow-soft transition hover:bg-navy-700 hover:shadow-lift hover:-translate-y-0.5">
+            <i data-lucide="shopping-bag" class="h-4 w-4 text-accent-soft"></i>
+            Área de Compras
+          </a>
+        </div>
+
+        <!-- Botão Hamburger (Mobile) -->
+        <button id="menu-toggle" type="button"
+                class="lg:hidden grid h-11 w-11 place-items-center rounded-xl border border-navy/10 bg-white/70 text-navy backdrop-blur transition hover:bg-white focus:outline-none"
+                aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+          <i data-lucide="menu" class="h-5 w-5" id="menu-icon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="lg:hidden hidden border-t border-navy/10 bg-white/95 backdrop-blur-xl transition-all">
+      <nav class="mx-auto max-w-content px-5 py-5 space-y-1" aria-label="Navegação mobile">
+        <a href="#hero" class="block rounded-xl px-4 py-3.5 text-base font-medium text-navy transition hover:bg-navy/5">Início</a>
+        <a href="#idiomas" class="block rounded-xl px-4 py-3.5 text-base font-medium text-navy transition hover:bg-navy/5">Idiomas</a>
+        <a href="#sobre" class="block rounded-xl px-4 py-3.5 text-base font-medium text-navy transition hover:bg-navy/5">Sobre nós</a>
+        <a href="#beneficios" class="block rounded-xl px-4 py-3.5 text-base font-medium text-navy transition hover:bg-navy/5">Benefícios</a>
+        <a href="#depoimentos" class="block rounded-xl px-4 py-3.5 text-base font-medium text-navy transition hover:bg-navy/5">Depoimentos</a>
+        <a href="#faq" class="block rounded-xl px-4 py-3.5 text-base font-medium text-navy transition hover:bg-navy/5">FAQ</a>
+        <a href="#contato" class="block rounded-xl px-4 py-3.5 text-base font-medium text-navy transition hover:bg-navy/5">Contato</a>
+
+        <div class="pt-2 grid grid-cols-2 gap-2">
+          <a href="aluno.html" class="flex items-center justify-center gap-1.5 rounded-xl border border-navy/15 bg-white px-3 py-3 text-xs font-bold text-navy shadow-soft">
+            <i data-lucide="graduation-cap" class="h-4 w-4 text-accent"></i> Portal Aluno
+          </a>
+          <a href="professor.html" class="flex items-center justify-center gap-1.5 rounded-xl border border-emerald-600/30 bg-emerald-50 px-3 py-3 text-xs font-bold text-emerald-900 shadow-soft">
+            <i data-lucide="calendar-check" class="h-4 w-4 text-emerald-700"></i> Professor
+          </a>
+        </div>
+
+        <a href="#" data-abrir-compras class="mt-2 flex items-center justify-center gap-2 rounded-2xl bg-navy px-5 py-4 text-base font-semibold text-white shadow-soft">
+          <i data-lucide="shopping-bag" class="h-5 w-5 text-accent-soft"></i> Área de Compras
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         2. HERO SECTION
+         ============================================================ -->
+    <section id="hero" class="relative overflow-hidden pt-[112px] pb-20 sm:pt-[136px] sm:pb-28">
+      <!-- Fundo Decorativo -->
+      <div class="pointer-events-none absolute inset-0 -z-10 grid-lines opacity-70"></div>
+      <div class="pointer-events-none absolute -top-40 -right-32 -z-10 h-[38rem] w-[38rem] rounded-full bg-navy-600/10 blur-3xl"></div>
+      <div class="pointer-events-none absolute -bottom-56 -left-40 -z-10 h-[34rem] w-[34rem] rounded-full bg-accent/[0.07] blur-3xl"></div>
+
+      <div class="mx-auto max-w-content px-5 sm:px-8">
+        <div class="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+
+          <!-- Coluna de Texto -->
+          <div class="reveal">
+            <span class="inline-flex items-center gap-2 rounded-full border border-navy/10 bg-white px-4 py-1.5 text-[13px] font-medium text-navy shadow-soft">
+              <span class="font-jp text-navy-700 font-bold">絆</span>
+              <span class="h-3 w-px bg-navy/15"></span>
+              Conexão que transforma aprendizado
+            </span>
+
+            <h1 class="mt-6 text-[2.6rem] leading-[1.08] font-extrabold tracking-tight sm:text-6xl lg:text-[4.05rem]">
+              <span class="text-gradient">Aprenda um novo idioma.</span><br>
+              <span class="text-navy">Conecte-se com</span>
+              <span class="relative whitespace-nowrap text-navy"> o mundo.
+                <svg class="absolute -bottom-2 left-0 w-full text-accent" height="10" viewBox="0 0 200 10" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M0,7 C50,1 150,1 200,7" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </h1>
+
+            <p class="mt-7 text-lg leading-relaxed text-slateink sm:text-[19px]">
+              Desenvolva sua comunicação em <strong class="font-semibold text-navy">Inglês</strong>, <strong class="font-semibold text-navy">Português</strong> e <strong class="font-semibold text-navy">Japonês</strong> com aulas práticas, personalizadas e no seu ritmo.
+            </p>
+
+            <!-- CTAs do Hero -->
+            <div class="mt-9 flex flex-col gap-3.5 sm:flex-row sm:items-center">
+              <a href="#contato" data-abrir-agendamento class="group inline-flex items-center justify-center gap-2 rounded-2xl bg-navy px-7 py-4 text-base font-semibold text-white shadow-lift transition duration-200 hover:bg-navy-700 hover:-translate-y-0.5">
+                Agendar aula experimental
+                <i data-lucide="arrow-right" class="h-[18px] w-[18px] transition-transform group-hover:translate-x-1"></i>
+              </a>
+              <a href="#idiomas" class="inline-flex items-center justify-center gap-2 rounded-2xl border border-navy/15 bg-white/70 px-6 py-4 text-base font-semibold text-navy backdrop-blur transition hover:border-navy/30 hover:bg-white hover:-translate-y-0.5">
+                Conhecer os cursos
+              </a>
+            </div>
+
+            <!-- Badges de Idiomas e Recursos -->
+            <div class="mt-10 border-t border-navy/10 pt-7">
+              <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-semibold text-navy">
+                <span class="flex items-center gap-1.5"><i data-lucide="sparkles" class="h-4 w-4 text-accent"></i> Cursos disponíveis:</span>
+                <span>Inglês</span><span class="text-navy/25">•</span>
+                <span>Português</span><span class="text-navy/25">•</span>
+                <span class="font-jp">Japonês</span>
+              </div>
+              <ul class="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-[14px] text-slateink">
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="h-4 w-4 text-accent"></i> Aprendizado prático</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="h-4 w-4 text-accent"></i> Ambiente acolhedor</li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="h-4 w-4 text-accent"></i> Foco em comunicação</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Coluna Visual: Foto da aluna + Cartões flutuantes -->
+          <div class="reveal relative mx-auto w-full max-w-[520px]">
+            <div class="relative">
+              <figure class="relative overflow-hidden rounded-2xl2 shadow-lift">
+                <img src="assets/images/hero-student.webp" width="760" height="1030" fetchpriority="high" decoding="async"
+                     alt="Aluna sorrindo enquanto estuda em um tablet durante a aula na Kizuna"
+                     class="aspect-[4/5] w-full object-cover object-top">
+                <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/35 to-transparent"></div>
+                <figcaption class="absolute inset-x-0 bottom-0 p-6 sm:p-7">
+                  <p class="text-[11.5px] font-semibold uppercase tracking-[0.2em] text-white/55">Aula de hoje</p>
+                  <p class="mt-2 font-jp text-2xl font-bold text-white sm:text-3xl">はじめまして</p>
+                  <p class="mt-1 text-[14px] text-white/75">Prazer em conhecer você</p>
+                  <div class="mt-5">
+                    <div class="flex items-center justify-between text-[12px] text-white/60">
+                      <span>Sua evolução</span><span>No seu ritmo</span>
+                    </div>
+                    <div class="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-white/20">
+                      <div class="h-full w-[62%] rounded-full bg-gradient-to-r from-white/85 to-accent-soft"></div>
+                    </div>
+                  </div>
+                </figcaption>
+              </figure>
+
+              <!-- Cartão Flutuante 1: Idiomas -->
+              <div class="float-soft absolute -left-3 top-6 rounded-2xl border border-navy/10 bg-white/95 px-4 py-3 shadow-lift backdrop-blur sm:-left-7">
+                <div class="flex items-center gap-2.5">
+                  <span class="grid h-9 w-9 place-items-center rounded-xl bg-navy/5 text-navy"><i data-lucide="languages" class="h-[18px] w-[18px]"></i></span>
+                  <div class="leading-tight">
+                    <p class="text-[13px] font-bold text-navy">3 idiomas</p>
+                    <p class="text-[11.5px] text-slateink">EN · PT · JP</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Cartão Flutuante 2: Conversação -->
+              <div class="float-soft-delay absolute -right-3 top-1/2 rounded-2xl border border-navy/10 bg-white/95 px-4 py-3 shadow-lift backdrop-blur sm:-right-7">
+                <div class="flex items-center gap-2.5">
+                  <span class="grid h-9 w-9 place-items-center rounded-xl bg-accent/10 text-accent"><i data-lucide="messages-square" class="h-[18px] w-[18px]"></i></span>
+                  <div class="leading-tight">
+                    <p class="text-[13px] font-bold text-navy">Foco em conversação</p>
+                    <p class="text-[11.5px] text-slateink">Situações reais</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. ESCOLHA SEU IDIOMA
+         ============================================================ -->
+    <section id="idiomas" class="scroll-mt-24 bg-white py-20 sm:py-28 relative overflow-hidden">
+      <div class="mx-auto max-w-content px-5 sm:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <div class="inline-flex items-center gap-2 rounded-full border border-navy/10 bg-sand-100 px-4 py-1.5 text-[12.5px] font-bold text-navy shadow-soft mb-3">
+            <i data-lucide="sparkles" class="h-3.5 w-3.5 text-accent"></i> Experiência Interativa de Idiomas
+          </div>
+          <h2 class="text-3xl font-extrabold tracking-tight sm:text-[2.6rem] sm:leading-tight">Qual idioma você quer aprender?</h2>
+          <p class="mt-4 text-[17px] text-slateink">Clique em <strong>Conhecer</strong> para ouvir pronúncias nativas, ver diálogos e entender a metodologia de cada curso.</p>
+        </div>
+
+        <div class="mt-14 grid gap-8 md:grid-cols-3">
+          
+          <!-- Card: Inglês -->
+          <article class="reveal group relative flex flex-col overflow-hidden rounded-2xl2 border border-navy/10 bg-sand-100 p-8 shadow-soft transition duration-300 hover:-translate-y-2 hover:border-navy/30 hover:shadow-lift">
+            <div class="h-1.5 w-full bg-gradient-to-r from-navy to-blue-600 absolute top-0 inset-x-0"></div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-3xl" aria-hidden="true">🇺🇸</span>
+              <span class="rounded-full bg-navy/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-navy">US • Todos os Níveis</span>
+            </div>
+
+            <h3 class="mt-5 text-2xl font-bold tracking-tight text-navy">Inglês</h3>
+            <p class="mt-2 text-[15px] font-semibold text-navy-700">Comunique-se com confiança onde quer que esteja.</p>
+            <p class="mt-3 flex-1 text-[14.5px] leading-relaxed text-slateink">
+              Aprenda inglês para trabalho, viagens, reuniões internacionais e situações cotidianas com foco 100% em conversação.
+            </p>
+
+            <div class="mt-6 flex flex-wrap gap-1.5 text-xs font-semibold text-navy">
+              <span class="rounded-lg bg-white border border-navy/10 px-2.5 py-1">🗣️ Conversação Ativa</span>
+              <span class="rounded-lg bg-white border border-navy/10 px-2.5 py-1">✈️ Viagens & Trabalho</span>
+            </div>
+
+            <a href="idiomas.html?lang=ingles" class="mt-7 flex w-full items-center justify-center gap-2 rounded-xl2 bg-navy px-5 py-3.5 text-[15px] font-bold text-white shadow-soft transition duration-200 hover:bg-navy-700 group-hover:shadow-lift">
+              <span>Conhecer Inglês</span>
+              <i data-lucide="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1"></i>
+            </a>
+          </article>
+
+          <!-- Card: Português -->
+          <article class="reveal group relative flex flex-col overflow-hidden rounded-2xl2 border border-navy/10 bg-sand-100 p-8 shadow-soft transition duration-300 hover:-translate-y-2 hover:border-emerald-600/30 hover:shadow-lift">
+            <div class="h-1.5 w-full bg-gradient-to-r from-emerald-600 to-green-500 absolute top-0 inset-x-0"></div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-3xl" aria-hidden="true">🇧🇷</span>
+              <span class="rounded-full bg-emerald-100 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-emerald-800">BR • Para Estrangeiros</span>
+            </div>
+
+            <h3 class="mt-5 text-2xl font-bold tracking-tight text-navy">Português</h3>
+            <p class="mt-2 text-[15px] font-semibold text-navy-700">Aprenda português para se conectar de verdade.</p>
+            <p class="mt-3 flex-1 text-[14.5px] leading-relaxed text-slateink">
+              Desenvolva sua comunicação em português brasileiro para viver, trabalhar e interagir socialmente com facilidade.
+            </p>
+
+            <div class="mt-6 flex flex-wrap gap-1.5 text-xs font-semibold text-navy">
+              <span class="rounded-lg bg-white border border-navy/10 px-2.5 py-1">🤝 Integração Cultural</span>
+              <span class="rounded-lg bg-white border border-navy/10 px-2.5 py-1">☕ Vida no Brasil</span>
+            </div>
+
+            <a href="idiomas.html?lang=portugues" class="mt-7 flex w-full items-center justify-center gap-2 rounded-xl2 bg-navy px-5 py-3.5 text-[15px] font-bold text-white shadow-soft transition duration-200 hover:bg-navy-700 group-hover:shadow-lift">
+              <span>Conhecer Português</span>
+              <i data-lucide="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1"></i>
+            </a>
+          </article>
+
+          <!-- Card: Japonês -->
+          <article class="reveal group relative flex flex-col overflow-hidden rounded-2xl2 border border-navy/10 bg-sand-100 p-8 shadow-soft transition duration-300 hover:-translate-y-2 hover:border-accent/30 hover:shadow-lift">
+            <div class="h-1.5 w-full bg-gradient-to-r from-accent to-rose-500 absolute top-0 inset-x-0"></div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-3xl" aria-hidden="true">🇯🇵</span>
+              <span class="rounded-full bg-accent/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-accent">JP • 日本語 Prático</span>
+            </div>
+
+            <h3 class="mt-5 text-2xl font-bold tracking-tight text-navy">Japonês <span class="font-jp text-lg font-medium text-slateink-light">日本語</span></h3>
+            <p class="mt-2 text-[15px] font-semibold text-navy-700">Entenda o idioma. Viva a cultura. Conecte-se com o Japão.</p>
+            <p class="mt-3 flex-1 text-[14.5px] leading-relaxed text-slateink">
+              Aprenda japonês do zero: Hiragana, Katakana, Kanji fundamentais e diálogos reais com professores especializados.
+            </p>
+
+            <div class="mt-6 flex flex-wrap gap-1.5 text-xs font-semibold text-navy">
+              <span class="rounded-lg bg-white border border-navy/10 px-2.5 py-1">🌸 Hiragana & Kanji</span>
+              <span class="rounded-lg bg-white border border-navy/10 px-2.5 py-1">⛩️ Cotidiano no Japão</span>
+            </div>
+
+            <a href="idiomas.html?lang=japones" class="mt-7 flex w-full items-center justify-center gap-2 rounded-xl2 bg-navy px-5 py-3.5 text-[15px] font-bold text-white shadow-soft transition duration-200 hover:bg-navy-700 group-hover:shadow-lift">
+              <span>Conhecer Japonês</span>
+              <i data-lucide="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1"></i>
+            </a>
+          </article>
+        </div>
+
+        <p class="reveal mt-10 text-center text-[15px] text-slateink">
+          Ainda não sabe por onde começar?
+          <a href="#contato" class="font-semibold text-navy underline decoration-accent/40 underline-offset-4 transition hover:decoration-accent">Fale com a gente</a>
+          e descubra o caminho ideal para você.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. BENEFÍCIOS
+         ============================================================ -->
+    <section id="beneficios" class="scroll-mt-24 py-20 sm:py-28 bg-sand-100/60 relative overflow-hidden">
+      <!-- Decoração de fundo sutil -->
+      <div class="pointer-events-none absolute -right-24 top-1/3 h-96 w-96 rounded-full bg-accent/5 blur-3xl"></div>
+      <div class="pointer-events-none absolute -left-24 bottom-10 h-96 w-96 rounded-full bg-navy/5 blur-3xl"></div>
+
+      <div class="mx-auto max-w-content px-5 sm:px-8 relative z-10">
+        <div class="reveal grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+          <div class="max-w-xl">
+            <span class="inline-flex items-center gap-2 rounded-full bg-accent/10 px-3.5 py-1 text-[11.5px] font-bold uppercase tracking-[0.15em] text-accent">
+              <i data-lucide="sparkles" class="h-3.5 w-3.5"></i> Diferenciais Kizuna
+            </span>
+            <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-[2.6rem] sm:leading-tight text-navy">
+              Muito mais do que aprender palavras. Você aprende a viver o idioma.
+            </h2>
+          </div>
+          <p class="text-[16.5px] leading-relaxed text-slateink lg:pb-2">
+            Nosso método prático e humanizado elimina a trava de falar desde o primeiro dia, preparando você para viagens, reuniões e vivências reais.
+          </p>
+        </div>
+
+        <!-- Grid dos 4 Pilares / Benefícios -->
+        <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          
+          <!-- Card 1: Comunicação -->
+          <article class="reveal group relative flex flex-col justify-between overflow-hidden rounded-2xl2 border border-navy/10 bg-white p-7 shadow-soft transition-all duration-300 hover:-translate-y-2 hover:border-navy/30 hover:shadow-lift">
+            <div class="h-1 w-full bg-gradient-to-r from-navy to-blue-600 absolute top-0 inset-x-0"></div>
+            
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-navy to-navy-700 text-white shadow-soft transition-transform duration-300 group-hover:scale-110">
+                  <i data-lucide="messages-square" class="h-6 w-6 text-accent-soft"></i>
+                </span>
+                <span class="font-mono text-xs font-bold text-navy/40">01</span>
+              </div>
+
+              <span class="mt-5 inline-block rounded-full bg-navy/5 px-2.5 py-0.5 text-[11px] font-bold text-navy">
+                Fala Natural
+              </span>
+              
+              <h3 class="mt-2.5 text-xl font-bold tracking-tight text-navy">Comunicação</h3>
+              <p class="mt-2 text-[14px] leading-relaxed text-slateink">
+                Fale com naturalidade e confiança através de simulações reais do cotidiano.
+              </p>
+            </div>
+
+            <ul class="mt-5 space-y-1.5 border-t border-navy/5 pt-4 text-xs font-medium text-slateink">
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="h-3.5 w-3.5 text-accent"></i> Foco 100% em conversação</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="h-3.5 w-3.5 text-accent"></i> Sem decoreba mecânica</li>
+            </ul>
+          </article>
+
+          <!-- Card 2: Confiança -->
+          <article class="reveal group relative flex flex-col justify-between overflow-hidden rounded-2xl2 border border-navy/10 bg-white p-7 shadow-soft transition-all duration-300 hover:-translate-y-2 hover:border-accent/30 hover:shadow-lift">
+            <div class="h-1 w-full bg-gradient-to-r from-accent to-rose-500 absolute top-0 inset-x-0"></div>
+            
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-accent to-rose-600 text-white shadow-soft transition-transform duration-300 group-hover:scale-110">
+                  <i data-lucide="shield-check" class="h-6 w-6 text-white"></i>
+                </span>
+                <span class="font-mono text-xs font-bold text-navy/40">02</span>
+              </div>
+
+              <span class="mt-5 inline-block rounded-full bg-accent/10 px-2.5 py-0.5 text-[11px] font-bold text-accent">
+                Sem Bloqueios
+              </span>
+
+              <h3 class="mt-2.5 text-xl font-bold tracking-tight text-navy">Confiança</h3>
+              <p class="mt-2 text-[14px] leading-relaxed text-slateink">
+                Perca o medo de errar em um ambiente acolhedor, empático e encorajador.
+              </p>
+            </div>
+
+            <ul class="mt-5 space-y-1.5 border-t border-navy/5 pt-4 text-xs font-medium text-slateink">
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="h-3.5 w-3.5 text-emerald-600"></i> Professores dedicados</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="h-3.5 w-3.5 text-emerald-600"></i> Feedback individual seguro</li>
+            </ul>
+          </article>
+
+          <!-- Card 3: Conexão -->
+          <article class="reveal group relative flex flex-col justify-between overflow-hidden rounded-2xl2 border border-navy/10 bg-white p-7 shadow-soft transition-all duration-300 hover:-translate-y-2 hover:border-emerald-600/30 hover:shadow-lift">
+            <div class="h-1 w-full bg-gradient-to-r from-emerald-600 to-teal-500 absolute top-0 inset-x-0"></div>
+            
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-700 to-teal-600 text-white shadow-soft transition-transform duration-300 group-hover:scale-110">
+                  <i data-lucide="globe-2" class="h-6 w-6 text-white"></i>
+                </span>
+                <span class="font-mono text-xs font-bold text-navy/40">03</span>
+              </div>
+
+              <span class="mt-5 inline-block rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-bold text-emerald-800">
+                Imersão Cultural
+              </span>
+
+              <h3 class="mt-2.5 text-xl font-bold tracking-tight text-navy">Conexão</h3>
+              <p class="mt-2 text-[14px] leading-relaxed text-slateink">
+                Construa laços genuínos, compreendendo costumes, nuances e etiqueta cultural.
+              </p>
+            </div>
+
+            <ul class="mt-5 space-y-1.5 border-t border-navy/5 pt-4 text-xs font-medium text-slateink">
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="h-3.5 w-3.5 text-emerald-600"></i> Cultura e costumes reais</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="h-3.5 w-3.5 text-emerald-600"></i> Preparo para viagens e vida fora</li>
+            </ul>
+          </article>
+
+          <!-- Card 4: Metodologia -->
+          <article class="reveal group relative flex flex-col justify-between overflow-hidden rounded-2xl2 border border-navy/10 bg-white p-7 shadow-soft transition-all duration-300 hover:-translate-y-2 hover:border-blue-600/30 hover:shadow-lift">
+            <div class="h-1 w-full bg-gradient-to-r from-blue-700 to-indigo-600 absolute top-0 inset-x-0"></div>
+            
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-700 to-indigo-800 text-white shadow-soft transition-transform duration-300 group-hover:scale-110">
+                  <i data-lucide="book-open-check" class="h-6 w-6 text-white"></i>
+                </span>
+                <span class="font-mono text-xs font-bold text-navy/40">04</span>
+              </div>
+
+              <span class="mt-5 inline-block rounded-full bg-blue-50 px-2.5 py-0.5 text-[11px] font-bold text-blue-800">
+                Didática Moderna
+              </span>
+
+              <h3 class="mt-2.5 text-xl font-bold tracking-tight text-navy">Metodologia</h3>
+              <p class="mt-2 text-[14px] leading-relaxed text-slateink">
+                Aulas dinâmicas, videoaulas gravadas e 3 apostilas oficiais aplicadas ao seu objetivo.
+              </p>
+            </div>
+
+            <ul class="mt-5 space-y-1.5 border-t border-navy/5 pt-4 text-xs font-medium text-slateink">
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="h-3.5 w-3.5 text-accent"></i> 3 Apostilas em PDF inclusas</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="h-3.5 w-3.5 text-accent"></i> Portal do Aluno com videoaulas</li>
+            </ul>
+          </article>
+
+        </div>
+
+        <!-- Faixa de Destaques e Métricas -->
+        <div class="reveal mt-12 rounded-2xl2 border border-navy/10 bg-white p-6 sm:p-8 shadow-soft">
+          <div class="grid grid-cols-2 gap-6 md:grid-cols-4 text-center divide-y md:divide-y-0 md:divide-x divide-navy/10">
+            <div class="p-2">
+              <p class="text-2xl sm:text-3xl font-extrabold text-navy">+1.500</p>
+              <p class="text-xs font-semibold text-slateink mt-1">Alunos Transformados</p>
+            </div>
+            <div class="p-2 pt-6 md:pt-2">
+              <p class="text-2xl sm:text-3xl font-extrabold text-accent">4.9 / 5.0</p>
+              <p class="text-xs font-semibold text-slateink mt-1">Avaliação dos Estudantes</p>
+            </div>
+            <div class="p-2 pt-6 md:pt-2">
+              <p class="text-2xl sm:text-3xl font-extrabold text-navy">Até 6 Alunos</p>
+              <p class="text-xs font-semibold text-slateink mt-1">Aulas ao Vivo Reduzidas</p>
+            </div>
+            <div class="p-2 pt-6 md:pt-2">
+              <p class="text-2xl sm:text-3xl font-extrabold text-emerald-700">3 Volumes</p>
+              <p class="text-xs font-semibold text-slateink mt-1">Material Didático Completo</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5. TRANSFORMAÇÃO / JORNADA DO ALUNO
+         ============================================================ -->
+    <section class="bg-white py-20 sm:py-28">
+      <div class="mx-auto max-w-content px-5 sm:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <span class="text-[12.5px] font-semibold uppercase tracking-[0.2em] text-accent">Evolução</span>
+          <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-[2.6rem] sm:leading-tight">
+            Como é a sua jornada na Kizuna
+          </h2>
+          <p class="mt-4 text-[17px] text-slateink">Veja a transformação do primeiro dia até a fluência prática.</p>
+        </div>
+
+        <div class="mt-14 grid gap-6 md:grid-cols-2">
+          <!-- Antes -->
+          <div class="reveal rounded-2xl2 border border-navy/10 bg-sand-100 p-8">
+            <span class="inline-flex items-center gap-2 rounded-full bg-slateink/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-slateink">Antes</span>
+            <h3 class="mt-4 text-xl font-bold tracking-tight">Sensação de bloqueio e insegurança</h3>
+            <ul class="mt-5 space-y-3 text-[15px] text-slateink">
+              <li class="flex items-start gap-2.5"><i data-lucide="x" class="mt-0.5 h-4 w-4 shrink-0 text-accent"></i> Dificuldade para iniciar conversas simples</li>
+              <li class="flex items-start gap-2.5"><i data-lucide="x" class="mt-0.5 h-4 w-4 shrink-0 text-accent"></i> Medo de errar a pronúncia na frente de outros</li>
+              <li class="flex items-start gap-2.5"><i data-lucide="x" class="mt-0.5 h-4 w-4 shrink-0 text-accent"></i> Estudo excessivo de regras sem aplicação real</li>
+            </ul>
+          </div>
+
+          <!-- Depois -->
+          <div class="reveal rounded-2xl2 border border-emerald-600/20 bg-emerald-50/40 p-8">
+            <span class="inline-flex items-center gap-2 rounded-full bg-emerald-600/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-700">Com a Kizuna</span>
+            <h3 class="mt-4 text-xl font-bold tracking-tight text-navy">Comunicação fluida e com autonomia</h3>
+            <ul class="mt-5 space-y-3 text-[15px] text-slateink">
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-emerald-600"></i> Capacidade de se expressar em situações reais</li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-emerald-600"></i> Segurança para viajar, trabalhar ou viver fora</li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-emerald-600"></i> Conexão profunda com a cultura e pessoas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         6. SOBRE A KIZUNA
+         ============================================================ -->
+    <section id="sobre" class="scroll-mt-24 py-20 sm:py-28 bg-sand relative overflow-hidden">
+      <!-- Glows decorativos de fundo -->
+      <div class="pointer-events-none absolute -left-20 top-1/4 h-80 w-80 rounded-full bg-navy/5 blur-3xl"></div>
+      <div class="pointer-events-none absolute -right-20 bottom-10 h-80 w-80 rounded-full bg-accent/5 blur-3xl"></div>
+
+      <div class="mx-auto max-w-content px-5 sm:px-8 relative z-10">
+        <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+
+          <!-- Coluna Visual: Composição Moderna com Badges Flutuantes -->
+          <div class="reveal relative order-2 lg:order-1">
+            <div class="relative mx-auto max-w-md lg:max-w-none">
+              
+              <!-- Card Principal com o Emblema da Kizuna -->
+              <div class="relative overflow-hidden rounded-3xl border border-navy/10 bg-white p-8 sm:p-10 shadow-lift text-center">
+                <div class="absolute -right-12 -top-12 h-44 w-44 rounded-full bg-accent/5 blur-2xl"></div>
+                <div class="absolute -left-12 -bottom-12 h-44 w-44 rounded-full bg-navy/5 blur-2xl"></div>
+                
+                <div class="relative mx-auto flex h-60 w-60 sm:h-72 sm:w-72 items-center justify-center p-4">
+                  <img src="assets/images/about-notebook.webp" width="400" height="400" loading="lazy" decoding="async"
+                       alt="Emblema Oficial Kizuna Language School — Torii, Globo e Flor de Sakura"
+                       class="h-full w-full object-contain drop-shadow-md transition-transform duration-500 hover:scale-105">
+                </div>
+
+                <!-- Bloco do Kanji com Significado e Pronúncia -->
+                <div class="mt-6 rounded-2xl border border-navy/10 bg-sand-100/80 p-4 shadow-soft">
+                  <div class="flex items-center justify-center gap-3">
+                    <span class="font-jp text-3xl font-extrabold text-navy">絆</span>
+                    <div class="text-left">
+                      <p class="text-sm font-extrabold text-navy flex items-center gap-1.5">
+                        Kizuna <span class="text-xs font-normal text-slateink font-mono">[きずな]</span>
+                      </p>
+                      <p class="text-xs text-slateink">Conexão, vínculo e laço genuíno entre pessoas.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Badge Flutuante 1: Significado Cultural -->
+              <div class="float-soft absolute -left-4 -top-5 rounded-2xl border border-navy/10 bg-white/95 px-4 py-2.5 shadow-lift backdrop-blur sm:-left-6">
+                <div class="flex items-center gap-2">
+                  <span class="text-lg">🌸</span>
+                  <span class="text-xs font-bold text-navy">Cultura & Conexão</span>
+                </div>
+              </div>
+
+              <!-- Badge Flutuante 2: Trilinguismo Integrado -->
+              <div class="float-soft-delay absolute -right-4 -bottom-5 rounded-2xl border border-navy/10 bg-white/95 px-4 py-2.5 shadow-lift backdrop-blur sm:-right-6">
+                <div class="flex items-center gap-2">
+                  <span class="flex h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span class="text-xs font-bold text-navy">Inglês • Português • Japonês</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Coluna de Texto e Narrativa -->
+          <div class="reveal order-1 lg:order-2">
+            <span class="inline-flex items-center gap-2 rounded-full bg-accent/10 px-3.5 py-1 text-[11.5px] font-bold uppercase tracking-[0.15em] text-accent">
+              <i data-lucide="heart" class="h-3.5 w-3.5"></i> Nossa Essência
+            </span>
+
+            <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-[2.6rem] sm:leading-tight text-navy">
+              Kizuna significa conexão. E é isso que construímos com você.
+            </h2>
+
+            <div class="mt-6 space-y-4 text-[16px] leading-relaxed text-slateink">
+              <p>
+                Acreditamos que aprender um novo idioma vai muito além de memorizar regras gramaticais ou listas de vocabulário. Um novo idioma é a chave que abre portas para <strong>novas pessoas, novas culturas e oportunidades reais</strong>.
+              </p>
+              <p>
+                Na <strong>Kizuna Language School</strong>, criamos um espaço seguro e acolhedor onde você desenvolve a segurança necessária para se expressar com clareza e naturalidade no mundo real.
+              </p>
+            </div>
+
+            <!-- Cartões de Pilares com Ícones Coloridos -->
+            <div class="mt-8 grid gap-3.5 sm:grid-cols-2">
+              <div class="flex items-start gap-3.5 rounded-2xl border border-navy/10 bg-white p-4.5 shadow-soft transition hover:border-navy/25 hover:shadow-lift">
+                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
+                  <i data-lucide="hand-heart" class="h-5 w-5"></i>
+                </span>
+                <div>
+                  <p class="text-[14.5px] font-bold text-navy">Ambiente Acolhedor</p>
+                  <p class="mt-0.5 text-xs text-slateink leading-normal">Aprenda no seu ritmo, sem pressão e sem medo de errar.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3.5 rounded-2xl border border-navy/10 bg-white p-4.5 shadow-soft transition hover:border-navy/25 hover:shadow-lift">
+                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-navy/10 text-navy">
+                  <i data-lucide="compass" class="h-5 w-5"></i>
+                </span>
+                <div>
+                  <p class="text-[14.5px] font-bold text-navy">Trilha Personalizada</p>
+                  <p class="mt-0.5 text-xs text-slateink leading-normal">Aulas adaptadas para viagens, carreira ou vivência no exterior.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botões de Ação -->
+            <div class="mt-9 flex flex-wrap items-center gap-4">
+              <a href="#contato" data-abrir-agendamento class="inline-flex items-center justify-center gap-2 rounded-xl2 bg-navy px-6 py-3.5 text-sm font-bold text-white shadow-soft transition hover:bg-navy-700 hover:shadow-lift">
+                <span>Agendar Aula Experimental</span>
+                <i data-lucide="arrow-right" class="h-4 w-4"></i>
+              </a>
+
+              <a href="idiomas.html" class="inline-flex items-center justify-center gap-2 rounded-xl2 border border-navy/15 bg-white px-5 py-3.5 text-sm font-bold text-navy shadow-soft transition hover:bg-navy/5">
+                <i data-lucide="languages" class="h-4 w-4 text-accent"></i>
+                <span>Explorar os 3 Idiomas</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         7. COMO FUNCIONA (ROADMAP DO APRENDIZADO)
+         ============================================================ -->
+    <section id="como-funciona" class="scroll-mt-24 bg-white py-20 sm:py-28 relative overflow-hidden">
+      <!-- Decoração sutil de fundo -->
+      <div class="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-72 w-full max-w-7xl bg-gradient-to-b from-sand-100/80 to-transparent"></div>
+
+      <div class="mx-auto max-w-content px-5 sm:px-8 relative z-10">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <span class="inline-flex items-center gap-2 rounded-full bg-accent/10 px-3.5 py-1 text-[11.5px] font-bold uppercase tracking-[0.15em] text-accent">
+            <i data-lucide="zap" class="h-3.5 w-3.5"></i> Passo a Passo Simples
+          </span>
+          <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-[2.6rem] sm:leading-tight text-navy">
+            Aprender pode ser mais simples do que você imagina.
+          </h2>
+          <p class="mt-4 text-[16.5px] leading-relaxed text-slateink">
+            Em 4 etapas práticas, você sai do zero e ganha segurança para se comunicar em qualquer situação.
+          </p>
+        </div>
+
+        <!-- Grid de 4 Passos com Efeito de Jornada / Roadmap -->
+        <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          
+          <!-- Passo 01 -->
+          <article class="reveal group relative flex flex-col justify-between overflow-hidden rounded-2xl2 border border-navy/10 bg-sand-100/90 p-7 shadow-soft transition-all duration-300 hover:-translate-y-2 hover:border-navy/30 hover:shadow-lift">
+            <div class="h-1 w-full bg-gradient-to-r from-navy to-blue-600 absolute top-0 inset-x-0"></div>
+            
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="flex h-13 w-13 items-center justify-center rounded-2xl bg-gradient-to-br from-navy to-navy-700 text-white shadow-soft transition-transform duration-300 group-hover:scale-110 p-3">
+                  <i data-lucide="languages" class="h-6 w-6 text-accent-soft"></i>
+                </span>
+                <span class="rounded-full bg-navy/10 px-2.5 py-0.5 text-xs font-extrabold font-mono text-navy">01</span>
+              </div>
+
+              <span class="mt-5 inline-block text-xs font-extrabold uppercase tracking-wider text-navy-700">
+                1º Passo
+              </span>
+              
+              <h3 class="mt-1 text-xl font-bold tracking-tight text-navy">Escolha seu idioma</h3>
+              <p class="mt-2.5 text-[14px] leading-relaxed text-slateink">
+                Inglês, Português ou Japonês com material didático oficial em 3 volumes incluso.
+              </p>
+            </div>
+
+            <div class="mt-6 border-t border-navy/5 pt-3 text-xs font-semibold text-navy">
+              <span class="inline-flex items-center gap-1">🇺🇸 EN &bull; 🇧🇷 PT &bull; 🇯🇵 JP</span>
+            </div>
+          </article>
+
+          <!-- Passo 02 -->
+          <article class="reveal group relative flex flex-col justify-between overflow-hidden rounded-2xl2 border border-navy/10 bg-sand-100/90 p-7 shadow-soft transition-all duration-300 hover:-translate-y-2 hover:border-accent/30 hover:shadow-lift">
+            <div class="h-1 w-full bg-gradient-to-r from-accent to-rose-500 absolute top-0 inset-x-0"></div>
+            
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="flex h-13 w-13 items-center justify-center rounded-2xl bg-gradient-to-br from-accent to-rose-600 text-white shadow-soft transition-transform duration-300 group-hover:scale-110 p-3">
+                  <i data-lucide="target" class="h-6 w-6 text-white"></i>
+                </span>
+                <span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-extrabold font-mono text-accent">02</span>
+              </div>
+
+              <span class="mt-5 inline-block text-xs font-extrabold uppercase tracking-wider text-accent">
+                2º Passo
+              </span>
+
+              <h3 class="mt-1 text-xl font-bold tracking-tight text-navy">Defina seu objetivo</h3>
+              <p class="mt-2.5 text-[14px] leading-relaxed text-slateink">
+                Ajustamos o foco para o que você precisa: viagens, trabalho, estudos ou conversação diária.
+              </p>
+            </div>
+
+            <div class="mt-6 border-t border-navy/5 pt-3 text-xs font-semibold text-accent">
+              <span class="inline-flex items-center gap-1">🎯 Trilha Personalizada</span>
+            </div>
+          </article>
+
+          <!-- Passo 03 -->
+          <article class="reveal group relative flex flex-col justify-between overflow-hidden rounded-2xl2 border border-navy/10 bg-sand-100/90 p-7 shadow-soft transition-all duration-300 hover:-translate-y-2 hover:border-emerald-600/30 hover:shadow-lift">
+            <div class="h-1 w-full bg-gradient-to-r from-emerald-600 to-teal-500 absolute top-0 inset-x-0"></div>
+            
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="flex h-13 w-13 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-600 text-white shadow-soft transition-transform duration-300 group-hover:scale-110 p-3">
+                  <i data-lucide="video" class="h-6 w-6 text-white"></i>
+                </span>
+                <span class="rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-extrabold font-mono text-emerald-800">03</span>
+              </div>
+
+              <span class="mt-5 inline-block text-xs font-extrabold uppercase tracking-wider text-emerald-700">
+                3º Passo
+              </span>
+
+              <h3 class="mt-1 text-xl font-bold tracking-tight text-navy">Inicie suas aulas</h3>
+              <p class="mt-2.5 text-[14px] leading-relaxed text-slateink">
+                Aulas ao vivo em turmas reduzidas mais 18 videoaulas interativas disponíveis no Portal do Aluno.
+              </p>
+            </div>
+
+            <div class="mt-6 border-t border-navy/5 pt-3 text-xs font-semibold text-emerald-700">
+              <span class="inline-flex items-center gap-1">🎥 Ao Vivo + Videoaulas 24h</span>
+            </div>
+          </article>
+
+          <!-- Passo 04 -->
+          <article class="reveal group relative flex flex-col justify-between overflow-hidden rounded-2xl2 border border-navy/10 bg-sand-100/90 p-7 shadow-soft transition-all duration-300 hover:-translate-y-2 hover:border-amber-500/30 hover:shadow-lift">
+            <div class="h-1 w-full bg-gradient-to-r from-amber-500 to-orange-500 absolute top-0 inset-x-0"></div>
+            
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="flex h-13 w-13 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 text-white shadow-soft transition-transform duration-300 group-hover:scale-110 p-3">
+                  <i data-lucide="award" class="h-6 w-6 text-white"></i>
+                </span>
+                <span class="rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-extrabold font-mono text-amber-800">04</span>
+              </div>
+
+              <span class="mt-5 inline-block text-xs font-extrabold uppercase tracking-wider text-amber-700">
+                4º Passo
+              </span>
+
+              <h3 class="mt-1 text-xl font-bold tracking-tight text-navy">Evolua com confiança</h3>
+              <p class="mt-2.5 text-[14px] leading-relaxed text-slateink">
+                Pratique em situações reais, receba acompanhamento acolhedor e alcance a fluência no seu ritmo.
+              </p>
+            </div>
+
+            <div class="mt-6 border-t border-navy/5 pt-3 text-xs font-semibold text-amber-800">
+              <span class="inline-flex items-center gap-1">🏆 Prática & Certificação</span>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Banner de Chamada para Ação (CTA) em Destaque -->
+        <div class="reveal mt-14 overflow-hidden rounded-2xl2 bg-gradient-to-r from-navy via-navy-800 to-navy-700 p-8 sm:p-10 text-white shadow-lift">
+          <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="max-w-xl">
+              <div class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-accent-soft backdrop-blur mb-3">
+                <i data-lucide="sparkles" class="h-3.5 w-3.5"></i> 100% Gratuita e Sem Compromisso
+              </div>
+              <h3 class="text-2xl sm:text-3xl font-extrabold">Pronto para dar o primeiro passo?</h3>
+              <p class="mt-2 text-sm text-sand-200">Agende sua aula experimental agora mesmo e sinta na prática a metodologia Kizuna.</p>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-3 shrink-0">
+              <a href="#contato" data-abrir-agendamento class="inline-flex items-center gap-2 rounded-xl2 bg-accent px-6 py-4 text-sm font-bold text-white shadow-lift transition duration-200 hover:bg-accent-soft hover:scale-105">
+                <i data-lucide="calendar" class="h-4 w-4"></i>
+                <span>Agendar Aula Experimental</span>
+                <i data-lucide="arrow-right" class="h-4 w-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         8. PROVA SOCIAL & DEPOIMENTOS
+         ============================================================ -->
+    <section id="depoimentos" class="scroll-mt-24 py-20 sm:py-28 bg-sand-100/60">
+      <div class="mx-auto max-w-content px-5 sm:px-8">
+        
+        <!-- Cabeçalho -->
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <div class="inline-flex items-center gap-2 rounded-full border border-navy/10 bg-white px-3.5 py-1.5 text-xs font-bold text-accent shadow-soft mb-3">
+            <i data-lucide="message-square-quote" class="h-3.5 w-3.5"></i> Histórias Reais de Sucesso
+          </div>
+          <h2 class="text-3xl font-extrabold tracking-tight sm:text-[2.6rem] sm:leading-tight text-navy">
+            Quem aprende com a Kizuna, sente a diferença.
+          </h2>
+          <p class="mt-4 text-[16px] text-slateink leading-relaxed">
+            Veja a experiência de quem transformou a comunicação para viagens, trabalho e vivência no exterior.
+          </p>
+
+          <div class="mt-4 inline-flex items-center gap-2 rounded-full bg-amber-50 border border-amber-500/20 px-4 py-1 text-xs font-bold text-amber-900 shadow-soft">
+            <div class="flex text-amber-500">
+              <i data-lucide="star" class="h-3.5 w-3.5 fill-current"></i>
+              <i data-lucide="star" class="h-3.5 w-3.5 fill-current"></i>
+              <i data-lucide="star" class="h-3.5 w-3.5 fill-current"></i>
+              <i data-lucide="star" class="h-3.5 w-3.5 fill-current"></i>
+              <i data-lucide="star" class="h-3.5 w-3.5 fill-current"></i>
+            </div>
+            <span>4.9 / 5.0 (Mais de 1.500 avaliações de alunos)</span>
+          </div>
+        </div>
+
+        <!-- Grid de Depoimentos Principais -->
+        <div class="mt-14 grid gap-6 md:grid-cols-3">
+          
+          <!-- Depoimento 1: Japonês -->
+          <figure class="reveal flex flex-col justify-between rounded-2xl2 border border-navy/10 bg-white p-7 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lift relative overflow-hidden">
+            <div class="h-1 w-full bg-gradient-to-r from-accent to-accent-soft absolute top-0 inset-x-0"></div>
+            
+            <div>
+              <div class="flex items-center justify-between">
+                <div class="flex gap-1 text-amber-400" aria-label="5 estrelas">
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                </div>
+                <span class="rounded-full bg-accent/10 text-accent font-bold px-2.5 py-0.5 text-[11px]">🇯🇵 Japonês</span>
+              </div>
+
+              <blockquote class="mt-5 text-[15px] leading-relaxed text-navy font-medium italic">
+                “Cheguei ao Japão sem falar quase nada e me sentia muito insegura no dia a dia. O método da Kizuna focado em conversação real mudou minha vida: em 6 meses já conseguia resolver tudo na prefeitura e no trabalho com total autonomia!”
+              </blockquote>
+            </div>
+
+            <div class="mt-6 border-t border-navy/10 pt-5">
+              <div class="rounded-xl bg-sand p-2.5 mb-3 text-[11.5px] font-semibold text-accent flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="h-3.5 w-3.5 shrink-0"></i>
+                <span>Destravou autonomia cotidiana em Nagoya</span>
+              </div>
+
+              <figcaption class="flex items-center gap-3">
+                <span class="grid h-11 w-11 place-items-center rounded-full bg-gradient-to-br from-accent to-accent-soft text-white font-black text-sm shadow-soft">
+                  MT
+                </span>
+                <span class="leading-tight">
+                  <strong class="block text-[14.5px] font-extrabold text-navy">Mariana Takahashi</strong>
+                  <span class="block text-[12px] text-slateink">Residente em Aichi, Japão</span>
+                </span>
+              </figcaption>
+            </div>
+          </figure>
+
+          <!-- Depoimento 2: Inglês -->
+          <figure class="reveal flex flex-col justify-between rounded-2xl2 border border-navy/10 bg-white p-7 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lift relative overflow-hidden">
+            <div class="h-1 w-full bg-gradient-to-r from-navy-700 to-navy-600 absolute top-0 inset-x-0"></div>
+            
+            <div>
+              <div class="flex items-center justify-between">
+                <div class="flex gap-1 text-amber-400" aria-label="5 estrelas">
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                </div>
+                <span class="rounded-full bg-navy/10 text-navy font-bold px-2.5 py-0.5 text-[11px]">🇺🇸 Inglês</span>
+              </div>
+
+              <blockquote class="mt-5 text-[15px] leading-relaxed text-navy font-medium italic">
+                “Sempre tive bloqueio com a fala por medo de errar a gramática. As aulas práticas com turmas reduzidas me deram a segurança que faltava. Recentemente fiz 3 entrevistas em inglês e conquistei minha vaga remota internacional!”
+              </blockquote>
+            </div>
+
+            <div class="mt-6 border-t border-navy/10 pt-5">
+              <div class="rounded-xl bg-sand p-2.5 mb-3 text-[11.5px] font-semibold text-navy flex items-center gap-1.5">
+                <i data-lucide="briefcase" class="h-3.5 w-3.5 shrink-0 text-accent"></i>
+                <span>Aprovado em vaga remota para os EUA</span>
+              </div>
+
+              <figcaption class="flex items-center gap-3">
+                <span class="grid h-11 w-11 place-items-center rounded-full bg-gradient-to-br from-navy to-navy-700 text-white font-black text-sm shadow-soft">
+                  RA
+                </span>
+                <span class="leading-tight">
+                  <strong class="block text-[14.5px] font-extrabold text-navy">Rodrigo Albuquerque</strong>
+                  <span class="block text-[12px] text-slateink">Tech Lead &bull; São Paulo, BR</span>
+                </span>
+              </figcaption>
+            </div>
+          </figure>
+
+          <!-- Depoimento 3: Português -->
+          <figure class="reveal flex flex-col justify-between rounded-2xl2 border border-navy/10 bg-white p-7 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lift relative overflow-hidden">
+            <div class="h-1 w-full bg-gradient-to-r from-emerald-600 to-teal-500 absolute top-0 inset-x-0"></div>
+            
+            <div>
+              <div class="flex items-center justify-between">
+                <div class="flex gap-1 text-amber-400" aria-label="5 estrelas">
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                  <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                </div>
+                <span class="rounded-full bg-emerald-100 text-emerald-800 font-bold px-2.5 py-0.5 text-[11px]">🇧🇷 Português</span>
+              </div>
+
+              <blockquote class="mt-5 text-[15px] leading-relaxed text-navy font-medium italic">
+                “A didática da Kizuna é acolhedora e muito dinâmica. Aprender o Português brasileiro com situações práticas, expressões e cultura facilitou 100% minha integração com a equipe e com novos amigos. Recomendo de olhos fechados!”
+              </blockquote>
+            </div>
+
+            <div class="mt-6 border-t border-navy/10 pt-5">
+              <div class="rounded-xl bg-sand p-2.5 mb-3 text-[11.5px] font-semibold text-emerald-800 flex items-center gap-1.5">
+                <i data-lucide="globe" class="h-3.5 w-3.5 shrink-0 text-emerald-600"></i>
+                <span>Fluência e adaptação cultural completa</span>
+              </div>
+
+              <figcaption class="flex items-center gap-3">
+                <span class="grid h-11 w-11 place-items-center rounded-full bg-gradient-to-br from-emerald-600 to-teal-600 text-white font-black text-sm shadow-soft">
+                  AL
+                </span>
+                <span class="leading-tight">
+                  <strong class="block text-[14.5px] font-extrabold text-navy">Antoine Leclerc</strong>
+                  <span class="block text-[12px] text-slateink">Executivo &bull; Paris / São Paulo</span>
+                </span>
+              </figcaption>
+            </div>
+          </figure>
+
+        </div>
+
+        <!-- Métricas de Credibilidade e Autoridade da Escola -->
+        <div class="reveal mt-10 grid gap-5 lg:grid-cols-3">
+          
+          <div class="rounded-2xl2 border border-navy/10 bg-white p-6 shadow-soft flex items-center gap-4 transition hover:border-navy/20">
+            <span class="grid h-13 w-13 shrink-0 place-items-center rounded-2xl bg-navy/5 text-navy p-3">
+              <i data-lucide="trending-up" class="h-6 w-6 text-navy"></i>
+            </span>
+            <div>
+              <p class="text-xl font-black text-navy">+1.500 Alunos</p>
+              <p class="text-xs text-slateink mt-0.5 leading-snug">Destravaram sua comunicação para viagens, trabalho e vivência no exterior.</p>
+            </div>
+          </div>
+
+          <div class="rounded-2xl2 border border-navy/10 bg-white p-6 shadow-soft flex items-center gap-4 transition hover:border-navy/20">
+            <span class="grid h-13 w-13 shrink-0 place-items-center rounded-2xl bg-accent/10 text-accent p-3">
+              <i data-lucide="award" class="h-6 w-6 text-accent"></i>
+            </span>
+            <div>
+              <p class="text-xl font-black text-navy">98.4% de Satisfação</p>
+              <p class="text-xs text-slateink mt-0.5 leading-snug">Avaliações de excelência em didática prática e acolhimento individualizado.</p>
+            </div>
+          </div>
+
+          <div class="rounded-2xl2 border border-navy/10 bg-white p-6 shadow-soft flex items-center gap-4 transition hover:border-navy/20">
+            <span class="grid h-13 w-13 shrink-0 place-items-center rounded-2xl bg-emerald-50 text-emerald-700 p-3">
+              <i data-lucide="shield-check" class="h-6 w-6 text-emerald-700"></i>
+            </span>
+            <div>
+              <p class="text-xl font-black text-navy">Certificado Incluso</p>
+              <p class="text-xs text-slateink mt-0.5 leading-snug">Emissão de certificado de conclusão de nível para enriquecer seu currículo.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         9. PARA QUEM É A KIZUNA?
+         ============================================================ -->
+    <section id="para-quem" class="scroll-mt-24 bg-white py-20 sm:py-28">
+      <div class="mx-auto max-w-content px-5 sm:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <span class="text-[12.5px] font-semibold uppercase tracking-[0.2em] text-accent">Para você</span>
+          <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-[2.6rem] sm:leading-tight">Para quem é a Kizuna?</h2>
+          <p class="mt-4 text-[17px] text-slateink">Cada pessoa tem um motivo para aprender. Todos cabem aqui.</p>
+        </div>
+
+        <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="reveal group flex gap-4 rounded-2xl2 border border-navy/10 bg-sand-100 p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
+            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl2 bg-navy/5 text-navy transition group-hover:bg-navy group-hover:text-white"><i data-lucide="sprout" class="h-5 w-5"></i></span>
+            <div>
+              <h3 class="text-[17px] font-bold tracking-tight">Para quem está começando</h3>
+              <p class="mt-1.5 text-[14.5px] leading-relaxed text-slateink">Você não precisa saber nada para começar do zero.</p>
+            </div>
+          </article>
+
+          <article class="reveal group flex gap-4 rounded-2xl2 border border-navy/10 bg-sand-100 p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
+            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl2 bg-navy/5 text-navy transition group-hover:bg-navy group-hover:text-white"><i data-lucide="briefcase" class="h-5 w-5"></i></span>
+            <div>
+              <h3 class="text-[17px] font-bold tracking-tight">Para quem quer trabalhar</h3>
+              <p class="mt-1.5 text-[14.5px] leading-relaxed text-slateink">Desenvolva habilidades linguísticas para novas vagas e negócios.</p>
+            </div>
+          </article>
+
+          <article class="reveal group flex gap-4 rounded-2xl2 border border-navy/10 bg-sand-100 p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
+            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl2 bg-navy/5 text-navy transition group-hover:bg-navy group-hover:text-white"><i data-lucide="plane" class="h-5 w-5"></i></span>
+            <div>
+              <h3 class="text-[17px] font-bold tracking-tight">Para quem quer viajar</h3>
+              <p class="mt-1.5 text-[14.5px] leading-relaxed text-slateink">Comunique-se com autonomia e segurança em suas viagens.</p>
+            </div>
+          </article>
+
+          <article class="reveal group flex gap-4 rounded-2xl2 border border-navy/10 bg-sand-100 p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
+            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl2 bg-accent/10 text-accent transition group-hover:bg-accent group-hover:text-white"><i data-lucide="map-pin" class="h-5 w-5"></i></span>
+            <div>
+              <h3 class="text-[17px] font-bold tracking-tight">Para quem vive no Japão</h3>
+              <p class="mt-1.5 text-[14.5px] leading-relaxed text-slateink">Melhore sua comunicação no cotidiano, trabalho e trâmites.</p>
+            </div>
+          </article>
+
+          <article class="reveal group flex gap-4 rounded-2xl2 border border-navy/10 bg-sand-100 p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
+            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl2 bg-navy/5 text-navy transition group-hover:bg-navy group-hover:text-white"><i data-lucide="book-marked" class="h-5 w-5"></i></span>
+            <div>
+              <h3 class="text-[17px] font-bold tracking-tight">Para quem quer estudar</h3>
+              <p class="mt-1.5 text-[14.5px] leading-relaxed text-slateink">Prepare-se para novos desafios acadêmicos e exames.</p>
+            </div>
+          </article>
+
+          <article class="reveal group flex gap-4 rounded-2xl2 border border-navy/10 bg-sand-100 p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
+            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl2 bg-navy/5 text-navy transition group-hover:bg-navy group-hover:text-white"><i data-lucide="mountain-snow" class="h-5 w-5"></i></span>
+            <div>
+              <h3 class="text-[17px] font-bold tracking-tight">Para desenvolvimento pessoal</h3>
+              <p class="mt-1.5 text-[14.5px] leading-relaxed text-slateink">Aprender um idioma também transforma sua mente e confiança.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         10. CTA DE ALTA CONVERSÃO
+         ============================================================ -->
+    <section class="py-8 sm:py-12">
+      <div class="mx-auto max-w-content px-5 sm:px-8">
+        <div class="reveal relative overflow-hidden rounded-2xl2 mesh-navy px-7 py-14 text-center shadow-lift sm:px-14 sm:py-20">
+          <span class="pointer-events-none absolute -right-6 -top-10 font-jp text-[13rem] font-bold leading-none text-white/[0.04] select-none" aria-hidden="true">絆</span>
+
+          <div class="relative mx-auto max-w-2xl">
+            <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-[2.7rem] sm:leading-tight">
+              Seu próximo passo começa com uma conversa.
+            </h2>
+            <p class="mt-5 text-[17px] leading-relaxed text-white/70">
+              Descubra qual idioma combina com seus objetivos e encontre a melhor forma de começar hoje mesmo.
+            </p>
+
+            <div class="mt-9 flex flex-col justify-center gap-3.5 sm:flex-row">
+              <a href="#contato" class="group inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-7 py-4 text-base font-semibold text-navy shadow-lift transition hover:-translate-y-0.5 hover:bg-sand-100">
+                Agendar aula experimental
+                <i data-lucide="arrow-right" class="h-[18px] w-[18px] transition-transform group-hover:translate-x-1"></i>
+              </a>
+              <a href="#" data-whatsapp class="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/25 px-7 py-4 text-base font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white/10">
+                <i data-lucide="message-circle" class="h-[18px] w-[18px]"></i>
+                Falar com a Kizuna
+              </a>
+            </div>
+
+            <p class="mt-6 text-[13.5px] text-white/50">Seu idioma. Suas oportunidades. Suas conexões.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         11. FAQ (ACCORDION)
+         ============================================================ -->
+    <section id="faq" class="scroll-mt-24 py-20 sm:py-28">
+      <div class="mx-auto max-w-content px-5 sm:px-8">
+        <div class="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+
+          <div class="reveal lg:sticky lg:top-28 lg:self-start">
+            <span class="text-[12.5px] font-semibold uppercase tracking-[0.2em] text-accent">FAQ</span>
+            <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-[2.6rem] sm:leading-tight">Perguntas frequentes</h2>
+            <p class="mt-4 text-[16px] leading-relaxed text-slateink">
+              Não encontrou o que procurava? Fale diretamente com a gente — responderemos com prazer.
+            </p>
+            <a href="#contato" class="mt-6 inline-flex items-center gap-2 rounded-2xl border border-navy/15 bg-white px-6 py-3.5 text-[15px] font-semibold text-navy shadow-soft transition hover:border-navy/30">
+              Enviar minha pergunta <i data-lucide="arrow-right" class="h-4 w-4"></i>
+            </a>
+          </div>
+
+          <!-- Lista de Perguntas (Accordion) -->
+          <div class="reveal divide-y divide-navy/10 overflow-hidden rounded-2xl2 border border-navy/10 bg-white shadow-soft" id="faq-list">
+            <div class="faq-item">
+              <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-navy/[0.02]" aria-expanded="false">
+                <span class="text-[16.5px] font-semibold text-navy">Preciso saber algum idioma para começar?</span>
+                <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-navy-600 transition-transform duration-300"></i>
+              </button>
+              <div class="faq-panel">
+                <div class="px-6 pb-6 text-[15.5px] leading-relaxed text-slateink">
+                  Não. Existem opções preparadas especialmente para iniciantes — você pode começar mesmo sem nenhum contato prévio com o idioma.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-navy/[0.02]" aria-expanded="false">
+                <span class="text-[16.5px] font-semibold text-navy">Qual idioma posso estudar na Kizuna?</span>
+                <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-navy-600 transition-transform duration-300"></i>
+              </button>
+              <div class="faq-panel">
+                <div class="px-6 pb-6 text-[15.5px] leading-relaxed text-slateink">
+                  Oferecemos cursos completos de Inglês, Português (para estrangeiros) e Japonês.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-navy/[0.02]" aria-expanded="false">
+                <span class="text-[16.5px] font-semibold text-navy">Vocês oferecem aulas para iniciantes?</span>
+                <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-navy-600 transition-transform duration-300"></i>
+              </button>
+              <div class="faq-panel">
+                <div class="px-6 pb-6 text-[15.5px] leading-relaxed text-slateink">
+                  Sim! Há opções para diferentes níveis, de quem está começando do zero absoluto a quem já estudou antes e quer retomar a conversação. O plano de aprendizado é ajustado junto com você.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-navy/[0.02]" aria-expanded="false">
+                <span class="text-[16.5px] font-semibold text-navy">As aulas são presenciais ou online?</span>
+                <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-navy-600 transition-transform duration-300"></i>
+              </button>
+              <div class="faq-panel">
+                <div class="px-6 pb-6 text-[15.5px] leading-relaxed text-slateink">
+                  Oferecemos formatos flexíveis para atender à sua rotina. Entre em contato conosco para confirmar a disponibilidade de horários e modalidades para o idioma desejado.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-navy/[0.02]" aria-expanded="false">
+                <span class="text-[16.5px] font-semibold text-navy">Posso fazer uma aula experimental?</span>
+                <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-navy-600 transition-transform duration-300"></i>
+              </button>
+              <div class="faq-panel">
+                <div class="px-6 pb-6 text-[15.5px] leading-relaxed text-slateink">
+                  Com certeza! Convidamos você para uma aula experimental para conhecer nossa metodologia prática, ambiente e tirar todas as suas dúvidas.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-navy/[0.02]" aria-expanded="false">
+                <span class="text-[16.5px] font-semibold text-navy">Quanto custa o curso?</span>
+                <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-navy-600 transition-transform duration-300"></i>
+              </button>
+              <div class="faq-panel">
+                <div class="px-6 pb-6 text-[15.5px] leading-relaxed text-slateink">
+                  Os valores variam conforme o idioma, o formato e a frequência semanal das aulas.
+                  <a href="#contato" class="font-semibold text-navy underline decoration-accent/40 underline-offset-4 hover:decoration-accent">Fale conosco para receber todas as opções e planos.</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-navy/[0.02]" aria-expanded="false">
+                <span class="text-[16.5px] font-semibold text-navy">Como faço minha matrícula?</span>
+                <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-navy-600 transition-transform duration-300"></i>
+              </button>
+              <div class="faq-panel">
+                <div class="px-6 pb-6 text-[15.5px] leading-relaxed text-slateink">
+                  O primeiro passo é muito simples: preencha o formulário abaixo ou nos mande uma mensagem pelo WhatsApp. A partir daí alinhamos seus horários e objetivos!
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-navy/[0.02]" aria-expanded="false">
+                <span class="text-[16.5px] font-semibold text-navy">Quanto tempo leva para aprender?</span>
+                <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-navy-600 transition-transform duration-300"></i>
+              </button>
+              <div class="faq-panel">
+                <div class="px-6 pb-6 text-[15.5px] leading-relaxed text-slateink">
+                  Depende do seu objetivo, nível de partida e frequência. Trabalhamos com evolução contínua e foco em conversação desde o primeiro dia para você sentir progresso rápido.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         12. CONTATO
+         ============================================================ -->
+    <section id="contato" class="scroll-mt-24 bg-white py-20 sm:py-28">
+      <div class="mx-auto max-w-content px-5 sm:px-8">
+        <div class="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+
+          <!-- Formulário -->
+          <div class="reveal">
+            <span class="text-[12.5px] font-semibold uppercase tracking-[0.2em] text-accent">Contato</span>
+            <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-[2.6rem] sm:leading-tight">Vamos começar sua jornada?</h2>
+            <p class="mt-4 text-[16.5px] leading-relaxed text-slateink">
+              Preencha os dados abaixo e entraremos em contato para agendar sua aula experimental.
+            </p>
+
+            <form id="kizuna-form" class="mt-8 space-y-4" novalidate>
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label for="nome" class="mb-1.5 block text-[14px] font-semibold text-navy">Nome <span class="text-accent">*</span></label>
+                  <input id="nome" name="nome" type="text" required autocomplete="name" placeholder="Como podemos te chamar?"
+                         class="w-full rounded-xl2 border border-navy/15 bg-sand-100 px-4 py-3.5 text-[15px] text-navy placeholder:text-slateink-light transition focus:border-navy-600 focus:bg-white focus:outline-none">
+                </div>
+                <div>
+                  <label for="email" class="mb-1.5 block text-[14px] font-semibold text-navy">E-mail <span class="text-accent">*</span></label>
+                  <input id="email" name="email" type="email" required autocomplete="email" placeholder="seu@email.com"
+                         class="w-full rounded-xl2 border border-navy/15 bg-sand-100 px-4 py-3.5 text-[15px] text-navy placeholder:text-slateink-light transition focus:border-navy-600 focus:bg-white focus:outline-none">
+                </div>
+              </div>
+
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label for="telefone" class="mb-1.5 block text-[14px] font-semibold text-navy">Telefone / WhatsApp</label>
+                  <input id="telefone" name="telefone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Com DDD ou DDI"
+                         class="w-full rounded-xl2 border border-navy/15 bg-sand-100 px-4 py-3.5 text-[15px] text-navy placeholder:text-slateink-light transition focus:border-navy-600 focus:bg-white focus:outline-none">
+                </div>
+                <div>
+                  <label for="idioma" class="mb-1.5 block text-[14px] font-semibold text-navy">Idioma de interesse <span class="text-accent">*</span></label>
+                  <select id="idioma" name="idioma" required
+                          class="w-full appearance-none rounded-xl2 border border-navy/15 bg-sand-100 px-4 py-3.5 text-[15px] text-navy transition focus:border-navy-600 focus:bg-white focus:outline-none">
+                    <option value="">Selecione um idioma</option>
+                    <option value="Inglês">Inglês</option>
+                    <option value="Português">Português</option>
+                    <option value="Japonês">Japonês</option>
+                    <option value="Ainda não sei">Ainda não sei</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label for="nivel" class="mb-1.5 block text-[14px] font-semibold text-navy">Nível atual no idioma</label>
+                <select id="nivel" name="nivel"
+                        class="w-full appearance-none rounded-xl2 border border-navy/15 bg-sand-100 px-4 py-3.5 text-[15px] text-navy transition focus:border-navy-600 focus:bg-white focus:outline-none">
+                  <option value="">Selecione seu nível aproximado</option>
+                  <option value="Nunca estudei (Zero)">Nunca estudei (Zero)</option>
+                  <option value="Iniciante">Iniciante</option>
+                  <option value="Intermediário">Intermediário</option>
+                  <option value="Avançado">Avançado</option>
+                  <option value="Não tenho certeza">Não tenho certeza</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="mensagem" class="mb-1.5 block text-[14px] font-semibold text-navy">Mensagem ou objetivo</label>
+                <textarea id="mensagem" name="mensagem" rows="4" placeholder="Conte um pouco do seu objetivo: trabalho, viagem, estudos, conversação…"
+                          class="w-full resize-y rounded-xl2 border border-navy/15 bg-sand-100 px-4 py-3.5 text-[15px] text-navy placeholder:text-slateink-light transition focus:border-navy-600 focus:bg-white focus:outline-none"></textarea>
+              </div>
+
+              <button type="submit"
+                      class="group flex w-full items-center justify-center gap-2 rounded-2xl bg-navy px-7 py-4 text-base font-semibold text-white shadow-lift transition hover:bg-navy-700 hover:-translate-y-0.5">
+                Enviar mensagem
+                <i data-lucide="send" class="h-[18px] w-[18px] transition-transform group-hover:translate-x-0.5"></i>
+              </button>
+
+              <p id="form-feedback" class="hidden rounded-xl2 border px-4 py-3 text-[14.5px]" role="status" aria-live="polite"></p>
+
+              <p class="text-center text-[13px] text-slateink">
+                Seus dados são usados exclusivamente para agendamento de aulas e contato da escola.
+              </p>
+            </form>
+
+            <!-- Botão WhatsApp Direto -->
+            <div class="mt-6 rounded-2xl2 border border-navy/10 bg-sand-100 p-5">
+              <p class="text-[14.5px] font-semibold text-navy">Prefere conversar agora pelo WhatsApp?</p>
+              <a href="#" data-whatsapp
+                 class="mt-3 flex items-center justify-center gap-2.5 rounded-2xl bg-[#1FAF54] px-6 py-4 text-base font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-[#189646]">
+                <svg viewBox="0 0 24 24" class="h-5 w-5 fill-current" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.16c-.25.69-1.45 1.32-2 1.4-.51.08-1.16.11-1.87-.12-.43-.14-.99-.32-1.7-.63-2.99-1.29-4.94-4.3-5.09-4.5-.15-.2-1.22-1.62-1.22-3.09s.77-2.19 1.04-2.49c.27-.3.59-.37.79-.37.2 0 .39 0 .57.01.18.01.42-.07.66.5.25.6.84 2.07.91 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.36 1.46.3.15.47.12.65-.07.17-.2.75-.87.95-1.17.2-.3.4-.25.66-.15.27.1 1.71.81 2.01.96.3.15.5.22.57.35.07.12.07.72-.18 1.41Z"/></svg>
+                Falar no WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <!-- Informações de Contato -->
+          <aside class="reveal">
+            <div class="rounded-2xl2 mesh-navy p-8 text-white shadow-lift sm:p-9">
+              <h3 class="text-xl font-bold tracking-tight">Fale com a Kizuna</h3>
+              <p class="mt-2 text-[15px] leading-relaxed text-white/65">
+                Estamos prontos para atender você e planejar seu curso ideal.
+              </p>
+
+              <ul class="mt-8 space-y-6">
+                <li class="flex gap-4">
+                  <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl2 bg-white/10"><i data-lucide="map-pin" class="h-5 w-5"></i></span>
+                  <div>
+                    <p class="text-[13px] font-semibold uppercase tracking-wider text-white/45">Endereço</p>
+                    <p class="mt-1 text-[15px] text-white/90" data-cfg="endereco">[ENDEREÇO]</p>
+                  </div>
+                </li>
+                <li class="flex gap-4">
+                  <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl2 bg-white/10"><i data-lucide="phone" class="h-5 w-5"></i></span>
+                  <div>
+                    <p class="text-[13px] font-semibold uppercase tracking-wider text-white/45">Telefone</p>
+                    <p class="mt-1 text-[15px] text-white/90" data-cfg="telefone">[TELEFONE]</p>
+                  </div>
+                </li>
+                <li class="flex gap-4">
+                  <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl2 bg-white/10"><i data-lucide="mail" class="h-5 w-5"></i></span>
+                  <div>
+                    <p class="text-[13px] font-semibold uppercase tracking-wider text-white/45">E-mail</p>
+                    <p class="mt-1 text-[15px] text-white/90" data-cfg="email">[E-MAIL]</p>
+                  </div>
+                </li>
+                <li class="flex gap-4">
+                  <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl2 bg-white/10"><i data-lucide="clock" class="h-5 w-5"></i></span>
+                  <div>
+                    <p class="text-[13px] font-semibold uppercase tracking-wider text-white/45">Horário de atendimento</p>
+                    <p class="mt-1 text-[15px] text-white/90" data-cfg="horario">[HORÁRIO DE ATENDIMENTO]</p>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="mt-8 border-t border-white/15 pt-7">
+                <p class="text-[13px] font-semibold uppercase tracking-wider text-white/45">Siga a Kizuna</p>
+                <div class="mt-4 flex flex-wrap gap-2.5">
+                  <a href="#" data-social="instagram" aria-label="Instagram da Kizuna" class="grid h-11 w-11 place-items-center rounded-xl2 border border-white/15 text-white/85 transition hover:bg-white hover:text-navy"><i data-lucide="instagram" class="h-[18px] w-[18px]"></i></a>
+                  <a href="#" data-social="facebook" aria-label="Facebook da Kizuna" class="grid h-11 w-11 place-items-center rounded-xl2 border border-white/15 text-white/85 transition hover:bg-white hover:text-navy"><i data-lucide="facebook" class="h-[18px] w-[18px]"></i></a>
+                  <a href="#" data-social="youtube" aria-label="YouTube da Kizuna" class="grid h-11 w-11 place-items-center rounded-xl2 border border-white/15 text-white/85 transition hover:bg-white hover:text-navy"><i data-lucide="youtube" class="h-[18px] w-[18px]"></i></a>
+                  <a href="#" data-social="tiktok" aria-label="TikTok da Kizuna" class="grid h-11 w-11 place-items-center rounded-xl2 border border-white/15 text-white/85 transition hover:bg-white hover:text-navy"><i data-lucide="music-2" class="h-[18px] w-[18px]"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <p class="mt-4 text-center text-[13px] text-slateink">
+              Para personalizar esses dados, edite o arquivo <code class="rounded bg-navy/5 px-1.5 py-0.5 font-mono text-[12px]">assets/js/config.js</code>.
+            </p>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       13. RODAPÉ
+       ============================================================ -->
+  <footer class="mesh-navy text-white">
+    <div class="mx-auto max-w-content px-5 py-16 sm:px-8 sm:py-20">
+      <div class="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr]">
+
+        <!-- Marca -->
+        <div>
+          <div class="flex items-center gap-3">
+            <span class="grid h-12 w-12 place-items-center rounded-xl2 bg-white p-1 shadow-soft">
+              <img src="assets/images/kizuna-logo.webp" width="40" height="40" decoding="async" loading="lazy"
+                   alt="Emblema da Kizuna Language School" class="h-10 w-10">
+            </span>
+            <span class="leading-none">
+              <span class="block text-[20px] font-extrabold tracking-tight text-white">Kizuna</span>
+              <span class="block text-[11px] font-medium uppercase tracking-[0.22em] text-white/60">Language School</span>
+            </span>
+          </div>
+
+          <p class="mt-5 max-w-sm text-[14.5px] leading-relaxed text-white/65">
+            Aprenda um novo idioma. Desenvolva sua comunicação, confiança e conexão com o mundo.
+          </p>
+
+          <p class="mt-6 flex items-center gap-2 font-jp text-[13px] text-white/45">
+            <span class="font-bold text-accent-soft">絆</span>
+            <span>言葉がつなぐ、世界と未来。</span>
+          </p>
+        </div>
+
+        <!-- Links de Navegação -->
+        <div>
+          <p class="text-[13px] font-semibold uppercase tracking-wider text-white/45">Navegação</p>
+          <ul class="mt-4 space-y-2.5 text-[14.5px] text-white/75">
+            <li><a href="#hero" class="transition hover:text-white">Início</a></li>
+            <li><a href="#idiomas" class="transition hover:text-white">Cursos de Idiomas</a></li>
+            <li><a href="aluno.html" class="transition hover:text-white flex items-center gap-1.5">Portal do Aluno <span class="rounded bg-accent/20 text-accent-soft px-1.5 py-0.2 text-xs font-semibold">🎓</span></a></li>
+            <li><a href="professor.html" class="transition hover:text-white flex items-center gap-1.5">Portal do Professor <span class="rounded bg-emerald-500/20 text-emerald-300 px-1.5 py-0.2 text-xs font-semibold">👨‍🏫</span></a></li>
+            <li><a href="admin.html" class="transition hover:text-white flex items-center gap-1.5">Painel Admin <span class="rounded bg-navy-600 px-1.5 py-0.2 text-xs font-semibold text-white/80">🔒</span></a></li>
+            <li><a href="#sobre" class="transition hover:text-white">Sobre a Kizuna</a></li>
+            <li><a href="#beneficios" class="transition hover:text-white">Benefícios</a></li>
+            <li><a href="#depoimentos" class="transition hover:text-white">Depoimentos</a></li>
+            <li><a href="#faq" class="transition hover:text-white">Perguntas Frequentes</a></li>
+            <li><a href="#contato" class="transition hover:text-white">Contato e Matrícula</a></li>
+          </ul>
+        </div>
+
+        <!-- Cursos Oferecidos -->
+        <div>
+          <p class="text-[13px] font-semibold uppercase tracking-wider text-white/45">Cursos</p>
+          <ul class="mt-4 space-y-2.5 text-[14.5px] text-white/75">
+            <li><a href="#idiomas" class="flex items-center gap-2 transition hover:text-white"><span>🇺🇸</span> Inglês</a></li>
+            <li><a href="#idiomas" class="flex items-center gap-2 transition hover:text-white"><span>🇧🇷</span> Português</a></li>
+            <li><a href="#idiomas" class="flex items-center gap-2 transition hover:text-white"><span>🇯🇵</span> Japonês</a></li>
+          </ul>
+
+          <div class="mt-8 rounded-xl2 border border-white/10 bg-white/5 p-4">
+            <p class="text-[12.5px] font-medium text-white/60">Agende sua aula experimental gratuita:</p>
+            <a href="#contato" class="mt-2 inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-white hover:underline">
+              Fale conosco agora <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Linha Inferior -->
+      <div class="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-center text-[13px] text-white/45 sm:flex-row sm:text-left">
+        <p>&copy; <span id="ano-atual">2026</span> Kizuna Language School. Todos os direitos reservados.</p>
+        <p class="text-white/35">Design contemporâneo &bull; Conexão global</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       MODAL DO PAINEL DE COMPRAS / CHECKOUT
+       ============================================================ -->
+  <div id="modal-compras" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-navy-900/80 backdrop-blur-md overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="modal-compras-titulo">
+    <div id="modal-compras-card" class="relative w-full max-w-xl overflow-hidden rounded-2xl2 border border-navy/10 bg-white p-6 sm:p-8 shadow-lift my-8 max-h-[90vh] overflow-y-auto">
+      <!-- Botão Fechar -->
+      <button id="fechar-modal-compras" type="button" class="absolute top-5 right-5 grid h-9 w-9 place-items-center rounded-xl bg-navy/5 text-slateink transition hover:bg-navy/10 hover:text-navy focus:outline-none" aria-label="Fechar painel de compras">
+        <i data-lucide="x" class="h-5 w-5"></i>
+      </button>
+
+      <!-- ETAPA 1: SELEÇÃO & CHECKOUT -->
+      <div id="compras-step-checkout">
+        <!-- Cabeçalho -->
+        <div class="flex items-center gap-3">
+          <span class="grid h-12 w-12 place-items-center rounded-2xl bg-navy text-white shadow-soft">
+            <i data-lucide="shopping-bag" class="h-6 w-6 text-accent-soft"></i>
+          </span>
+          <div>
+            <span class="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-emerald-700">
+              <i data-lucide="sparkles" class="h-3 w-3"></i> Loja Oficial Kizuna
+            </span>
+            <h3 id="modal-compras-titulo" class="mt-1 text-2xl font-extrabold tracking-tight text-navy">Área de Compras</h3>
+          </div>
+        </div>
+
+        <p class="mt-3 text-sm leading-relaxed text-slateink">
+          Selecione a apostila ou combo desejado. Após a confirmação, você receberá o <strong>Código de Acesso</strong> para desbloquear o material imediatamente!
+        </p>
+
+        <!-- Formulário de Checkout -->
+        <form id="form-checkout-compras" class="mt-6 space-y-5">
+          
+          <!-- 1. Escolha da Apostila -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-navy mb-2.5">1. Material Didático Selecionado</label>
+            <div class="grid gap-2.5">
+              
+              <!-- Produto Principal: Coleção Completa com os 3 Volumes -->
+              <div class="compra-item-card is-selected relative flex items-center justify-between rounded-xl2 border-2 border-emerald-600/40 bg-emerald-50/50 p-4 shadow-soft" data-produto-id="combo">
+                <div class="flex items-center gap-3">
+                  <input type="radio" name="produto_checkout" value="combo" checked class="h-4 w-4 text-emerald-600 focus:ring-emerald-600 pointer-events-none">
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <span class="text-base font-bold text-navy">📚 Coleção Didática Completa</span>
+                      <span class="rounded bg-emerald-600 text-white px-2 py-0.5 text-[10.5px] font-bold uppercase tracking-wider">3 Volumes Inclusos</span>
+                    </div>
+                    <p class="text-xs text-slateink mt-0.5">Compre 1 e leve todos: 📘 Vol 1 (Fundamentos) + 📗 Vol 2 (Construção) + 📕 Vol 3 (Conversação)</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span class="block text-xl font-black text-navy">R$ 47,00</span>
+                  <span class="text-[11px] text-slateink line-through">R$ 141,00</span>
+                </div>
+              </div>
+
+              <!-- Destaque Informativo -->
+              <div class="rounded-xl border border-navy/10 bg-sand-100 p-3 text-xs text-slateink flex items-center gap-2">
+                <i data-lucide="shield-check" class="h-4 w-4 text-emerald-600 shrink-0"></i>
+                <span><strong>Pagamento Único:</strong> Acesso vitalício e download direto aos 3 livros em formato PDF.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Dados do Comprador -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-navy mb-2">2. Seus Dados de Acesso</label>
+            <div class="grid gap-3 sm:grid-cols-2">
+              <div>
+                <input type="text" name="comprador_nome" required placeholder="Seu nome completo"
+                       class="w-full rounded-xl border border-navy/15 bg-sand-100 px-3.5 py-3 text-sm text-navy placeholder:text-slateink-light focus:border-navy-600 focus:bg-white focus:outline-none">
+              </div>
+              <div>
+                <input type="email" name="comprador_email" required placeholder="Seu melhor e-mail"
+                       class="w-full rounded-xl border border-navy/15 bg-sand-100 px-3.5 py-3 text-sm text-navy placeholder:text-slateink-light focus:border-navy-600 focus:bg-white focus:outline-none">
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Forma de Pagamento -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-navy mb-2">3. Forma de Pagamento</label>
+            <div class="grid grid-cols-3 gap-2">
+              <button type="button" data-metodo-pagto="pix" class="flex items-center justify-center gap-1.5 rounded-xl py-2.5 px-3 text-xs font-bold bg-navy text-white shadow-soft transition">
+                <i data-lucide="qr-code" class="h-4 w-4"></i> Pix (Instantâneo)
+              </button>
+              <button type="button" data-metodo-pagto="cartao" class="flex items-center justify-center gap-1.5 rounded-xl py-2.5 px-3 text-xs font-semibold bg-sand-100 text-slateink hover:text-navy transition">
+                <i data-lucide="credit-card" class="h-4 w-4"></i> Cartão
+              </button>
+              <button type="button" data-metodo-pagto="whatsapp" class="flex items-center justify-center gap-1.5 rounded-xl py-2.5 px-3 text-xs font-semibold bg-sand-100 text-slateink hover:text-navy transition">
+                <i data-lucide="message-circle" class="h-4 w-4"></i> WhatsApp
+              </button>
+            </div>
+
+            <!-- Painel Pix -->
+            <div id="painel-pagto-pix" class="mt-3 rounded-xl border border-emerald-600/25 bg-emerald-50/50 p-4 text-xs text-emerald-900">
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="block font-bold">Chave Pix da Escola:</span>
+                  <code id="compras-pix-chave" class="font-mono text-sm font-bold text-navy">pix@kizunalanguageschool.com</code>
+                </div>
+                <button type="button" id="btn-copiar-pix" class="inline-flex items-center gap-1 rounded-lg bg-white px-3 py-1.5 text-xs font-bold text-navy border border-navy/10 shadow-soft hover:bg-navy/5">
+                  <i data-lucide="copy" class="h-3.5 w-3.5"></i> Copiar Chave
+                </button>
+              </div>
+              <p class="mt-2 text-emerald-700">O código de liberação é gerado imediatamente ao confirmar.</p>
+            </div>
+
+            <!-- Painel Cartão -->
+            <div id="painel-pagto-cartao" class="mt-3 hidden rounded-xl border border-navy/10 bg-sand-100 p-4 text-xs text-slateink">
+              <p class="font-medium text-navy">Ambiente seguro com criptografia de ponta a ponta.</p>
+              <p class="mt-1">Aceitamos Visa, Mastercard, Elo, Hipercard e American Express.</p>
+            </div>
+
+            <!-- Painel WhatsApp -->
+            <div id="painel-pagto-whatsapp" class="mt-3 hidden rounded-xl border border-navy/10 bg-sand-100 p-4 text-xs text-slateink">
+              <p class="font-medium text-navy">Prefere receber os dados pelo WhatsApp?</p>
+              <p class="mt-1">Ao avançar, nossa equipe entrará em contato para te enviar a chave e o código.</p>
+            </div>
+          </div>
+
+          <!-- Total & Botão de Confirmação -->
+          <div class="border-t border-navy/10 pt-4">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-sm font-bold text-slateink">Total a pagar:</span>
+              <span id="compras-total-display" class="text-2xl font-black text-navy">R$ 97,00</span>
+            </div>
+
+            <button type="submit" class="flex w-full items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-6 py-4 text-base font-bold text-white shadow-lift transition hover:bg-emerald-700 hover:-translate-y-0.5">
+              <i data-lucide="check-circle-2" class="h-5 w-5"></i>
+              Confirmar e Gerar Código de Acesso
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- ETAPA 2: COMPRA CONCLUÍDA & CÓDIGO DE DESBLOQUEIO -->
+      <div id="compras-step-sucesso" class="hidden text-center py-4">
+        <span class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-emerald-100 text-emerald-600 shadow-soft">
+          <i data-lucide="check" class="h-8 w-8"></i>
+        </span>
+
+        <span class="mt-4 inline-flex items-center gap-1 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-emerald-700">
+          🎉 Pedido Concluído com Sucesso!
+        </span>
+
+        <h3 class="mt-3 text-2xl font-extrabold tracking-tight text-navy">Seu Código de Acesso está Pronto!</h3>
+        <p class="mt-2 text-sm text-slateink">
+          Você adquiriu: <strong id="compras-sucesso-produto" class="text-navy">Combo Especial (3 Idiomas)</strong>.
+        </p>
+
+        <!-- Caixa de Credenciais do Aluno (Login & Senha) -->
+        <div class="code-ticket-box mt-6 rounded-2xl2 p-6 text-white text-center shadow-lift border border-white/10">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-white/70">Credenciais Criadas com Sucesso</p>
+          <div class="mt-4 grid gap-2 sm:grid-cols-2 text-left bg-white/10 rounded-xl p-3 border border-white/15">
+            <div>
+              <span class="block text-[11px] font-semibold text-white/70">👤 Login (E-mail):</span>
+              <span id="compras-login-liberado" class="font-mono text-sm font-bold text-white break-all">aluno@exemplo.com</span>
+            </div>
+            <div>
+              <span class="block text-[11px] font-semibold text-white/70">🔑 Senha do Aluno:</span>
+              <span id="compras-senha-liberada" class="font-mono text-sm font-bold text-accent-soft">KZ-4821</span>
+            </div>
+          </div>
+
+          <div class="mt-4 flex justify-center">
+            <button type="button" id="btn-copiar-credenciais-compradas" class="inline-flex items-center gap-2 rounded-xl bg-white/15 px-4 py-2 text-xs font-bold text-white backdrop-blur transition hover:bg-white hover:text-navy">
+              <i data-lucide="copy" class="h-4 w-4"></i>
+              <span>Copiar Login & Senha</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Ação Imediata: Entrar e Acessar Apostilas -->
+        <div class="mt-6 space-y-3">
+          <button type="button" id="btn-desbloquear-direto-compras" class="flex w-full items-center justify-center gap-2 rounded-2xl bg-navy px-6 py-4 text-base font-bold text-white shadow-lift transition hover:bg-navy-700 hover:-translate-y-0.5">
+            <i data-lucide="unlock" class="h-5 w-5 text-accent-soft"></i>
+            Entrar e Acessar Apostilas Agora
+          </button>
+
+          <p class="text-xs text-slateink">
+            Sua conta foi autenticada automaticamente. Você já pode baixar seus materiais!
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MODAL DE LOGIN DO ALUNO (ÁREA DO ALUNO)
+       ============================================================ -->
+  <div id="modal-login-aluno" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-navy-900/80 backdrop-blur-md overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="modal-login-titulo">
+    <div id="modal-login-aluno-card" class="relative w-full max-w-md overflow-hidden rounded-2xl2 border border-navy/10 bg-white p-6 sm:p-8 shadow-lift my-8">
+      <!-- Botão Fechar -->
+      <button id="fechar-modal-login" type="button" class="absolute top-5 right-5 grid h-9 w-9 place-items-center rounded-xl bg-navy/5 text-slateink transition hover:bg-navy/10 hover:text-navy focus:outline-none" aria-label="Fechar janela de login">
+        <i data-lucide="x" class="h-5 w-5"></i>
+      </button>
+
+      <!-- Cabeçalho -->
+      <div class="flex items-center gap-3">
+        <span class="grid h-12 w-12 place-items-center rounded-2xl bg-navy text-white shadow-soft">
+          <i data-lucide="user-check" class="h-6 w-6 text-accent-soft"></i>
+        </span>
+        <div>
+          <span class="inline-flex items-center gap-1 rounded-full bg-navy/5 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-navy">
+            <i data-lucide="shield" class="h-3 w-3 text-accent"></i> Área Restrita do Aluno
+          </span>
+          <h3 id="modal-login-titulo" class="mt-1 text-2xl font-extrabold tracking-tight text-navy">Acessar Apostilas</h3>
+        </div>
+      </div>
+
+      <p class="mt-3 text-sm leading-relaxed text-slateink">
+        Insira suas credenciais de aluno para liberar o download dos materiais do seu curso.
+      </p>
+
+      <!-- Formulário de Login -->
+      <form id="form-login-aluno" class="mt-6 space-y-4">
+        <div>
+          <label for="input-login-email" class="block text-xs font-bold uppercase tracking-wider text-navy">E-mail ou Login</label>
+          <div class="mt-1.5 relative">
+            <input id="input-login-email" type="email" required placeholder="seuemail@exemplo.com" autocomplete="username"
+                   class="w-full rounded-xl border border-navy/15 bg-sand-100 px-3.5 py-3 pl-10 text-sm text-navy placeholder:text-slateink-light focus:border-navy-600 focus:bg-white focus:outline-none">
+            <i data-lucide="mail" class="absolute left-3.5 top-3.5 h-4 w-4 text-slateink-light"></i>
+          </div>
+        </div>
+
+        <div>
+          <label for="input-login-senha" class="block text-xs font-bold uppercase tracking-wider text-navy">Senha de Acesso</label>
+          <div class="mt-1.5 relative">
+            <input id="input-login-senha" type="password" required placeholder="Sua senha de aluno" autocomplete="current-password"
+                   class="w-full rounded-xl border border-navy/15 bg-sand-100 px-3.5 py-3 pl-10 text-sm text-navy placeholder:text-slateink-light focus:border-navy-600 focus:bg-white focus:outline-none">
+            <i data-lucide="lock" class="absolute left-3.5 top-3.5 h-4 w-4 text-slateink-light"></i>
+          </div>
+        </div>
+
+        <button type="submit" class="flex w-full items-center justify-center gap-2 rounded-2xl bg-navy px-6 py-4 text-base font-bold text-white shadow-soft transition hover:bg-navy-700 hover:-translate-y-0.5">
+          <i data-lucide="log-in" class="h-5 w-5 text-accent-soft"></i>
+          Entrar e Desbloquear
+        </button>
+
+        <div id="feedback-login-aluno" class="hidden"></div>
+      </form>
+
+      <!-- Contas de Demonstração / Teste Rápido -->
+      <div class="mt-6 border-t border-navy/10 pt-4">
+        <p class="text-xs font-bold uppercase tracking-wider text-slateink mb-2">Contas de Teste (Clique para preencher):</p>
+        <div class="flex flex-wrap gap-1.5">
+          <button type="button" class="demo-account-chip rounded-lg border border-emerald-600/30 bg-emerald-50 px-2.5 py-1 text-xs text-emerald-800 font-bold hover:bg-emerald-600 hover:text-white transition" data-email="admin@kizuna.com" data-pass="kizuna2026">
+            👑 Admin (admin@kizuna.com)
+          </button>
+          <button type="button" class="demo-account-chip rounded-lg border border-navy/10 bg-sand-100 px-2.5 py-1 text-xs text-navy font-semibold hover:bg-navy hover:text-white transition" data-email="aluno.vip@kizuna.com" data-pass="senha123">
+            🌟 VIP (3 Idiomas)
+          </button>
+          <button type="button" class="demo-account-chip rounded-lg border border-navy/10 bg-sand-100 px-2.5 py-1 text-xs text-navy font-semibold hover:bg-navy hover:text-white transition" data-email="aluno.ingles@kizuna.com" data-pass="senha123">
+            🇺🇸 Inglês
+          </button>
+          <button type="button" class="demo-account-chip rounded-lg border border-navy/10 bg-sand-100 px-2.5 py-1 text-xs text-navy font-semibold hover:bg-navy hover:text-white transition" data-email="aluno.japones@kizuna.com" data-pass="senha123">
+            🇯🇵 Japonês
+          </button>
+          <button type="button" class="demo-account-chip rounded-lg border border-navy/10 bg-sand-100 px-2.5 py-1 text-xs text-navy font-semibold hover:bg-navy hover:text-white transition" data-email="aluno.portugues@kizuna.com" data-pass="senha123">
+            🇧🇷 Português
+          </button>
+        </div>
+      </div>
+
+      <!-- Rodapé do Modal -->
+      <div class="mt-5 text-center text-xs text-slateink">
+        Ainda não tem cadastro?
+        <a href="#" onclick="document.getElementById('modal-login-aluno').classList.add('hidden'); document.getElementById('modal-compras').classList.remove('hidden');" class="font-bold text-navy underline hover:text-navy-700 ml-1">
+          Adquira seu acesso na Área de Compras
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MODAL DE DESBLOQUEIO DE APOSTILA
+       ============================================================ -->
+  <div id="modal-apostila" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-navy-900/75 backdrop-blur-md" role="dialog" aria-modal="true" aria-labelledby="modal-apostila-titulo">
+    <div id="modal-apostila-card" class="relative w-full max-w-lg overflow-hidden rounded-2xl2 border border-navy/10 bg-white p-6 sm:p-8 shadow-lift">
+      <!-- Botão Fechar -->
+      <button id="fechar-modal-apostila" type="button" class="absolute top-5 right-5 grid h-9 w-9 place-items-center rounded-xl bg-navy/5 text-slateink transition hover:bg-navy/10 hover:text-navy focus:outline-none" aria-label="Fechar janela">
+        <i data-lucide="x" class="h-5 w-5"></i>
+      </button>
+
+      <!-- Cabeçalho do Modal -->
+      <div class="flex items-center gap-3">
+        <span id="modal-apostila-bandeira" class="text-3xl" aria-hidden="true">🇺🇸</span>
+        <div>
+          <span class="inline-flex items-center gap-1 rounded-full bg-accent/10 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-accent">
+            <i data-lucide="lock" class="h-3 w-3"></i> Material Bloqueado
+          </span>
+          <h3 id="modal-apostila-titulo" class="mt-1 text-xl font-bold tracking-tight text-navy">Apostila de Idioma</h3>
+        </div>
+      </div>
+
+      <p id="modal-apostila-descricao" class="mt-3 text-sm leading-relaxed text-slateink">
+        Material exclusivo desenvolvido pelo time pedagógico da Kizuna Language School.
+      </p>
+
+      <!-- Seletor de Abas -->
+      <div class="mt-6 flex rounded-2xl bg-sand-100 p-1.5 border border-navy/5">
+        <button id="tab-btn-aluno" type="button" class="flex-1 rounded-xl py-2.5 text-sm font-bold bg-navy text-white shadow-soft transition">
+          🎓 Sou Aluno
+        </button>
+        <button id="tab-btn-solicitar" type="button" class="flex-1 rounded-xl py-2.5 text-sm font-semibold text-slateink hover:text-navy transition">
+          🔓 Solicitar Acesso
+        </button>
+      </div>
+
+      <!-- Aba 1: Sou Aluno / Admin (Digitar Código ou Senha) -->
+      <div id="tab-conteudo-aluno" class="mt-6">
+        <form id="form-codigo-aluno" class="space-y-4">
+          <div>
+            <label for="input-codigo-aluno" class="block text-xs font-bold uppercase tracking-wider text-navy">Código de Acesso ou Senha de Aluno / Admin</label>
+            <div class="mt-2 relative">
+              <input id="input-codigo-aluno" type="text" placeholder="Ex: KIZUNA2026 ou KIZUNA-EN-2026" autocomplete="off"
+                     class="w-full uppercase rounded-xl2 border border-navy/15 bg-sand-100 px-4 py-3.5 pl-11 text-base font-bold text-navy placeholder:font-normal placeholder:text-slateink-light focus:border-navy-600 focus:bg-white focus:outline-none">
+              <i data-lucide="key" class="absolute left-4 top-4 h-5 w-5 text-slateink-light"></i>
+            </div>
+            <p class="mt-1.5 text-xs text-slateink">Insira seu código do curso ou sua senha de Admin (<strong>kizuna2026</strong>).</p>
+          </div>
+
+          <button type="submit" class="flex w-full items-center justify-center gap-2 rounded-2xl bg-navy px-6 py-4 text-base font-semibold text-white shadow-soft transition hover:bg-navy-700 hover:-translate-y-0.5">
+            <i data-lucide="unlock" class="h-5 w-5 text-accent-soft"></i>
+            Desbloquear Apostila
+          </button>
+
+          <div id="feedback-codigo-aluno" class="hidden"></div>
+        </form>
+
+        <!-- Atalhos Rápidos para Desbloqueio -->
+        <div class="mt-5 border-t border-navy/10 pt-4">
+          <p class="text-[11.5px] font-bold uppercase tracking-wider text-slateink mb-2">Desbloqueio Rápido (Clique para preencher):</p>
+          <div class="flex flex-wrap gap-1.5">
+            <button type="button" class="demo-code-chip rounded-lg border border-navy/10 bg-sand-100 px-2.5 py-1 text-xs text-navy font-semibold hover:bg-navy hover:text-white transition" data-code="kizuna2026">
+              👑 Admin (kizuna2026)
+            </button>
+            <button type="button" class="demo-code-chip rounded-lg border border-navy/10 bg-sand-100 px-2.5 py-1 text-xs text-navy font-semibold hover:bg-navy hover:text-white transition" data-code="KIZUNA-VIP-2026">
+              🌟 Combo VIP
+            </button>
+            <button type="button" class="demo-code-chip rounded-lg border border-navy/10 bg-sand-100 px-2.5 py-1 text-xs text-navy font-semibold hover:bg-navy hover:text-white transition" data-code="KIZUNA-EN-2026">
+              🇺🇸 Código Inglês
+            </button>
+            <button type="button" class="demo-code-chip rounded-lg border border-navy/10 bg-sand-100 px-2.5 py-1 text-xs text-navy font-semibold hover:bg-navy hover:text-white transition" data-code="KIZUNA-JP-2026">
+              🇯🇵 Código Japonês
+            </button>
+            <button type="button" class="demo-code-chip rounded-lg border border-navy/10 bg-sand-100 px-2.5 py-1 text-xs text-navy font-semibold hover:bg-navy hover:text-white transition" data-code="KIZUNA-PT-2026">
+              🇧🇷 Código Português
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-4 text-center">
+          <a href="#" onclick="document.getElementById('modal-apostila').classList.add('hidden'); document.getElementById('modal-login-aluno').classList.remove('hidden');" class="text-xs font-semibold text-navy underline hover:opacity-80">
+            Prefere entrar com E-mail e Senha? Abra a Área do Aluno
+          </a>
+        </div>
+      </div>
+
+      <!-- Aba 2: Solicitar Acesso (WhatsApp) -->
+      <div id="tab-conteudo-solicitar" class="mt-6 hidden space-y-4">
+        <div class="rounded-xl border border-navy/10 bg-sand-100 p-4 text-sm text-slateink">
+          <p class="font-bold text-navy mb-1">Ainda não tem o código de acesso?</p>
+          <p>Você pode solicitar uma amostra digital gratuita ou receber a liberação do material completo falando diretamente com nossa equipe no WhatsApp.</p>
+        </div>
+
+        <a id="btn-solicitar-apostila-whats" href="#"
+           class="flex w-full items-center justify-center gap-2.5 rounded-2xl bg-[#1FAF54] px-6 py-4 text-base font-semibold text-white shadow-soft transition hover:bg-[#189646] hover:-translate-y-0.5">
+          <svg viewBox="0 0 24 24" class="h-5 w-5 fill-current" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.16c-.25.69-1.45 1.32-2 1.4-.51.08-1.16.11-1.87-.12-.43-.14-.99-.32-1.7-.63-2.99-1.29-4.94-4.3-5.09-4.5-.15-.2-1.22-1.62-1.22-3.09s.77-2.19 1.04-2.49c.27-.3.59-.37.79-.37.2 0 .39 0 .57.01.18.01.42-.07.66.5.25.6.84 2.07.91 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.36 1.46.3.15.47.12.65-.07.17-.2.75-.87.95-1.17.2-.3.4-.25.66-.15.27.1 1.71.81 2.01.96.3.15.5.22.57.35.07.12.07.72-.18 1.41Z"/></svg>
+          Solicitar Acesso no WhatsApp
+        </a>
+
+        <div class="text-center">
+          <a href="#contato" onclick="document.getElementById('modal-apostila').classList.add('hidden')" class="text-xs font-semibold text-navy underline hover:opacity-80">
+            Ou agende uma aula experimental gratuita
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MODAL DE AGENDAMENTO DE AULA EXPERIMENTAL GRATUITA
+       ============================================================ -->
+  <div id="modal-aula-experimental" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-navy-900/80 backdrop-blur-md overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="modal-aula-titulo">
+    <div id="modal-aula-card" class="relative w-full max-w-xl overflow-hidden rounded-2xl2 border border-navy/10 bg-white p-6 sm:p-8 shadow-lift my-8 max-h-[92vh] overflow-y-auto">
+      
+      <!-- Botão Fechar -->
+      <button id="fechar-modal-aula" type="button" class="absolute top-5 right-5 grid h-9 w-9 place-items-center rounded-xl bg-navy/5 text-slateink transition hover:bg-navy/10 hover:text-navy focus:outline-none" aria-label="Fechar agendamento">
+        <i data-lucide="x" class="h-5 w-5"></i>
+      </button>
+
+      <!-- ETAPA DE FORMULÁRIO -->
+      <div id="aula-step-form">
+        <div class="flex items-center gap-2.5">
+          <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-800">
+            <i data-lucide="sparkles" class="h-3.5 w-3.5"></i> 100% Gratuita &bull; Ao Vivo
+          </span>
+          <span class="text-xs font-semibold text-slateink">Turmas Reduzidas</span>
+        </div>
+
+        <h2 id="modal-aula-titulo" class="mt-3 text-2xl sm:text-3xl font-black tracking-tight text-navy">
+          Agende sua Aula Experimental
+        </h2>
+        <p class="mt-2 text-sm text-slateink">
+          Escolha o idioma, o melhor horário e experimente nossa metodologia na prática com um professor especialista.
+        </p>
+
+        <form id="form-aula-experimental" class="mt-6 space-y-5">
+          <!-- 1. Escolha do Idioma -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-navy mb-2">1. Escolha o Idioma:</label>
+            <div class="grid grid-cols-3 gap-2.5">
+              <label class="aula-lang-option flex flex-col items-center gap-1.5 p-3 rounded-xl border-2 border-navy bg-sand-100 text-center cursor-pointer transition">
+                <input type="radio" name="aula_idioma" value="Inglês" checked class="sr-only">
+                <span class="text-2xl">🇺🇸</span>
+                <span class="text-xs font-bold text-navy">Inglês</span>
+              </label>
+
+              <label class="aula-lang-option flex flex-col items-center gap-1.5 p-3 rounded-xl border-2 border-navy/10 bg-white text-center cursor-pointer transition hover:border-navy/30">
+                <input type="radio" name="aula_idioma" value="Japonês" class="sr-only">
+                <span class="text-2xl">🇯🇵</span>
+                <span class="text-xs font-bold text-navy">Japonês</span>
+              </label>
+
+              <label class="aula-lang-option flex flex-col items-center gap-1.5 p-3 rounded-xl border-2 border-navy/10 bg-white text-center cursor-pointer transition hover:border-navy/30">
+                <input type="radio" name="aula_idioma" value="Português" class="sr-only">
+                <span class="text-2xl">🇧🇷</span>
+                <span class="text-xs font-bold text-navy">Português</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- 2. Escolha de Horário / Turma Agendada pelo Professor -->
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <label class="block text-xs font-bold uppercase tracking-wider text-navy">2. Escolha a Data da Aula (Definida pelo Professor):</label>
+              <span class="text-[11px] font-semibold text-emerald-700">🟢 Vagas em Tempo Real</span>
+            </div>
+            <div id="container-aulas-disponiveis-modal" class="grid sm:grid-cols-2 gap-2 text-xs">
+              <!-- Injetado dinamicamente via JS a partir das aulas cadastradas pelos professores -->
+            </div>
+          </div>
+
+          <!-- 3. Dados do Aluno -->
+          <div class="space-y-3">
+            <div>
+              <label for="aula-nome" class="block text-xs font-semibold text-navy mb-1">Seu Nome Completo <span class="text-accent">*</span></label>
+              <input id="aula-nome" type="text" required placeholder="Como podemos te chamar?"
+                     class="w-full rounded-xl border border-navy/15 bg-sand-100 px-3.5 py-2.5 text-sm text-navy placeholder:text-slateink-light focus:border-navy-600 focus:bg-white focus:outline-none">
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div>
+                <label for="aula-whatsapp" class="block text-xs font-semibold text-navy mb-1">WhatsApp <span class="text-accent">*</span></label>
+                <input id="aula-whatsapp" type="tel" required placeholder="(DDD) 99999-9999"
+                       class="w-full rounded-xl border border-navy/15 bg-sand-100 px-3.5 py-2.5 text-sm text-navy placeholder:text-slateink-light focus:border-navy-600 focus:bg-white focus:outline-none">
+              </div>
+
+              <div>
+                <label for="aula-email" class="block text-xs font-semibold text-navy mb-1">E-mail <span class="text-accent">*</span></label>
+                <input id="aula-email" type="email" required placeholder="seu@email.com"
+                       class="w-full rounded-xl border border-navy/15 bg-sand-100 px-3.5 py-2.5 text-sm text-navy placeholder:text-slateink-light focus:border-navy-600 focus:bg-white focus:outline-none">
+              </div>
+            </div>
+          </div>
+
+          <!-- Botão Submeter -->
+          <button type="submit"
+                  class="flex w-full items-center justify-center gap-2 rounded-xl2 bg-accent px-6 py-4 text-sm font-bold text-white shadow-lift transition hover:bg-accent-soft hover:scale-[1.01]">
+            <i data-lucide="check-circle" class="h-4 w-4"></i>
+            <span>Confirmar Agendamento Gratuito</span>
+            <i data-lucide="arrow-right" class="h-4 w-4"></i>
+          </button>
+        </form>
+      </div>
+
+      <!-- ETAPA DE CONFIRMAÇÃO / RECIBO DE SUCESSO -->
+      <div id="aula-step-sucesso" class="hidden text-center space-y-5 py-4">
+        <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-emerald-100 text-emerald-700 shadow-soft">
+          <i data-lucide="check-circle-2" class="h-9 w-9"></i>
+        </div>
+
+        <div>
+          <span class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-800 uppercase tracking-wider">Agendamento Confirmado</span>
+          <h3 class="mt-2 text-2xl font-black text-navy">Tudo pronto para sua aula!</h3>
+          <p class="mt-1 text-xs text-slateink">Enviamos os detalhes também para o seu WhatsApp e E-mail.</p>
+        </div>
+
+        <div class="rounded-2xl border border-navy/10 bg-sand-100 p-5 text-left text-xs space-y-2.5">
+          <div class="flex justify-between border-b border-navy/10 pb-2">
+            <span class="text-slateink">Aluno(a):</span>
+            <strong id="resumo-aula-nome" class="text-navy">Nome do Aluno</strong>
+          </div>
+          <div class="flex justify-between border-b border-navy/10 pb-2">
+            <span class="text-slateink">Idioma:</span>
+            <strong id="resumo-aula-idioma" class="text-navy">Inglês</strong>
+          </div>
+          <div class="flex justify-between border-b border-navy/10 pb-2">
+            <span class="text-slateink">Horário:</span>
+            <strong id="resumo-aula-horario" class="text-accent">Terça-feira às 19:30</strong>
+          </div>
+          <div class="flex justify-between items-center pt-1">
+            <span class="text-slateink">Sala Google Meet:</span>
+            <span class="rounded bg-emerald-500/15 px-2 py-0.5 font-mono text-[11px] font-bold text-emerald-800">meet.google.com/kizuna-live-room</span>
+          </div>
+        </div>
+
+        <div class="space-y-2.5">
+          <a id="btn-entrar-meet-aula" href="https://meet.google.com" target="_blank"
+             class="flex w-full items-center justify-center gap-2 rounded-xl bg-navy px-5 py-3.5 text-xs font-bold text-white shadow-soft hover:bg-navy-700 transition">
+            <i data-lucide="video" class="h-4 w-4 text-emerald-400"></i>
+            <span>Acessar Sala de Aula ao Vivo (Google Meet)</span>
+          </a>
+
+          <a id="btn-whats-confirmar-aula" href="#" target="_blank"
+             class="flex w-full items-center justify-center gap-2 rounded-xl bg-[#1FAF54] px-5 py-3 text-xs font-bold text-white shadow-soft hover:bg-[#189646] transition">
+            <i data-lucide="message-circle" class="h-4 w-4"></i>
+            <span>Falar com o Professor no WhatsApp</span>
+          </a>
+
+          <a href="aluno.html"
+             class="inline-block text-xs font-semibold text-navy underline hover:opacity-80 pt-2">
+            Ou explore já as videoaulas e materiais no Portal do Aluno
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================
+       BOTÃO FLUTUANTE DE WHATSAPP
+       ============================================================ -->
+  <a href="#" data-whatsapp aria-label="Falar conosco pelo WhatsApp"
+     class="fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#1FAF54] text-white shadow-lift transition duration-200 hover:scale-110 hover:bg-[#189646] focus:outline-none sm:bottom-7 sm:right-7">
+    <svg viewBox="0 0 24 24" class="h-7 w-7 fill-current" aria-hidden="true">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.16c-.25.69-1.45 1.32-2 1.4-.51.08-1.16.11-1.87-.12-.43-.14-.99-.32-1.7-.63-2.99-1.29-4.94-4.3-5.09-4.5-.15-.2-1.22-1.62-1.22-3.09s.77-2.19 1.04-2.49c.27-.3.59-.37.79-.37.2 0 .39 0 .57.01.18.01.42-.07.66.5.25.6.84 2.07.91 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.36 1.46.3.15.47.12.65-.07.17-.2.75-.87.95-1.17.2-.3.4-.25.66-.15.27.1 1.71.81 2.01.96.3.15.5.22.57.35.07.12.07.72-.18 1.41Z"/>
+    </svg>
+  </a>
+
+  <!-- Scripts -->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

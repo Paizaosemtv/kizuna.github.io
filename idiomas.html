@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conheça os Idiomas | Kizuna Language School</title>
+  <meta name="description" content="Explore e experimente um pouco de cada idioma ensinado na Kizuna: Inglês, Português e Japonês. Pronúncia interativa, frases do cotidiano, alfabetos e diálogos.">
+  <link rel="icon" href="assets/images/kizuna-logo.webp" type="image/webp">
+
+  <!-- Fontes Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { DEFAULT: '#0B2545', 900: '#07182F', 800: '#0B2545', 700: '#123A6B', 600: '#1B4E8C', 300: '#7FA3C9' },
+            sand: { DEFAULT: '#F7F6F3', 100: '#FBFAF8', 200: '#EFEDE8' },
+            accent: { DEFAULT: '#C0303C', soft: '#E3646E' },
+            slateink: { DEFAULT: '#5B6472', light: '#8A93A1' }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans JP', 'system-ui', 'sans-serif'],
+            jp: ['Noto Sans JP', 'Inter', 'sans-serif']
+          },
+          borderRadius: { xl2: '1.25rem', '2xl2': '1.75rem' },
+          boxShadow: {
+            soft: '0 1px 2px rgba(11,37,69,.04), 0 8px 24px -12px rgba(11,37,69,.18)',
+            lift: '0 2px 4px rgba(11,37,69,.05), 0 24px 48px -20px rgba(11,37,69,.28)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Ícones Lucide -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.462.0/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="bg-sand text-navy font-sans antialiased selection:bg-navy selection:text-white min-h-screen flex flex-col">
+
+  <!-- ============================================================
+       1. TOPBAR DE NAVEGAÇÃO
+       ============================================================ -->
+  <header class="sticky top-0 z-40 border-b border-navy/10 bg-white/95 backdrop-blur-md">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2.5 group">
+          <img src="assets/images/kizuna-logo.webp" alt="Kizuna Logo" class="h-10 w-10 transition-transform group-hover:scale-105">
+          <span class="leading-none">
+            <span class="block text-lg font-extrabold tracking-tight text-navy">Kizuna</span>
+            <span class="block text-[9.5px] font-semibold uppercase tracking-[0.2em] text-accent">Degustação de Idiomas</span>
+          </span>
+        </a>
+
+        <!-- Botões de Ação -->
+        <div class="flex items-center gap-3">
+          <a href="index.html" class="inline-flex items-center gap-1.5 rounded-xl border border-navy/15 bg-white px-3.5 py-1.5 text-xs font-bold text-navy hover:bg-navy/5 transition">
+            <i data-lucide="arrow-left" class="h-4 w-4"></i> Voltar ao Início
+          </a>
+
+          <a href="aluno.html" class="inline-flex items-center gap-1.5 rounded-xl bg-navy px-4 py-2 text-xs font-bold text-white shadow-soft hover:bg-navy-700 transition">
+            <i data-lucide="graduation-cap" class="h-4 w-4 text-accent-soft"></i> Portal do Aluno
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       2. HERO / CABEÇALHO DA DEGUSTAÇÃO
+       ============================================================ -->
+  <section class="relative overflow-hidden bg-navy py-12 sm:py-16 text-white">
+    <div class="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-accent/20 blur-3xl"></div>
+    <div class="pointer-events-none absolute left-10 -bottom-20 h-72 w-72 rounded-full bg-navy-600/30 blur-3xl"></div>
+
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <div class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold text-accent-soft backdrop-blur mb-4">
+        <i data-lucide="volume-2" class="h-4 w-4"></i> Experiência Interativa com Áudio
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">
+        Conheça e Experimente Nossos Idiomas
+      </h1>
+      <p class="mt-4 text-sm sm:text-base text-sand-200 max-w-2xl mx-auto leading-relaxed">
+        Clique em qualquer frase para <strong>ouvir a pronúncia nativa</strong>, explore expressões práticas do cotidiano e entenda a estrutura de cada curso.
+      </p>
+
+      <!-- Seletor de Idiomas em Abas Destacadas -->
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <button type="button" data-lang-tab="ingles" class="lang-tab-btn is-active flex items-center gap-2.5 rounded-2xl bg-white text-navy px-5 py-3 text-sm font-extrabold shadow-lift transition hover:scale-105">
+          <span class="text-xl">🇺🇸</span>
+          <span>Inglês (English)</span>
+        </button>
+
+        <button type="button" data-lang-tab="japones" class="lang-tab-btn flex items-center gap-2.5 rounded-2xl bg-white/15 text-white px-5 py-3 text-sm font-bold backdrop-blur transition hover:bg-white hover:text-navy hover:scale-105">
+          <span class="text-xl">🇯🇵</span>
+          <span>Japonês (日本語)</span>
+        </button>
+
+        <button type="button" data-lang-tab="portugues" class="lang-tab-btn flex items-center gap-2.5 rounded-2xl bg-white/15 text-white px-5 py-3 text-sm font-bold backdrop-blur transition hover:bg-white hover:text-navy hover:scale-105">
+          <span class="text-xl">🇧🇷</span>
+          <span>Português (Brasil)</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. CONTEÚDOS INTERATIVOS POR IDIOMA
+       ============================================================ -->
+  <main class="flex-1 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+
+    <!-- ============================================================
+         IDIOMA 1: INGLÊS (ENGLISH)
+         ============================================================ -->
+    <div id="content-lang-ingles" class="lang-content-section space-y-10">
+      
+      <!-- Banner de Apresentação do Inglês -->
+      <div class="rounded-2xl2 border border-navy/10 bg-white p-6 sm:p-8 shadow-soft grid gap-6 md:grid-cols-[1.5fr_1fr] md:items-center">
+        <div>
+          <span class="inline-flex items-center gap-1.5 rounded-full bg-navy/5 px-3 py-1 text-xs font-bold text-navy mb-2">
+            🇺🇸 Curso de Inglês Kizuna
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-navy">
+            Inglês Prático para o Mundo Real
+          </h2>
+          <p class="mt-3 text-sm sm:text-base text-slateink leading-relaxed">
+            Metodologia focada na <strong>comunicação oral imediata</strong>. Desde o primeiro dia você aprende a pensar em inglês sem travar na tradução mental, com pronúncia clara para viagens, reuniões de trabalho e conversas do cotidiano.
+          </p>
+
+          <div class="mt-5 flex flex-wrap gap-3 text-xs font-semibold">
+            <span class="rounded-lg bg-sand-100 border border-navy/10 px-3 py-1.5 text-navy">🗣️ Conversação Ativa</span>
+            <span class="rounded-lg bg-sand-100 border border-navy/10 px-3 py-1.5 text-navy">✈️ Inglês para Viagens</span>
+            <span class="rounded-lg bg-sand-100 border border-navy/10 px-3 py-1.5 text-navy">💼 Business English</span>
+            <span class="rounded-lg bg-sand-100 border border-navy/10 px-3 py-1.5 text-navy">🎧 Áudios Reais</span>
+          </div>
+        </div>
+
+        <div class="rounded-2xl bg-gradient-to-br from-navy to-navy-800 p-6 text-white shadow-soft text-center space-y-4">
+          <span class="text-xs uppercase font-bold text-accent-soft tracking-wider">Experimente uma Aula</span>
+          <h3 class="text-xl font-bold">Quer falar inglês com naturalidade?</h3>
+          <p class="text-xs text-sand-200">Agende uma aula experimental gratuita com nossos professores.</p>
+          <a href="index.html#contato" class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3 text-xs font-bold text-white shadow-soft hover:bg-accent-soft transition">
+            <i data-lucide="calendar" class="h-4 w-4"></i> Agendar Aula Experimental Gratuita
+          </a>
+        </div>
+      </div>
+
+      <!-- Degustação de Frases com Áudio (Clique para Ouvir) -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="text-xl font-bold text-navy flex items-center gap-2">
+              <i data-lucide="volume-2" class="h-5 w-5 text-accent"></i> Frases Essenciais (Clique no card para ouvir!)
+            </h3>
+            <p class="text-xs text-slateink">Pratique a pronúncia real com a voz nativa em cada situação.</p>
+          </div>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          
+          <!-- Frase 1 -->
+          <div class="audio-phrase-card group p-5 rounded-2xl border border-navy/10 bg-white shadow-soft hover:border-navy/30 hover:shadow-lift transition cursor-pointer" data-phrase="Hello, nice to meet you!" data-lang="en-US">
+            <div class="flex items-center justify-between mb-2">
+              <span class="rounded bg-navy/5 px-2 py-0.5 text-[11px] font-bold text-navy">Saudações</span>
+              <span class="grid h-8 w-8 place-items-center rounded-full bg-navy/5 text-navy group-hover:bg-accent group-hover:text-white transition">
+                <i data-lucide="volume-2" class="h-4 w-4"></i>
+              </span>
+            </div>
+            <p class="text-base font-extrabold text-navy">"Hello, nice to meet you!"</p>
+            <p class="text-xs font-mono text-slateink-light mt-0.5">/həˈloʊ naɪs tuː miːt juː/</p>
+            <p class="text-xs text-slateink font-medium mt-2">Olá, muito prazer em conhecê-lo(a)!</p>
+          </div>
+
+          <!-- Frase 2 -->
+          <div class="audio-phrase-card group p-5 rounded-2xl border border-navy/10 bg-white shadow-soft hover:border-navy/30 hover:shadow-lift transition cursor-pointer" data-phrase="Could you please help me?" data-lang="en-US">
+            <div class="flex items-center justify-between mb-2">
+              <span class="rounded bg-navy/5 px-2 py-0.5 text-[11px] font-bold text-navy">Viagens / Pedidos</span>
+              <span class="grid h-8 w-8 place-items-center rounded-full bg-navy/5 text-navy group-hover:bg-accent group-hover:text-white transition">
+                <i data-lucide="volume-2" class="h-4 w-4"></i>
+              </span>
+            </div>
+            <p class="text-base font-extrabold text-navy">"Could you please help me?"</p>
+            <p class="text-xs font-mono text-slateink-light mt-0.5">/kʊd juː pliːz hɛlp miː/</p>
+            <p class="text-xs text-slateink font-medium mt-2">Você poderia me ajudar, por favor?</p>
+          </div>
+
+          <!-- Frase 3 -->
+          <div class="audio-phrase-card group p-5 rounded-2xl border border-navy/10 bg-white shadow-soft hover:border-navy/30 hover:shadow-lift transition cursor-pointer" data-phrase="I would like a cup of coffee, please." data-lang="en-US">
+            <div class="flex items-center justify-between mb-2">
+              <span class="rounded bg-navy/5 px-2 py-0.5 text-[11px] font-bold text-navy">Restaurante</span>
+              <span class="grid h-8 w-8 place-items-center rounded-full bg-navy/5 text-navy group-hover:bg-accent group-hover:text-white transition">
+                <i data-lucide="volume-2" class="h-4 w-4"></i>
+              </span>
+            </div>
+            <p class="text-base font-extrabold text-navy">"I would like a cup of coffee, please."</p>
+            <p class="text-xs font-mono text-slateink-light mt-0.5">/aɪ wʊd laɪk ə kʌp əv ˈkɔːfi pliːz/</p>
+            <p class="text-xs text-slateink font-medium mt-2">Eu gostaria de uma xícara de café, por favor.</p>
+          </div>
+
+          <!-- Frase 4 -->
+          <div class="audio-phrase-card group p-5 rounded-2xl border border-navy/10 bg-white shadow-soft hover:border-navy/30 hover:shadow-lift transition cursor-pointer" data-phrase="Let's schedule a meeting." data-lang="en-US">
+            <div class="flex items-center justify-between mb-2">
+              <span class="rounded bg-navy/5 px-2 py-0.5 text-[11px] font-bold text-navy">Trabalho</span>
+              <span class="grid h-8 w-8 place-items-center rounded-full bg-navy/5 text-navy group-hover:bg-accent group-hover:text-white transition">
+                <i data-lucide="volume-2" class="h-4 w-4"></i>
+              </span>
+            </div>
+            <p class="text-base font-extrabold text-navy">"Let's schedule a meeting."</p>
+            <p class="text-xs font-mono text-slateink-light mt-0.5">/lɛts ˈskɛdʒuːl ə ˈmiːtɪŋ/</p>
+            <p class="text-xs text-slateink font-medium mt-2">Vamos agendar uma reunião.</p>
+          </div>
+
+          <!-- Frase 5 -->
+          <div class="audio-phrase-card group p-5 rounded-2xl border border-navy/10 bg-white shadow-soft hover:border-navy/30 hover:shadow-lift transition cursor-pointer" data-phrase="Can I pay with credit card?" data-lang="en-US">
+            <div class="flex items-center justify-between mb-2">
+              <span class="rounded bg-navy/5 px-2 py-0.5 text-[11px] font-bold text-navy">Compras / Pagamento</span>
+              <span class="grid h-8 w-8 place-items-center rounded-full bg-navy/5 text-navy group-hover:bg-accent group-hover:text-white transition">
+                <i data-lucide="volume-2" class="h-4 w-4"></i>
+              </span>
+            </div>
+            <p class="text-base font-extrabold text-navy">"Can I pay with credit card?"</p>
+            <p class="text-xs font-mono text-slateink-light mt-0.5">/kæn aɪ peɪ wɪð ˈkrɛdɪt kɑːrd/</p>
+            <p class="text-xs text-slateink font-medium mt-2">Posso pagar com cartão de crédito?</p>
+          </div>
+
+          <!-- Frase 6 -->
+          <div class="audio-phrase-card group p-5 rounded-2xl border border-navy/10 bg-white shadow-soft hover:border-navy/30 hover:shadow-lift transition cursor-pointer" data-phrase="Thank you so much! Have a great day!" data-lang="en-US">
+            <div class="flex items-center justify-between mb-2">
+              <span class="rounded bg-navy/5 px-2 py-0.5 text-[11px] font-bold text-navy">Agradecimento</span>
+              <span class="grid h-8 w-8 place-items-center rounded-full bg-navy/5 text-navy group-hover:bg-accent group-hover:text-white transition">
+                <i data-lucide="volume-2" class="h-4 w-4"></i>
+              </span>
+            </div>
+            <p class="text-base font-extrabold text-navy">"Thank you so much! Have a great day!"</p>
+            <p class="text-xs font-mono text-slateink-light mt-0.5">/θæŋk juː soʊ mʌtʃ hæv ə ɡreɪt deɪ/</p>
+            <p class="text-xs text-slateink font-medium mt-2">Muito obrigado! Tenha um ótimo dia!</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Simulação de Diálogo da Vida Real -->
+      <div class="rounded-2xl2 border border-navy/10 bg-white p-6 sm:p-8 shadow-soft space-y-4">
+        <h3 class="text-lg font-bold text-navy flex items-center gap-2">
+          <i data-lucide="message-square" class="h-5 w-5 text-accent"></i> Simulação de Diálogo: Pedindo Informações no Aeroporto
+        </h3>
+        
+        <div class="space-y-3">
+          <div class="flex items-start gap-3 bg-sand-100 p-4 rounded-xl">
+            <span class="font-bold text-navy text-xs shrink-0 w-20">👤 Turista:</span>
+            <div class="text-xs text-slateink">
+              <span class="font-bold text-navy block">"Excuse me, which gate is for the flight to Tokyo?"</span>
+              <span>Com licença, qual portão é para o voo para Tóquio?</span>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 bg-navy/5 p-4 rounded-xl border border-navy/10">
+            <span class="font-bold text-accent text-xs shrink-0 w-20">🛂 Atendente:</span>
+            <div class="text-xs text-slateink">
+              <span class="font-bold text-navy block">"It's Gate 14-B. Boarding starts in twenty minutes."</span>
+              <span>É o Portão 14-B. O embarque começa em vinte minutos.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ============================================================
+         IDIOMA 2: JAPONÊS (日本語)
+         ============================================================ -->
+    <div id="content-lang-japones" class="lang-content-section hidden space-y-10">
+      
+      <!-- Banner de Apresentação do Japonês -->
+      <div class="rounded-2xl2 border border-navy/10 bg-white p-6 sm:p-8 shadow-soft grid gap-6 md:grid-cols-[1.5fr_1fr] md:items-center">
+        <div>
+          <span class="inline-flex items-center gap-1.5 rounded-full bg-accent/10 px-3 py-1 text-xs font-bold text-accent mb-2">
+            🇯🇵 Curso de Japonês Kizuna (日本語)
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-navy">
+            Do Hiragana à Conversação Fluente
+          </h2>
+          <p class="mt-3 text-sm sm:text-base text-slateink leading-relaxed">
+            Aprenda japonês com professores que dominam a cultura e as nuances do idioma. Você aprenderá os silabários <strong>Hiragana</strong> e <strong>Katakana</strong>, os <strong>Kanji</strong> essenciais e a estrutura gramatical <strong>SOV</strong> de forma descomplicada.
+          </p>
+
+          <div class="mt-5 flex flex-wrap gap-3 text-xs font-semibold">
+            <span class="rounded-lg bg-sand-100 border border-navy/10 px-3 py-1.5 text-navy">🌸 Hiragana & Katakana</span>
+            <span class="rounded-lg bg-sand-100 border border-navy/10 px-3 py-1.5 text-navy">⛩️ 20+ Kanji Essenciais</span>
+            <span class="rounded-lg bg-sand-100 border border-navy/10 px-3 py-1.5 text-navy">🍱 Diálogos no Cotidiano</span>
+            <span class="rounded-lg bg-sand-100 border border-navy/10 px-3 py-1.5 text-navy">🇯🇵 Cultura & Etiqueta</span>
+          </div>
+        </div>
+
+        <div class="rounded-2xl bg-gradient-to-br from-navy to-navy-800 p-6 text-white shadow-soft text-center space-y-4">
+          <span class="text-xs uppercase font-bold text-accent-soft tracking-wider">Aprenda Japonês</span>
+          <h3 class="text-xl font-bold font-jp">日本語を始めましょう！</h3>
+          <p class="text-xs text-sand-200">Venha fazer uma aula experimental e descubra que japonês é muito mais fácil do que parece!</p>
+          <a href="index.html#contato" class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3 text-xs font-bold text-white shadow-soft hover:bg-accent-soft transition">
+            <i data-lucide="calendar" class="h-4 w-4"></i> Agendar Aula Experimental de Japonês
+          </a>
+        </div>
+      </div>
+
+      <!-- Degustação de Frases com Áudio em Japonês -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="text-xl font-bold text-navy flex items-center gap-2">
+              <i data-lucide="volume-2" class="h-5 w-5 text-accent"></i> Frases Essenciais em Japonês (Clique para ouvir!)
+            </h3>
+            <p class="text-xs text-slateink">Áudios em velocidade natural com escrita japonesa e Romaji fonético.</p>
+          </div>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          
+          <!-- Frase 1 -->
+          <div class="audio-phrase-card group p-5 rounded-2xl border border-navy/10 bg-white shadow-soft hover:border-accent/40 hover:shadow-lift transition cursor-pointer" data-phrase="初めまして、よろしくお願いします。" data-lang="ja-JP">
+            <div class="flex items-center justify-between mb-2">
+              <span class="rounded bg-accent/10 px-2 py-0.5 text-[11px] font-bold text-accent">Apresentação</span>
+              <span class="grid h-8 w-8 place-items-center rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-white transition">
+                <i data-lucide="volume-2" class="h-4 w-4"></i>
+              </span>
+            </div>
+            <p class="text-lg font-bold font-jp text-navy">初めまして、よろしくお願いします</p>
+            <p class="text-xs font-mono text-accent mt-0.5">Hajimemashite, yoroshiku onegaishimasu</p>
+            <p class="text-xs text-slateink font-medium mt-2">Muito prazer em conhecê-lo(a)!</p>
+          </div>
+
+          <!-- Frase 2 -->
+          <div class="audio-phrase-card group p-5 rounded-2xl border border-navy/10 bg-white shadow-soft hover:border-accent/40 hover:shadow-lift transition cursor-pointer" data-phrase="ありがとうございます。" data-lang="ja-JP">
+            <div class="flex items-center justify-between mb-2">
+              <span class="rounded bg-accent/10 px-2 py-0.5 text-[11px] font-bold text-accent">Gratidão</span>
+              <span class="grid h-8 w-8 place-items-center rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-white transition">
+                <i data-lucide="volume-2" class="h-4 w-4"></i>
+              </span>
+            </div>
+            <p class="text-lg font-bold font-jp text-navy">ありがとうございます</p>
+            <p class="text-xs font-mono text-accent mt-0.5">Arigatou gozaimasu</p>
+            <p class="text-xs text-slateink font-medium mt-2">Muito obrigado(a)!</p>
+          </div>
+
+          <!-- Frase 3 -->
+          <div class="audio-phrase-card group p-5 rounded-2xl border border-navy/10 bg-white shadow-soft hover:border-accent/40 hover:shadow-lift transition cursor-pointer" data-phrase="すみません、メニューをお願いします。" data-lang="ja-JP">
+            <div class="flex items-center justify-between mb-2">
+              <span class="rounded bg-accent/10 px-2 py-0.5 text-[11px] font-bold text-accent">Restaurante</span>
+              <span class="grid h-8 w-8 place-items-center rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-white transition">
+                <i data-lucide="volume-2" class="h-4 w-4"></i>
+              </span>
+            </div>
+            <p class="text-lg font-bold font-jp text-navy">すみません、メニューをお願いします</p>
+            <p class="text-xs font-mono text-accent mt-0.5">Sumimasen, menyuu o onegaishimasu</p>
+            <p class="text-xs text-slateink font-medium mt-2">Com licença, o cardápio por favor.</p>
+          </div>
+
+          <!-- Frase 4 -->
+          <div class="audio-phrase-card group p-5 rounded-2xl border border-navy/10 bg-white shadow-soft hover:border-accent/40 hover:shadow-lift transition cursor-pointer" data-phrase="これはいくらですか？" data-lang="ja-JP">
+            <div class="flex items-center justify-between mb-2">
+              <span class="rounded bg-accent/10 px-2 py-0.5 text-[11px] font-bold text-accent">Compras</span>
+              <span class="grid h-8 w-8 place-items-center rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-white transition">
+                <i data-lucide="volume-2" class="h-4 w-4"></i>
+              </span>
+            </div>
+            <p class="text-lg font-bold font-jp text-navy">これはいくらですか？</p>
+            <p class="text-xs font-mono text-accent mt-0.5">Kore wa ikura desu ka?</p>
+            <p class="text-xs text-slateink font-medium mt-2">Quanto custa este produto?</p>
+          </div>
+
+          <!-- Frase 5 -->
+          <div class="audio-phrase-card group p-5 rounded-2xl border border-navy/10 bg-white shadow-soft hover:border-accent/40 hover:shadow-lift transition cursor-pointer" data-phrase="駅はどこですか？" data-lang="ja-JP">
+            <div class="flex items-center justify-between mb-2">
+              <span class="rounded bg-accent/10 px-2 py-0.5 text-[11px] font-bold text-accent">Direções</span>
+              <span class="grid h-8 w-8 place-items-center rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-white transition">
+                <i data-lucide="volume-2" class="h-4 w-4"></i>
+              </span>
+            </div>
+            <p class="text-lg font-bold font-jp text-navy">駅はどこですか？</p>
+            <p class="text-xs font-mono text-accent mt-0.5">Eki wa doko desu ka?</p>
+            <p class="text-xs text-slateink font-medium mt-2">Onde fica a estação de trem?</p>
+          </div>
+
+          <!-- Frase 6 -->
+          <div class="audio-phrase-card group p-5 rounded-2xl border border-navy/10 bg-white shadow-soft hover:border-accent/40 hover:shadow-lift transition cursor-pointer" data-phrase="お疲れ様でした。" data-lang="ja-JP">
+            <div class="flex items-center justify-between mb-2">
+              <span class="rounded bg-accent/10 px-2 py-0.5 text-[11px] font-bold text-accent">Trabalho / Despedida</span>
+              <span class="grid h-8 w-8 place-items-center rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-white transition">
+                <i data-lucide="volume-2" class="h-4 w-4"></i>
+              </span>
+            </div>
+            <p class="text-lg font-bold font-jp text-navy">お疲れ様でした</p>
+            <p class="text-xs font-mono text-accent mt-0.5">Otsukaresama deshita</p>
+            <p class="text-xs text-slateink font-medium mt-2">Bom trabalho! (Obrigado pelo seu esforço)</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Amostra dos Alfabetos Hiragana & Katakana -->
+      <div class="rounded-2xl2 border border-navy/10 bg-white p-6 sm:p-8 shadow-soft space-y-4">
+        <h3 class="text-lg font-bold text-navy flex items-center gap-2">
+          <i data-lucide="book-open" class="h-5 w-5 text-accent"></i> Primeiros Passos com Hiragana (Clique na letra para ouvir!)
+        </h3>
+        <p class="text-xs text-slateink">O alfabeto fonético japonês possui 46 sons básicos formados por consoante + vogal:</p>
+
+        <div class="grid grid-cols-5 gap-2.5 sm:gap-4 text-center">
+          <div class="audio-phrase-card p-3 bg-sand-100 rounded-xl border border-navy/10 cursor-pointer hover:border-accent hover:shadow-soft transition" data-phrase="あ" data-lang="ja-JP">
+            <span class="block text-2xl font-bold font-jp text-navy">あ</span>
+            <span class="text-xs font-bold text-accent">A</span>
+          </div>
+          <div class="audio-phrase-card p-3 bg-sand-100 rounded-xl border border-navy/10 cursor-pointer hover:border-accent hover:shadow-soft transition" data-phrase="い" data-lang="ja-JP">
+            <span class="block text-2xl font-bold font-jp text-navy">い</span>
+            <span class="text-xs font-bold text-accent">I</span>
+          </div>
+          <div class="audio-phrase-card p-3 bg-sand-100 rounded-xl border border-navy/10 cursor-pointer hover:border-accent hover:shadow-soft transition" data-phrase="う" data-lang="ja-JP">
+            <span class="block text-2xl font-bold font-jp text-navy">う</span>
+            <span class="text-xs font-bold text-accent">U</span>
+          </div>
+          <div class="audio-phrase-card p-3 bg-sand-100 rounded-xl border border-navy/10 cursor-pointer hover:border-accent hover:shadow-soft transition" data-phrase="え" data-lang="ja-JP">
+            <span class="block text-2xl font-bold font-jp text-navy">え</span>
+            <span class="text-xs font-bold text-accent">E</span>
+          </div>
+          <div class="audio-phrase-card p-3 bg-sand-100 rounded-xl border border-navy/10 cursor-pointer hover:border-accent hover:shadow-soft transition" data-phrase="お" data-lang="ja-JP">
+            <span class="block text-2xl font-bold font-jp text-navy">お</span>
+            <span class="text-xs font-bold text-accent">O</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ============================================================
+         IDIOMA 3: PORTUGUÊS PARA ESTRANGEIROS (BRASIL)
+         ============================================================ -->
+    <div id="content-lang-portugues" class="lang-content-section hidden space-y-10">
+      
+      <!-- Banner de Apresentação do Português -->
+      <div class="rounded-2xl2 border border-navy/10 bg-white p-6 sm:p-8 shadow-soft grid gap-6 md:grid-cols-[1.5fr_1fr] md:items-center">
+        <div>
+          <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-800 mb-2">
+            🇧🇷 Português do Brasil (Portuguese for Foreigners)
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-navy">
+            Comunicação & Integração Cultural no Brasil
+          </h2>
+          <p class="mt-3 text-sm sm:text-base text-slateink leading-relaxed">
+            Curso dinâmico e acolhedor criado especificamente para <strong>estrangeiros que vivem, trabalham ou pretendem visitar o Brasil</strong>. Foco em conversação fluida, pronúncia dos sons nasais e gírias do dia a dia.
+          </p>
+
+          <div class="mt-5 flex flex-wrap gap-3 text-xs font-semibold">
+            <span class="rounded-lg bg-sand-100 border border-navy/10 px-3 py-1.5 text-navy">☕ Situações do Cotidiano</span>
+            <span class="rounded-lg bg-sand-100 border border-navy/10 px-3 py-1.5 text-navy">🏖️ Expressões Brasileiras</span>
+            <span class="rounded-lg bg-sand-100 border border-navy/10 px-3 py-1.5 text-navy">🏢 Negócios & Trabalho no Brasil</span>
+            <span class="rounded-lg bg-sand-100 border border-navy/10 px-3 py-1.5 text-navy">🤝 Integração Cultural</span>
+          </div>
+        </div>
+
+        <div class="rounded-2xl bg-gradient-to-br from-navy to-navy-800 p-6 text-white shadow-soft text-center space-y-4">
+          <span class="text-xs uppercase font-bold text-accent-soft tracking-wider">Aprenda Português</span>
+          <h3 class="text-xl font-bold">Bem-vindo ao Brasil!</h3>
+          <p class="text-xs text-sand-200">Domine a comunicação em português e sinta-se em casa em qualquer lugar do país.</p>
+          <a href="index.html#contato" class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3 text-xs font-bold text-white shadow-soft hover:bg-accent-soft transition">
+            <i data-lucide="calendar" class="h-4 w-4"></i> Agendar Aula Experimental de Português
+          </a>
+        </div>
+      </div>
+
+      <!-- Degustação de Frases em Português -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="text-xl font-bold text-navy flex items-center gap-2">
+              <i data-lucide="volume-2" class="h-5 w-5 text-accent"></i> Frases do Cotidiano Brasileiro (Clique para ouvir!)
+            </h3>
+            <p class="text-xs text-slateink">Entonação natural e expressões que os brasileiros usam todos os dias.</p>
+          </div>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          
+          <!-- Frase 1 -->
+          <div class="audio-phrase-card group p-5 rounded-2xl border border-navy/10 bg-white shadow-soft hover:border-navy/30 hover:shadow-lift transition cursor-pointer" data-phrase="Olá, tudo bem com você?" data-lang="pt-BR">
+            <div class="flex items-center justify-between mb-2">
+              <span class="rounded bg-emerald-50 px-2 py-0.5 text-[11px] font-bold text-emerald-800">Saudações</span>
+              <span class="grid h-8 w-8 place-items-center rounded-full bg-emerald-50 text-emerald-800 group-hover:bg-emerald-600 group-hover:text-white transition">
+                <i data-lucide="volume-2" class="h-4 w-4"></i>
+              </span>
+            </div>
+            <p class="text-base font-extrabold text-navy">"Olá, tudo bem com você?"</p>
+            <p class="text-xs font-mono text-slateink-light mt-0.5">/oˈla ˈtu.du bẽj kõ voˈse/</p>
+            <p class="text-xs text-slateink font-medium mt-2">Hello, how are you doing? (Standard Brazilian greeting)</p>
+          </div>
+
+          <!-- Frase 2 -->
+          <div class="audio-phrase-card group p-5 rounded-2xl border border-navy/10 bg-white shadow-soft hover:border-navy/30 hover:shadow-lift transition cursor-pointer" data-phrase="Um café com leite, por favor." data-lang="pt-BR">
+            <div class="flex items-center justify-between mb-2">
+              <span class="rounded bg-emerald-50 px-2 py-0.5 text-[11px] font-bold text-emerald-800">Cafeteria / Padaria</span>
+              <span class="grid h-8 w-8 place-items-center rounded-full bg-emerald-50 text-emerald-800 group-hover:bg-emerald-600 group-hover:text-white transition">
+                <i data-lucide="volume-2" class="h-4 w-4"></i>
+              </span>
+            </div>
+            <p class="text-base font-extrabold text-navy">"Um café com leite, por favor."</p>
+            <p class="text-xs font-mono text-slateink-light mt-0.5">/ũ kaˈfɛ kõ ˈlej.tʃi poʁ faˈvoʁ/</p>
+            <p class="text-xs text-slateink font-medium mt-2">A coffee with milk, please.</p>
+          </div>
+
+          <!-- Frase 3 -->
+          <div class="audio-phrase-card group p-5 rounded-2xl border border-navy/10 bg-white shadow-soft hover:border-navy/30 hover:shadow-lift transition cursor-pointer" data-phrase="Onde fica a estação mais próxima?" data-lang="pt-BR">
+            <div class="flex items-center justify-between mb-2">
+              <span class="rounded bg-emerald-50 px-2 py-0.5 text-[11px] font-bold text-emerald-800">Direções</span>
+              <span class="grid h-8 w-8 place-items-center rounded-full bg-emerald-50 text-emerald-800 group-hover:bg-emerald-600 group-hover:text-white transition">
+                <i data-lucide="volume-2" class="h-4 w-4"></i>
+              </span>
+            </div>
+            <p class="text-base font-extrabold text-navy">"Onde fica a estação mais próxima?"</p>
+            <p class="text-xs font-mono text-slateink-light mt-0.5">/ˈõ.dʒi ˈfi.kɐ a es.taˈsãw majs ˈpɾɔ.ksi.mɐ/</p>
+            <p class="text-xs text-slateink font-medium mt-2">Where is the nearest station?</p>
+          </div>
+
+          <!-- Frase 4 -->
+          <div class="audio-phrase-card group p-5 rounded-2xl border border-navy/10 bg-white shadow-soft hover:border-navy/30 hover:shadow-lift transition cursor-pointer" data-phrase="Muito obrigado pela ajuda!" data-lang="pt-BR">
+            <div class="flex items-center justify-between mb-2">
+              <span class="rounded bg-emerald-50 px-2 py-0.5 text-[11px] font-bold text-emerald-800">Agradecimento</span>
+              <span class="grid h-8 w-8 place-items-center rounded-full bg-emerald-50 text-emerald-800 group-hover:bg-emerald-600 group-hover:text-white transition">
+                <i data-lucide="volume-2" class="h-4 w-4"></i>
+              </span>
+            </div>
+            <p class="text-base font-extrabold text-navy">"Muito obrigado pela ajuda!"</p>
+            <p class="text-xs font-mono text-slateink-light mt-0.5">/ˈmũj.tu o.bɾiˈɡa.du ˈpe.lɐ aˈʒu.dɐ/</p>
+            <p class="text-xs text-slateink font-medium mt-2">Thank you very much for your help!</p>
+          </div>
+
+          <!-- Frase 5 -->
+          <div class="audio-phrase-card group p-5 rounded-2xl border border-navy/10 bg-white shadow-soft hover:border-navy/30 hover:shadow-lift transition cursor-pointer" data-phrase="Pode falar mais devagar, por favor?" data-lang="pt-BR">
+            <div class="flex items-center justify-between mb-2">
+              <span class="rounded bg-emerald-50 px-2 py-0.5 text-[11px] font-bold text-emerald-800">Compreensão</span>
+              <span class="grid h-8 w-8 place-items-center rounded-full bg-emerald-50 text-emerald-800 group-hover:bg-emerald-600 group-hover:text-white transition">
+                <i data-lucide="volume-2" class="h-4 w-4"></i>
+              </span>
+            </div>
+            <p class="text-base font-extrabold text-navy">"Pode falar mais devagar, por favor?"</p>
+            <p class="text-xs font-mono text-slateink-light mt-0.5">/ˈpɔ.dʒi faˈlaʁ majz de.vaˈɡaʁ poʁ faˈvoʁ/</p>
+            <p class="text-xs text-slateink font-medium mt-2">Could you speak a little slower, please?</p>
+          </div>
+
+          <!-- Frase 6 -->
+          <div class="audio-phrase-card group p-5 rounded-2xl border border-navy/10 bg-white shadow-soft hover:border-navy/30 hover:shadow-lift transition cursor-pointer" data-phrase="Prazer em conhecer você!" data-lang="pt-BR">
+            <div class="flex items-center justify-between mb-2">
+              <span class="rounded bg-emerald-50 px-2 py-0.5 text-[11px] font-bold text-emerald-800">Apresentação</span>
+              <span class="grid h-8 w-8 place-items-center rounded-full bg-emerald-50 text-emerald-800 group-hover:bg-emerald-600 group-hover:text-white transition">
+                <i data-lucide="volume-2" class="h-4 w-4"></i>
+              </span>
+            </div>
+            <p class="text-base font-extrabold text-navy">"Prazer em conhecer você!"</p>
+            <p class="text-xs font-mono text-slateink-light mt-0.5">/pɾaˈzeʁ ẽj ko.ɲeˈseʁ voˈse/</p>
+            <p class="text-xs text-slateink font-medium mt-2">Nice to meet you! (Standard Brazilian greeting)</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ============================================================
+       4. RODAPÉ
+       ============================================================ -->
+  <footer class="border-t border-navy/10 bg-white py-8 text-center text-xs text-slateink">
+    <div class="mx-auto max-w-7xl px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <img src="assets/images/kizuna-logo.webp" alt="Kizuna Logo" class="h-6 w-6">
+        <span class="font-bold text-navy">Kizuna Language School</span> — Conectando pessoas através dos idiomas.
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:text-navy font-semibold underline">Site Principal</a>
+        <a href="aluno.html" class="hover:text-navy font-semibold underline">Portal do Aluno</a>
+        <a href="index.html#contato" class="hover:text-navy font-semibold underline">Agendar Aula Experimental</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/idiomas.js"></script>
+</body>
+</html>
