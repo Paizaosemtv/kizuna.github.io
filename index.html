@@ -1060,63 +1060,365 @@
     <!-- ============================================================
          9. PARA QUEM É A KIZUNA?
          ============================================================ -->
-    <section id="para-quem" class="scroll-mt-24 bg-white py-20 sm:py-28">
-      <div class="mx-auto max-w-content px-5 sm:px-8">
-        <div class="reveal mx-auto max-w-2xl text-center">
-          <span class="text-[12.5px] font-semibold uppercase tracking-[0.2em] text-accent">Para você</span>
-          <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-[2.6rem] sm:leading-tight">Para quem é a Kizuna?</h2>
-          <p class="mt-4 text-[17px] text-slateink">Cada pessoa tem um motivo para aprender. Todos cabem aqui.</p>
+    <section id="para-quem" class="scroll-mt-24 bg-gradient-to-b from-white via-sand-100/60 to-white py-20 sm:py-28 relative overflow-hidden">
+      <!-- Elemento estético de fundo -->
+      <div class="pointer-events-none absolute -left-20 top-1/3 h-96 w-96 rounded-full bg-accent/5 blur-3xl" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute -right-20 bottom-10 h-96 w-96 rounded-full bg-navy/5 blur-3xl" aria-hidden="true"></div>
+
+      <div class="mx-auto max-w-content px-5 sm:px-8 relative z-10">
+        <!-- Cabeçalho da Seção -->
+        <div class="reveal mx-auto max-w-3xl text-center">
+          <div class="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5 text-[12px] font-bold uppercase tracking-[0.2em] text-accent shadow-xs mb-3">
+            <span class="flex h-2 w-2 relative">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+            </span>
+            Feito Para o Seu Momento
+          </div>
+          <h2 class="mt-2 text-3xl font-black tracking-tight text-navy sm:text-4xl lg:text-[2.65rem] sm:leading-tight">
+            Para quem é a <span class="relative inline-block text-accent">Kizuna?<span class="absolute -bottom-1 left-0 right-0 h-1.5 bg-accent/20 rounded-full"></span></span>
+          </h2>
+          <p class="mt-4 text-[16.5px] sm:text-[18px] text-slateink leading-relaxed max-w-2xl mx-auto">
+            Cada pessoa tem um motivo e um ritmo para aprender. Nossas trilhas se moldam perfeitamente ao seu objetivo.
+          </p>
+
+          <!-- Filtro Interativo por Objetivo -->
+          <div class="mt-8 flex flex-wrap items-center justify-center gap-2" id="para-quem-filtros" role="tablist" aria-label="Filtrar perfis de alunos">
+            <button type="button" data-filter="all" class="para-quem-tab is-active inline-flex items-center gap-1.5 rounded-full border border-navy/15 bg-navy px-4 py-2 text-xs font-bold text-white shadow-soft transition hover:scale-105" role="tab" aria-selected="true">
+              <span>✨ Todos os Objetivos</span>
+            </button>
+            <button type="button" data-filter="iniciante" class="para-quem-tab inline-flex items-center gap-1.5 rounded-full border border-navy/10 bg-white px-4 py-2 text-xs font-bold text-navy shadow-soft transition hover:border-emerald-500/40 hover:bg-emerald-50/50 hover:scale-105" role="tab" aria-selected="false">
+              <span>🌱 Iniciantes</span>
+            </button>
+            <button type="button" data-filter="carreira" class="para-quem-tab inline-flex items-center gap-1.5 rounded-full border border-navy/10 bg-white px-4 py-2 text-xs font-bold text-navy shadow-soft transition hover:border-blue-500/40 hover:bg-blue-50/50 hover:scale-105" role="tab" aria-selected="false">
+              <span>💼 Carreira & Negócios</span>
+            </button>
+            <button type="button" data-filter="viagem" class="para-quem-tab inline-flex items-center gap-1.5 rounded-full border border-navy/10 bg-white px-4 py-2 text-xs font-bold text-navy shadow-soft transition hover:border-amber-500/40 hover:bg-amber-50/50 hover:scale-105" role="tab" aria-selected="false">
+              <span>✈️ Viagens & Férias</span>
+            </button>
+            <button type="button" data-filter="japao" class="para-quem-tab inline-flex items-center gap-1.5 rounded-full border border-navy/10 bg-white px-4 py-2 text-xs font-bold text-navy shadow-soft transition hover:border-accent/40 hover:bg-accent/5 hover:scale-105" role="tab" aria-selected="false">
+              <span>🇯🇵 Morar no Japão</span>
+            </button>
+            <button type="button" data-filter="estudo" class="para-quem-tab inline-flex items-center gap-1.5 rounded-full border border-navy/10 bg-white px-4 py-2 text-xs font-bold text-navy shadow-soft transition hover:border-purple-500/40 hover:bg-purple-50/50 hover:scale-105" role="tab" aria-selected="false">
+              <span>🎓 Exames & JLPT</span>
+            </button>
+          </div>
         </div>
 
-        <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          <article class="reveal group flex gap-4 rounded-2xl2 border border-navy/10 bg-sand-100 p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
-            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl2 bg-navy/5 text-navy transition group-hover:bg-navy group-hover:text-white"><i data-lucide="sprout" class="h-5 w-5"></i></span>
+        <!-- Grade com os 6 Cards de Perfil -->
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" id="para-quem-grid">
+          
+          <!-- Card 1: Iniciantes -->
+          <article class="reveal para-quem-card theme-emerald group flex flex-col justify-between rounded-3xl border border-navy/10 bg-white p-7 shadow-soft transition hover:border-emerald-500/30 hover:shadow-lift" data-category="iniciante">
             <div>
-              <h3 class="text-[17px] font-bold tracking-tight">Para quem está começando</h3>
-              <p class="mt-1.5 text-[14.5px] leading-relaxed text-slateink">Você não precisa saber nada para começar do zero.</p>
+              <div class="flex items-center justify-between gap-3">
+                <span class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-emerald-500/10 text-emerald-600 border border-emerald-500/20 shadow-xs transition duration-300 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white">
+                  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 20h10" />
+                    <path d="M10 20c5.5-2.5.8-6.4 3-10" />
+                    <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4.1 5.5.8z" />
+                    <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z" />
+                  </svg>
+                </span>
+                <span class="rounded-full bg-emerald-50 px-3 py-1 text-[11px] font-bold text-emerald-800 border border-emerald-200/80">
+                  Do Zero ao Diálogo
+                </span>
+              </div>
+
+              <h3 class="mt-5 text-[18.5px] font-extrabold tracking-tight text-navy group-hover:text-emerald-700 transition-colors">
+                Para quem está começando
+              </h3>
+              <p class="mt-2 text-[14.5px] leading-relaxed text-slateink">
+                Você não precisa de base prévia. Criamos um ambiente acolhedor e seguro para dar os primeiros passos sem vergonha de errar.
+              </p>
+
+              <ul class="mt-4 space-y-2 text-xs font-semibold text-slateink border-t border-navy/5 pt-4">
+                <li class="flex items-center gap-2">
+                  <span class="flex h-4 w-4 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 text-[10px]">✓</span>
+                  Passo a passo intuitivo e sem pressão
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="flex h-4 w-4 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 text-[10px]">✓</span>
+                  Pronúncia e sons explicados com clareza
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="flex h-4 w-4 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 text-[10px]">✓</span>
+                  Primeiras conversas já no primeiro mês
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-navy/5 flex items-center justify-between">
+              <span class="text-[11.5px] font-bold text-emerald-700">Nível Iniciante (A1 / N5)</span>
+              <a href="#cursos" class="inline-flex items-center gap-1 text-xs font-bold text-navy hover:text-emerald-700 transition">
+                Ver cursos <svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
             </div>
           </article>
 
-          <article class="reveal group flex gap-4 rounded-2xl2 border border-navy/10 bg-sand-100 p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
-            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl2 bg-navy/5 text-navy transition group-hover:bg-navy group-hover:text-white"><i data-lucide="briefcase" class="h-5 w-5"></i></span>
+          <!-- Card 2: Trabalho & Carreira -->
+          <article class="reveal para-quem-card theme-blue group flex flex-col justify-between rounded-3xl border border-navy/10 bg-white p-7 shadow-soft transition hover:border-blue-500/30 hover:shadow-lift" data-category="carreira">
             <div>
-              <h3 class="text-[17px] font-bold tracking-tight">Para quem quer trabalhar</h3>
-              <p class="mt-1.5 text-[14.5px] leading-relaxed text-slateink">Desenvolva habilidades linguísticas para novas vagas e negócios.</p>
+              <div class="flex items-center justify-between gap-3">
+                <span class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-blue-500/10 text-blue-600 border border-blue-500/20 shadow-xs transition duration-300 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white">
+                  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                    <rect width="20" height="14" x="2" y="6" rx="2" />
+                  </svg>
+                </span>
+                <span class="rounded-full bg-blue-50 px-3 py-1 text-[11px] font-bold text-blue-800 border border-blue-200/80">
+                  Carreira Global
+                </span>
+              </div>
+
+              <h3 class="mt-5 text-[18.5px] font-extrabold tracking-tight text-navy group-hover:text-blue-700 transition-colors">
+                Para quem quer trabalhar
+              </h3>
+              <p class="mt-2 text-[14.5px] leading-relaxed text-slateink">
+                Desenvolva vocabulário técnico corporativo, desenvoltura em reuniões e segurança para processos seletivos e negociações.
+              </p>
+
+              <ul class="mt-4 space-y-2 text-xs font-semibold text-slateink border-t border-navy/5 pt-4">
+                <li class="flex items-center gap-2">
+                  <span class="flex h-4 w-4 items-center justify-center rounded-full bg-blue-100 text-blue-700 text-[10px]">✓</span>
+                  Simulação de entrevistas e apresentações
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="flex h-4 w-4 items-center justify-center rounded-full bg-blue-100 text-blue-700 text-[10px]">✓</span>
+                  E-mails, relatórios e etiqueta profissional
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="flex h-4 w-4 items-center justify-center rounded-full bg-blue-100 text-blue-700 text-[10px]">✓</span>
+                  Diferencial de peso para novas vagas
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-navy/5 flex items-center justify-between">
+              <span class="text-[11.5px] font-bold text-blue-700">Business & Networking</span>
+              <a href="#cursos" class="inline-flex items-center gap-1 text-xs font-bold text-navy hover:text-blue-700 transition">
+                Ver cursos <svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
             </div>
           </article>
 
-          <article class="reveal group flex gap-4 rounded-2xl2 border border-navy/10 bg-sand-100 p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
-            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl2 bg-navy/5 text-navy transition group-hover:bg-navy group-hover:text-white"><i data-lucide="plane" class="h-5 w-5"></i></span>
+          <!-- Card 3: Viagens -->
+          <article class="reveal para-quem-card theme-amber group flex flex-col justify-between rounded-3xl border border-navy/10 bg-white p-7 shadow-soft transition hover:border-amber-500/30 hover:shadow-lift" data-category="viagem">
             <div>
-              <h3 class="text-[17px] font-bold tracking-tight">Para quem quer viajar</h3>
-              <p class="mt-1.5 text-[14.5px] leading-relaxed text-slateink">Comunique-se com autonomia e segurança em suas viagens.</p>
+              <div class="flex items-center justify-between gap-3">
+                <span class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-amber-500/10 text-amber-600 border border-amber-500/20 shadow-xs transition duration-300 group-hover:scale-110 group-hover:bg-amber-600 group-hover:text-white">
+                  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z" />
+                  </svg>
+                </span>
+                <span class="rounded-full bg-amber-50 px-3 py-1 text-[11px] font-bold text-amber-900 border border-amber-200/80">
+                  Turismo Sem Medo
+                </span>
+              </div>
+
+              <h3 class="mt-5 text-[18.5px] font-extrabold tracking-tight text-navy group-hover:text-amber-700 transition-colors">
+                Para quem quer viajar
+              </h3>
+              <p class="mt-2 text-[14.5px] leading-relaxed text-slateink">
+                Comunique-se com autonomia em qualquer lugar do mundo: aeroporto, hotel, transporte, compras e restaurantes sem passar perrengue.
+              </p>
+
+              <ul class="mt-4 space-y-2 text-xs font-semibold text-slateink border-t border-navy/5 pt-4">
+                <li class="flex items-center gap-2">
+                  <span class="flex h-4 w-4 items-center justify-center rounded-full bg-amber-100 text-amber-800 text-[10px]">✓</span>
+                  Diálogos reais de imigração e alfândega
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="flex h-4 w-4 items-center justify-center rounded-full bg-amber-100 text-amber-800 text-[10px]">✓</span>
+                  Como pedir ajuda e resolver imprevistos
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="flex h-4 w-4 items-center justify-center rounded-full bg-amber-100 text-amber-800 text-[10px]">✓</span>
+                  Dicas práticas de cultura e costumes
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-navy/5 flex items-center justify-between">
+              <span class="text-[11.5px] font-bold text-amber-800">Autonomia & Viagens</span>
+              <a href="#cursos" class="inline-flex items-center gap-1 text-xs font-bold text-navy hover:text-amber-700 transition">
+                Ver cursos <svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
             </div>
           </article>
 
-          <article class="reveal group flex gap-4 rounded-2xl2 border border-navy/10 bg-sand-100 p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
-            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl2 bg-accent/10 text-accent transition group-hover:bg-accent group-hover:text-white"><i data-lucide="map-pin" class="h-5 w-5"></i></span>
+          <!-- Card 4: Vida no Japão -->
+          <article class="reveal para-quem-card theme-ruby group flex flex-col justify-between rounded-3xl border border-navy/10 bg-white p-7 shadow-soft transition hover:border-accent/30 hover:shadow-lift relative overflow-hidden" data-category="japao">
+            <!-- Selo especial de destaque Kizuna -->
+            <div class="absolute -right-12 -top-12 h-24 w-24 rounded-full bg-accent/5 pointer-events-none"></div>
+
             <div>
-              <h3 class="text-[17px] font-bold tracking-tight">Para quem vive no Japão</h3>
-              <p class="mt-1.5 text-[14.5px] leading-relaxed text-slateink">Melhore sua comunicação no cotidiano, trabalho e trâmites.</p>
+              <div class="flex items-center justify-between gap-3">
+                <span class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-accent/10 text-accent border border-accent/20 shadow-xs transition duration-300 group-hover:scale-110 group-hover:bg-accent group-hover:text-white">
+                  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </span>
+                <span class="rounded-full bg-accent/10 px-3 py-1 text-[11px] font-bold text-accent border border-accent/20">
+                  Destaque Especial 🇯🇵
+                </span>
+              </div>
+
+              <h3 class="mt-5 text-[18.5px] font-extrabold tracking-tight text-navy group-hover:text-accent transition-colors">
+                Para quem vive no Japão
+              </h3>
+              <p class="mt-2 text-[14.5px] leading-relaxed text-slateink">
+                Conquiste independência real na terra do sol nascente: trabalho de fábrica ou escritório, prefeitura, hospital e escolas dos filhos.
+              </p>
+
+              <ul class="mt-4 space-y-2 text-xs font-semibold text-slateink border-t border-navy/5 pt-4">
+                <li class="flex items-center gap-2">
+                  <span class="flex h-4 w-4 items-center justify-center rounded-full bg-accent/15 text-accent text-[10px]">✓</span>
+                  Japonês para Shiyakusho, Byouin e Kaisha
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="flex h-4 w-4 items-center justify-center rounded-full bg-accent/15 text-accent text-[10px]">✓</span>
+                  Leitura de avisos, formulários e contas
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="flex h-4 w-4 items-center justify-center rounded-full bg-accent/15 text-accent text-[10px]">✓</span>
+                  Respeito e integração social no dia a dia
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-navy/5 flex items-center justify-between">
+              <span class="text-[11.5px] font-bold text-accent">Vivência Prática no Japão</span>
+              <a href="#cursos" class="inline-flex items-center gap-1 text-xs font-bold text-navy hover:text-accent transition">
+                Ver cursos <svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
             </div>
           </article>
 
-          <article class="reveal group flex gap-4 rounded-2xl2 border border-navy/10 bg-sand-100 p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
-            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl2 bg-navy/5 text-navy transition group-hover:bg-navy group-hover:text-white"><i data-lucide="book-marked" class="h-5 w-5"></i></span>
+          <!-- Card 5: Estudos & JLPT -->
+          <article class="reveal para-quem-card theme-purple group flex flex-col justify-between rounded-3xl border border-navy/10 bg-white p-7 shadow-soft transition hover:border-purple-500/30 hover:shadow-lift" data-category="estudo">
             <div>
-              <h3 class="text-[17px] font-bold tracking-tight">Para quem quer estudar</h3>
-              <p class="mt-1.5 text-[14.5px] leading-relaxed text-slateink">Prepare-se para novos desafios acadêmicos e exames.</p>
+              <div class="flex items-center justify-between gap-3">
+                <span class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-purple-500/10 text-purple-600 border border-purple-500/20 shadow-xs transition duration-300 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white">
+                  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                  </svg>
+                </span>
+                <span class="rounded-full bg-purple-50 px-3 py-1 text-[11px] font-bold text-purple-800 border border-purple-200/80">
+                  Exames & Bolsas
+                </span>
+              </div>
+
+              <h3 class="mt-5 text-[18.5px] font-extrabold tracking-tight text-navy group-hover:text-purple-700 transition-colors">
+                Para quem quer estudar
+              </h3>
+              <p class="mt-2 text-[14.5px] leading-relaxed text-slateink">
+                Prepare-se com profundidade didática para bolsas de estudo (MEXT), intercâmbios universitários e exames de proficiência reconhecidos.
+              </p>
+
+              <ul class="mt-4 space-y-2 text-xs font-semibold text-slateink border-t border-navy/5 pt-4">
+                <li class="flex items-center gap-2">
+                  <span class="flex h-4 w-4 items-center justify-center rounded-full bg-purple-100 text-purple-700 text-[10px]">✓</span>
+                  Treinamento estruturado para JLPT (N5 a N1)
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="flex h-4 w-4 items-center justify-center rounded-full bg-purple-100 text-purple-700 text-[10px]">✓</span>
+                  Apoio para TOEFL, IELTS e Celpe-Bras
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="flex h-4 w-4 items-center justify-center rounded-full bg-purple-100 text-purple-700 text-[10px]">✓</span>
+                  Simulados de prova e técnicas de redação
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-navy/5 flex items-center justify-between">
+              <span class="text-[11.5px] font-bold text-purple-700">JLPT & Certificações</span>
+              <a href="#cursos" class="inline-flex items-center gap-1 text-xs font-bold text-navy hover:text-purple-700 transition">
+                Ver cursos <svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
             </div>
           </article>
 
-          <article class="reveal group flex gap-4 rounded-2xl2 border border-navy/10 bg-sand-100 p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
-            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl2 bg-navy/5 text-navy transition group-hover:bg-navy group-hover:text-white"><i data-lucide="mountain-snow" class="h-5 w-5"></i></span>
+          <!-- Card 6: Desenvolvimento Pessoal -->
+          <article class="reveal para-quem-card theme-teal group flex flex-col justify-between rounded-3xl border border-navy/10 bg-white p-7 shadow-soft transition hover:border-teal-500/30 hover:shadow-lift" data-category="iniciante carreira estudo">
             <div>
-              <h3 class="text-[17px] font-bold tracking-tight">Para desenvolvimento pessoal</h3>
-              <p class="mt-1.5 text-[14.5px] leading-relaxed text-slateink">Aprender um idioma também transforma sua mente e confiança.</p>
+              <div class="flex items-center justify-between gap-3">
+                <span class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-teal-500/10 text-teal-600 border border-teal-500/20 shadow-xs transition duration-300 group-hover:scale-110 group-hover:bg-teal-600 group-hover:text-white">
+                  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
+                    <path d="M20 3v4" />
+                    <path d="M22 5h-4" />
+                    <path d="M4 17v2" />
+                    <path d="M5 18H3" />
+                  </svg>
+                </span>
+                <span class="rounded-full bg-teal-50 px-3 py-1 text-[11px] font-bold text-teal-800 border border-teal-200/80">
+                  Mindset & Autoconfiança
+                </span>
+              </div>
+
+              <h3 class="mt-5 text-[18.5px] font-extrabold tracking-tight text-navy group-hover:text-teal-700 transition-colors">
+                Para desenvolvimento pessoal
+              </h3>
+              <p class="mt-2 text-[14.5px] leading-relaxed text-slateink">
+                Aprender um idioma exercita sua mente, estimula a neuroplasticidade, abre horizontes culturais e traz a satisfação de realizar um sonho.
+              </p>
+
+              <ul class="mt-4 space-y-2 text-xs font-semibold text-slateink border-t border-navy/5 pt-4">
+                <li class="flex items-center gap-2">
+                  <span class="flex h-4 w-4 items-center justify-center rounded-full bg-teal-100 text-teal-700 text-[10px]">✓</span>
+                  Estímulo cognitivo comprovado e treino de memória
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="flex h-4 w-4 items-center justify-center rounded-full bg-teal-100 text-teal-700 text-[10px]">✓</span>
+                  Conexão genuína com novas culturas e pessoas
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="flex h-4 w-4 items-center justify-center rounded-full bg-teal-100 text-teal-700 text-[10px]">✓</span>
+                  Elevação da autoestima e segurança ao se expressar
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-navy/5 flex items-center justify-between">
+              <span class="text-[11.5px] font-bold text-teal-700">Cultura & Fluência</span>
+              <a href="#cursos" class="inline-flex items-center gap-1 text-xs font-bold text-navy hover:text-teal-700 transition">
+                Ver cursos <svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
             </div>
           </article>
+
         </div>
+
+        <!-- Banner de Apoio Pedagógico ao Final da Seção -->
+        <div class="reveal mt-12 rounded-3xl border border-navy/10 bg-gradient-to-r from-navy/[0.04] via-sand-100 to-accent/[0.04] p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-soft">
+          <div class="flex items-center gap-4 text-left">
+            <div class="h-12 w-12 rounded-2xl bg-accent text-white flex items-center justify-center shrink-0 shadow-soft">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                <path d="M12 17h.01"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-base font-extrabold text-navy">Não tem certeza de qual turma ou nível escolher?</h4>
+              <p class="text-xs sm:text-sm text-slateink mt-0.5">Faça uma rápida consulta pedagógica gratuita e receba um plano de estudos personalizado para sua rotina.</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap sm:flex-nowrap items-center gap-3 w-full md:w-auto shrink-0">
+            <a href="#contato" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-navy px-5 py-3 text-xs font-bold text-white shadow-soft transition hover:bg-navy-700 hover:scale-105">
+              <span>Fazer Diagnóstico Gratuito</span>
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a href="idiomas.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-navy/15 bg-white px-5 py-3 text-xs font-bold text-navy shadow-soft transition hover:bg-navy/5 hover:scale-105">
+              <span>Degustação de Idiomas 🎧</span>
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -2033,10 +2335,10 @@
   </div>
 
   <!-- ============================================================
-       BOTÃO FLUTUANTE DE WHATSAPP
+       BOTÃO FLUTUANTE DE WHATSAPP (CANTO INFERIOR ESQUERDO)
        ============================================================ -->
   <a href="#" data-whatsapp aria-label="Falar conosco pelo WhatsApp"
-     class="fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#1FAF54] text-white shadow-lift transition duration-200 hover:scale-110 hover:bg-[#189646] focus:outline-none sm:bottom-7 sm:right-7">
+     class="fixed bottom-5 left-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#1FAF54] text-white shadow-lift transition duration-200 hover:scale-110 hover:bg-[#189646] focus:outline-none sm:bottom-7 sm:left-7 group" title="Falar no WhatsApp">
     <svg viewBox="0 0 24 24" class="h-7 w-7 fill-current" aria-hidden="true">
       <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.16c-.25.69-1.45 1.32-2 1.4-.51.08-1.16.11-1.87-.12-.43-.14-.99-.32-1.7-.63-2.99-1.29-4.94-4.3-5.09-4.5-.15-.2-1.22-1.62-1.22-3.09s.77-2.19 1.04-2.49c.27-.3.59-.37.79-.37.2 0 .39 0 .57.01.18.01.42-.07.66.5.25.6.84 2.07.91 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.36 1.46.3.15.47.12.65-.07.17-.2.75-.87.95-1.17.2-.3.4-.25.66-.15.27.1 1.71.81 2.01.96.3.15.5.22.57.35.07.12.07.72-.18 1.41Z"/>
     </svg>
@@ -2045,5 +2347,6 @@
   <!-- Scripts -->
   <script src="assets/js/config.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/chatbot.js"></script>
 </body>
 </html>

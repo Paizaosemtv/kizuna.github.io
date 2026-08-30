@@ -35,6 +35,16 @@ window.KIZUNA_CONFIG = {
   formEndpoint: '',
 
   // ============================================================
+  // CONFIGURAÇÃO DE INTELIGÊNCIA ARTIFICIAL (GOOGLE GEMINI API)
+  // ============================================================
+  ai: {
+    // Chave de API do Google Gemini
+    geminiApiKey: 'AQ.Ab8RN6Koect3OY-fyyfE6sQo4QBRx2vEDVcx6DjX4IrhRqjP2Q',
+    modelo: 'gemini-1.5-flash',
+    nomeAssistente: 'Kizuna AI Sensei'
+  },
+
+  // ============================================================
   // CONFIGURAÇÃO DAS SALAS FIXAS / PERMANENTES DO GOOGLE MEET
   // ============================================================
   salasMeet: {

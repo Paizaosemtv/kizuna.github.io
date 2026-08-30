@@ -1425,6 +1425,35 @@
 
   // Inicializa o estado de login na carga da página
   atualizarEstadoLoginUI();
+
+  /* ---------- Filtro Interativo: Para Quem é a Kizuna ---------- */
+  const filtroTabs = document.querySelectorAll('.para-quem-tab');
+  const cardsParaQuem = document.querySelectorAll('.para-quem-card');
+
+  if (filtroTabs.length && cardsParaQuem.length) {
+    filtroTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const filterVal = tab.getAttribute('data-filter') || 'all';
+
+        // Atualiza estado ativo dos botões
+        filtroTabs.forEach((t) => {
+          const isActive = t === tab;
+          t.classList.toggle('is-active', isActive);
+          t.setAttribute('aria-selected', String(isActive));
+        });
+
+        // Filtra ou destaca os cards com efeito suave
+        cardsParaQuem.forEach((card) => {
+          const categories = (card.getAttribute('data-category') || '').split(' ');
+          if (filterVal === 'all' || categories.includes(filterVal)) {
+            card.classList.remove('is-dimmed');
+          } else {
+            card.classList.add('is-dimmed');
+          }
+        });
+      });
+    });
+  }
 })();
 
 
